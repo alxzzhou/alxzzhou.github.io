@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>「复分析」Chapter1：微积分</title>
+    <url>/project/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/</url>
+    <content><![CDATA[<h2 id="一回顾">一、回顾</h2>
+<h3 id="外微分形式r3">· 外微分形式（<span class="math inline">\(R^3\)</span>）</h3>
+<h5 id="dx与dy外乘积记作mathrmdxmathrmdy且有关系mathrmd-xmathrmd-y-mathrmdymathrmdx">· <span class="math inline">\(dx\)</span>与<span class="math inline">\(dy\)</span>外乘积记作<span class="math inline">\(\mathrm{d}x∧\mathrm{d}y\)</span>，且有关系<span class="math inline">\(\mathrm{d} x∧\mathrm{d} y=-\mathrm{d}y∧\mathrm{d}x\)</span>。</h5>
+<span id="more"></span>
+<h5 id="对外微分形式omega定义微分算子mathrmd则有">· 对外微分形式<span class="math inline">\(\omega\)</span>定义微分算子<span class="math inline">\(\mathrm{d}\)</span>，则有：</h5>
+<p>①<span class="math inline">\(\omega=f \rightarrow \mathrm{d}\omega=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy+\frac{\partial f}{\partial z}dz\)</span></p>
+<p>②<span class="math inline">\(\omega=P\mathrm{d} x+Q\mathrm{d} y+R\mathrm{d} z \rightarrow \mathrm{d}\omega=\sum\limits_{cyc}(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z})\mathrm{d} y∧\mathrm{d} z\)</span></p>
+<p>③<span class="math inline">\(\omega=\sum\limits_{cyc}A\mathrm{d} y\wedge \mathrm{d} z \rightarrow \mathrm{d}\omega=(\sum\limits_{cyc} \frac{\partial A}{\partial x})\mathrm{d} x\wedge \mathrm{d} y\wedge \mathrm{d} z\)</span></p>
+<h5 id="beginsplit④-omega-pmathrmd-xqmathrmd-yrmathrmd-zrightarrow-mathrmdomegasumlimits_cycfracpartial-rpartial-y-fracpartial-qpartial-zmathrmd-ymathrmd-z-endsplit"><span class="math inline">\(\begin{split}④\ &amp;\omega =P\mathrm{d} x+Q\mathrm{d} y+R\mathrm{d} z\\&amp;\Rightarrow \mathrm{d}\omega=\sum\limits_{cyc}(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z})\mathrm{d} y∧\mathrm{d} z \end{split}\)</span></h5>
+]]></content>
+      <tags>
+        <tag>复分析</tag>
+      </tags>
+  </entry>
+</search>
