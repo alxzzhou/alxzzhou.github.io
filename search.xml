@@ -33,7 +33,7 @@
 \]</span></p>
 <ul>
 <li><p><span class="math inline">\(f (z)=u+iv\)</span> 在 <span class="math inline">\(D\)</span> 内全纯 <span class="math inline">\(\Leftrightarrow\)</span><span class="math inline">\(u,v\)</span> 在 <span class="math inline">\(D\)</span> 内有一阶连续偏微商且满足 <span class="math inline">\(Cauchy-Riemann\)</span> 条件.</p></li>
-<li><p>事实上，如果 <span class="math inline">\(f (z)=u+iv\)</span>​在 <span class="math inline">\(D\)</span>​内全纯，则 <span class="math inline">\(f&#39;(z)\)</span>​也在 <span class="math inline">\(D\)</span>​内全纯，由此得到 <span class="math inline">\(\Delta u=\Delta v=0\)</span>​.</p></li>
+<li><p>事实上，如果 <span class="math inline">\(f (z)=u+iv\)</span>​在 <span class="math inline">\(D\)</span>​内全纯，则 <span class="math inline">\(f&#39;(z)\)</span>​也在 <span class="math inline">\(D\)</span>​内全纯。由此得到 <span class="math inline">\(\Delta u=\Delta v=0\)</span>​.</p></li>
 </ul>
 ]]></content>
       <tags>
