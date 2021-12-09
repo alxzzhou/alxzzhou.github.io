@@ -4,7 +4,7 @@
     <title>「复分析」Chapter1：微积分</title>
     <url>/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/</url>
     <content><![CDATA[<h2 id="一回顾">一、回顾</h2>
-<h3 id="外微分形式r3">外微分形式（<span class="math inline">\(R^3\)</span>）</h3>
+<h4 id="外微分形式r3">外微分形式（<span class="math inline">\(R^3\)</span>）</h4>
 <ul>
 <li><span class="math inline">\(\mathrm {d} x\)</span> 与 <span class="math inline">\(\mathrm {d} y\)</span> 外乘积记作 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y\)</span>，且有关系 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y=-\mathrm {d} y∧\mathrm {d} x\)</span>。</li>
 </ul>
@@ -17,9 +17,9 @@
 <h5 id="begin-split③-omega-pmathrm-d-xqmathrm-d-yrmathrm-d-zrightarrow-mathrm-domegasumlimits_cycfrac-partial-rpartial-y-frac-partial-qpartial-zmathrm-d-ymathrm-d-z-end-split"><span class="math inline">\(\begin {split}③\ &amp;\omega =P\mathrm {d} x+Q\mathrm {d} y+R\mathrm {d} z\\&amp;\Rightarrow \mathrm {d}\omega=\sum\limits_{cyc}(\frac {\partial R}{\partial y}-\frac {\partial Q}{\partial z})\mathrm {d} y∧\mathrm {d} z \end {split}\)</span></h5>
 <h5 id="omega-h-mathrm-d-xwedgemathrm-d-ywedgemathrm-d-zrightarrowmathrm-domega0"><span class="math inline">\(④\omega = H \mathrm {d} x\wedge\mathrm {d} y\wedge\mathrm {d} z\Rightarrow\mathrm {d}\omega=0\)</span></h5>
 <ul>
-<li><span class="math inline">\((Poincare\ Lemma)\)</span>​ <span class="math inline">\(\omega\)</span>​是外微分形式且系数有二阶连续偏导等价于 <span class="math inline">\(\mathrm {d}\mathrm {d}\omega=0\)</span>​（即若 <span class="math inline">\(p\)</span>​次外微分形式 <span class="math inline">\(\omega\)</span>​有 <span class="math inline">\(\mathrm {d}\omega=0\)</span>​则存在 <span class="math inline">\(p-1\)</span>​次外微分形式 <span class="math inline">\(\alpha\)</span>​使得 <span class="math inline">\(\omega=\mathrm {d}\alpha\)</span>​）</li>
+<li><p><span class="math inline">\((Poincare\ Lemma)\)</span>​ <span class="math inline">\(\omega\)</span>​是外微分形式且系数有二阶连续偏导等价于 <span class="math inline">\(\mathrm {d}\mathrm {d}\omega=0\)</span>​（即若 <span class="math inline">\(p\)</span>​次外微分形式 <span class="math inline">\(\omega\)</span>​有 <span class="math inline">\(\mathrm {d}\omega=0\)</span>​则存在 <span class="math inline">\(p-1\)</span>​次外微分形式 <span class="math inline">\(\alpha\)</span>​使得 <span class="math inline">\(\omega=\mathrm {d}\alpha\)</span>​）</p></li>
+<li><p>统一 <span class="math inline">\(Green、Gauss、Stokes\)</span>​公式：<span class="math display">\[\begin {align}\int_{\partial\Sigma}\ \omega=\int_{\Sigma}\ \mathrm {d}\omega\end {align}\]</span>​</p></li>
 </ul>
-<h5 id="统一-greengaussstokes公式begin-alignint_partialsigma-omegaint_sigma-mathrm-domegaend-align">- 统一 <span class="math inline">\(Green、Gauss、Stokes\)</span>​公式：<span class="math display">\[\begin {align}\int_{\partial\Sigma}\ \omega=\int_{\Sigma}\ \mathrm {d}\omega\end {align}\]</span>​</h5>
 <h2 id="二复微分">二、复微分</h2>
 <ul>
 <li><p><span class="math inline">\(f:\mathbb {C}\rightarrow\mathbb {C}\)</span>​，导数定义类似。若 <span class="math inline">\(f (z)\)</span>​在定义域上每一点可微，则称 <span class="math inline">\(f\)</span>​ 解析或全纯。</p></li>
