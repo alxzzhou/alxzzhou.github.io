@@ -22,8 +22,8 @@
 </ul>
 <h2 id="二复微分">二、复微分</h2>
 <ul>
-<li><p><span class="math inline">\(f:\mathbb {C}\rightarrow\mathbb {C}\)</span>​，导数定义类似。若 <span class="math inline">\(f (z)\)</span>​在定义域上每一点可微，则称 <span class="math inline">\(f\)</span>​ 解析或全纯.</p></li>
-<li><p><span class="math inline">\((Cauchy-Riemann)\)</span>​ 若 <span class="math inline">\(f (z)=u (x,y)+iv (x,y)\)</span>​在 <span class="math inline">\(z_{0}=x_{0}+iy_{0}\)</span>​处可微，则有</p></li>
+<li><span class="math inline">\(f:\mathbb {C}\rightarrow\mathbb {C}\)</span>​，导数定义类似。若 <span class="math inline">\(f (z)\)</span>​在定义域上每一点可微，则称 <span class="math inline">\(f\)</span>​ 解析或全纯.</li>
+<li><span class="math inline">\((Cauchy-Riemann)\)</span>​ 若 <span class="math inline">\(f (z)=u (x,y)+iv (x,y)\)</span>​在 <span class="math inline">\(z_{0}=x_{0}+iy_{0}\)</span>​处可微，则有</li>
 </ul>
 <p><span class="math display">\[
 \begin {align} f&#39;(z_{0})&amp;=u&#39;_{x}(x_{0},y_{0})+iv&#39;_{x}(x_{0},y_{0})\\&amp;=v&#39;_{y}(x_{0},y_{0})-iu&#39;_{x}(x_{0},y_{0})\end {align}
@@ -33,7 +33,7 @@
 \]</span></p>
 <ul>
 <li><p><span class="math inline">\(f (z)=u+iv\)</span> 在 <span class="math inline">\(D\)</span> 内全纯 <span class="math inline">\(\Leftrightarrow\)</span><span class="math inline">\(u,v\)</span> 在 <span class="math inline">\(D\)</span> 内有一阶连续偏微商且满足 <span class="math inline">\(Cauchy-Riemann\)</span> 条件.</p></li>
-<li><p>事实上，如果 <span class="math inline">\(f (z)=u+iv\)</span>​在 <span class="math inline">\(D\)</span>​内全纯，则 <span class="math inline">\(f&#39;(z)\)</span>​也在 <span class="math inline">\(D\)</span>​内全纯。由此得到 <span class="math inline">\(\Delta u=\Delta v=0\)</span>​.</p></li>
+<li><p>事实上，如果 <span class="math inline">\(f (z)=u+iv\)</span>​在 <span class="math inline">\(D\)</span>​内全纯，则 <span class="math inline">\(f&#39;(z)\)</span>​也在 <span class="math inline">\(D\)</span>​内全纯，由此得到 <span class="math inline">\(\Delta u=\Delta v=0\)</span>​.</p></li>
 </ul>
 ]]></content>
       <tags>
