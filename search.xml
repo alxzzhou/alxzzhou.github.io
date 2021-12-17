@@ -35,11 +35,9 @@
     <content><![CDATA[<h2 id="一回顾">一、回顾</h2>
 <h4 id="外微分形式r3">外微分形式（<span class="math inline">\(R^3\)</span>）</h4>
 <ul>
-<li><span class="math inline">\(\mathrm {d} x\)</span> 与 <span class="math inline">\(\mathrm {d} y\)</span> 外乘积记作 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y\)</span>，且有关系 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y=-\mathrm {d} y∧\mathrm {d} x\)</span>.</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li>对外微分形式 <span class="math inline">\(\omega\)</span> 定义微分算子 <span class="math inline">\(\mathrm {d}\)</span>，则有：</li>
+<li><p><span class="math inline">\(\mathrm {d} x\)</span> 与 <span class="math inline">\(\mathrm {d} y\)</span> 外乘积记作 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y\)</span>，且有关系 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y=-\mathrm {d} y∧\mathrm {d} x\)</span>.</p>
+<span id="more"></span></li>
+<li><p>对外微分形式 <span class="math inline">\(\omega\)</span> 定义微分算子 <span class="math inline">\(\mathrm {d}\)</span>，则有：</p></li>
 </ul>
 <h5 id="omegaf-rightarrow-mathrm-domegafrac-partial-fpartial-xmathrm-d-xfrac-partial-fpartial-ymathrm-d-yfrac-partial-fpartial-zmathrm-d-z"><span class="math inline">\(①\omega=f \rightarrow \mathrm {d}\omega=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y+\frac {\partial f}{\partial z}\mathrm {d} z\)</span></h5>
 <h5 id="begin-split②omegasumlimits_cyc-amathrm-d-ywedge-mathrm-d-z-rightarrow-mathrm-domegasumlimits_cyc-frac-partial-apartial-xmathrm-d-xwedge-mathrm-d-ywedge-mathrm-d-zend-split"><span class="math inline">\(\begin {split}②&amp;\omega=\sum\limits_{cyc} A\mathrm {d} y\wedge \mathrm {d} z \\&amp;\Rightarrow \mathrm {d}\omega=(\sum\limits_{cyc} \frac {\partial A}{\partial x})\mathrm {d} x\wedge \mathrm {d} y\wedge \mathrm {d} z\end {split}\)</span></h5>
