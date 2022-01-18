@@ -21,28 +21,30 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"alxzzhou.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="一、回顾 外微分形式（\(R^3\)）  \(\mathrm {d} x\) 与 \(\mathrm {d} y\) 外乘积记作 \(\mathrm {d} x∧\mathrm {d} y\)，且有关系 \(\mathrm {d} x∧\mathrm {d} y&#x3D;-\mathrm {d} y∧\mathrm {d} x\).">
+<meta name="description" content="§5.1 - Initial and final objects Definition 5.1  Let \(\mathsf{C}\) be a category. Then object \(I\) of \(\mathsf{C}\) is \(initial\) if for every object \(A\) of \(\mathsf{C}\) there exists exactl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「复分析」Chapter1：微积分">
-<meta property="og:url" content="http://alxzzhou.github.io/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/index.html">
+<meta property="og:title" content="Algebra Chapter 0 - 1.5 Univeral Properties">
+<meta property="og:url" content="http://alxzzhou.github.io/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/index.html">
 <meta property="og:site_name" content="alxz&#39;s code &amp; math">
-<meta property="og:description" content="一、回顾 外微分形式（\(R^3\)）  \(\mathrm {d} x\) 与 \(\mathrm {d} y\) 外乘积记作 \(\mathrm {d} x∧\mathrm {d} y\)，且有关系 \(\mathrm {d} x∧\mathrm {d} y&#x3D;-\mathrm {d} y∧\mathrm {d} x\).">
+<meta property="og:description" content="§5.1 - Initial and final objects Definition 5.1  Let \(\mathsf{C}\) be a category. Then object \(I\) of \(\mathsf{C}\) is \(initial\) if for every object \(A\) of \(\mathsf{C}\) there exists exactl">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-12-07T04:21:49.000Z">
-<meta property="article:modified_time" content="2022-01-17T08:37:19.630Z">
+<meta property="og:image" content="http://alxzzhou.github.io/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/image-20220117215734905.png">
+<meta property="article:published_time" content="2022-01-17T10:57:35.000Z">
+<meta property="article:modified_time" content="2022-01-17T13:59:53.213Z">
 <meta property="article:author" content="alxz">
-<meta property="article:tag" content="复分析">
+<meta property="article:tag" content="Algebra Chapter 0">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://alxzzhou.github.io/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/image-20220117215734905.png">
 
 
-<link rel="canonical" href="http://alxzzhou.github.io/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/">
+<link rel="canonical" href="http://alxzzhou.github.io/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://alxzzhou.github.io/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/","path":"2021/12/07/复分析Chapter1/","title":"「复分析」Chapter1：微积分"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://alxzzhou.github.io/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/","path":"2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/","title":"Algebra Chapter 0 - 1.5 Univeral Properties"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>「复分析」Chapter1：微积分 | alxz's code & math</title>
+<title>Algebra Chapter 0 - 1.5 Univeral Properties | alxz's code & math</title>
   
 
 
@@ -218,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://alxzzhou.github.io/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/">
+    <link itemprop="mainEntityOfPage" href="http://alxzzhou.github.io/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -231,7 +233,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          「复分析」Chapter1：微积分
+          Algebra Chapter 0 - 1.5 Univeral Properties
         </h1>
 
         <div class="post-meta-container">
@@ -241,15 +243,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2021-12-07 12:21:49" itemprop="dateCreated datePublished" datetime="2021-12-07T12:21:49+08:00">2021-12-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-01-17 16:37:19" itemprop="dateModified" datetime="2022-01-17T16:37:19+08:00">2022-01-17</time>
+      <time title="创建时间：2022-01-17 18:57:35 / 修改时间：21:59:53" itemprop="dateCreated datePublished" datetime="2022-01-17T18:57:35+08:00">2022-01-17</time>
     </span>
 
   
@@ -259,14 +255,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.8k</span>
+      <span>1.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -277,55 +273,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="一回顾">一、回顾</h2>
-<h4 id="外微分形式r3">外微分形式（<span class="math inline">\(R^3\)</span>）</h4>
+        <h3 id="initial-and-final-objects">§5.1 - Initial and final objects</h3>
+<h4 id="definition-5.1">Definition 5.1</h4>
 <ul>
-<li><p><span class="math inline">\(\mathrm {d} x\)</span> 与 <span class="math inline">\(\mathrm {d} y\)</span> 外乘积记作 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y\)</span>，且有关系 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y=-\mathrm {d} y∧\mathrm {d} x\)</span>.</p>
+<li><p>Let <span class="math inline">\(\mathsf{C}\)</span> be a category. Then object <span class="math inline">\(I\)</span> of <span class="math inline">\(\mathsf{C}\)</span> is <strong><span class="math inline">\(initial\)</span></strong> if for every object <span class="math inline">\(A\)</span> of <span class="math inline">\(\mathsf{C}\)</span> there exists <strong>exactly one</strong> morphism <span class="math inline">\(I\rightarrow A\)</span> in <span class="math inline">\(\mathsf{C}\)</span>:</p>
+<p><span class="math inline">\(\begin{align}\forall A \in \mathsf{Obj(C)}:\mathsf{Hom_C}(I,A)\end{align}\)</span> is a singleton.</p>
 <span id="more"></span></li>
-<li><p>对外微分形式 <span class="math inline">\(\omega\)</span> 定义微分算子 <span class="math inline">\(\mathrm {d}\)</span>，则有：</p></li>
+<li><p>An object <span class="math inline">\(F\)</span> of <span class="math inline">\(\mathsf{C}\)</span> is <span class="math inline">\(final\)</span> in <span class="math inline">\(\mathsf{C}\)</span> if for every object <span class="math inline">\(A\)</span> of <span class="math inline">\(C\)</span> there exists <strong>exactly one</strong> morphism <span class="math inline">\(A\rightarrow F\)</span> in <span class="math inline">\(\mathsf{C}\)</span>:</p>
+<p><span class="math inline">\(\begin{align}\forall A\in \mathsf{Obj(C)}:\ \mathsf{Hom_C}(A,F) \end{align}\)</span> is a singleton.</p></li>
 </ul>
-<h5 id="omegaf-rightarrow-mathrm-domegafrac-partial-fpartial-xmathrm-d-xfrac-partial-fpartial-ymathrm-d-yfrac-partial-fpartial-zmathrm-d-z"><span class="math inline">\(①\omega=f \rightarrow \mathrm {d}\omega=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y+\frac {\partial f}{\partial z}\mathrm {d} z\)</span></h5>
-<h5 id="begin-split②omegasumlimits_cyc-amathrm-d-ywedge-mathrm-d-z-rightarrow-mathrm-domegasumlimits_cyc-frac-partial-apartial-xmathrm-d-xwedge-mathrm-d-ywedge-mathrm-d-zend-split"><span class="math inline">\(\begin {split}②&amp;\omega=\sum\limits_{cyc} A\mathrm {d} y\wedge \mathrm {d} z \\&amp;\Rightarrow \mathrm {d}\omega=(\sum\limits_{cyc} \frac {\partial A}{\partial x})\mathrm {d} x\wedge \mathrm {d} y\wedge \mathrm {d} z\end {split}\)</span></h5>
-<h5 id="begin-split③-omega-pmathrm-d-xqmathrm-d-yrmathrm-d-zrightarrow-mathrm-domegasumlimits_cycfrac-partial-rpartial-y-frac-partial-qpartial-zmathrm-d-ymathrm-d-z-end-split"><span class="math inline">\(\begin {split}③\ &amp;\omega =P\mathrm {d} x+Q\mathrm {d} y+R\mathrm {d} z\\&amp;\Rightarrow \mathrm {d}\omega=\sum\limits_{cyc}(\frac {\partial R}{\partial y}-\frac {\partial Q}{\partial z})\mathrm {d} y∧\mathrm {d} z \end {split}\)</span></h5>
-<h5 id="omega-h-mathrm-d-xwedgemathrm-d-ywedgemathrm-d-zrightarrowmathrm-domega0"><span class="math inline">\(④\omega = H \mathrm {d} x\wedge\mathrm {d} y\wedge\mathrm {d} z\Rightarrow\mathrm {d}\omega=0\)</span></h5>
+<h4 id="proposition-5.4">Proposition 5.4</h4>
 <ul>
-<li><p><span class="math inline">\((Poincare\ Lemma)\)</span>​ <span class="math inline">\(\omega\)</span>​是外微分形式且系数有二阶连续偏导等价于 <span class="math inline">\(\mathrm {d}\mathrm {d}\omega=0\)</span>​.（即若 <span class="math inline">\(p\)</span>​次外微分形式 <span class="math inline">\(\omega\)</span>​有 <span class="math inline">\(\mathrm {d}\omega=0\)</span>​则存在 <span class="math inline">\(p-1\)</span>​次外微分形式 <span class="math inline">\(\alpha\)</span>​使得 <span class="math inline">\(\omega=\mathrm {d}\alpha\)</span>​）</p></li>
-<li><p>统一 <span class="math inline">\(Green、Gauss、Stokes\)</span>​公式：<span class="math display">\[\begin {align}\int_{\partial\Sigma}\ \omega=\int_{\Sigma}\ \mathrm {d}\omega\end {align}\]</span>.​</p></li>
+<li><span class="math inline">\(I_1,I_2\ are\ both\ inital\ objects\Rightarrow I_1\cong I_2\)</span>.</li>
+<li><span class="math inline">\(F_1,F_2\ are\ both\ final\ objects\Rightarrow F_1\cong F_2\)</span>.</li>
 </ul>
-<h2 id="二复微分">二、复微分</h2>
+<h3 id="universal-properties">§5.2 Universal Properties</h3>
 <ul>
-<li><span class="math inline">\(f:\mathbb {C}\rightarrow\mathbb {C}\)</span>​，导数定义类似。若 <span class="math inline">\(f (z)\)</span>​在定义域上每一点可微，则称 <span class="math inline">\(f\)</span>​ 解析或全纯.</li>
-<li><span class="math inline">\((Cauchy-Riemann)\)</span>​ 若 <span class="math inline">\(f (z)=u (x,y)+iv (x,y)\)</span>​在 <span class="math inline">\(z_{0}=x_{0}+iy_{0}\)</span>​处可微，则有</li>
+<li>We say that a construction satisfies a universal property when it may be viewed as a terminal object of a category. More often, the situation is complex and the ‘explanation’ of a universal property may follow the pattern, “object <span class="math inline">\(X\)</span> is universal with respect to the following property: for any <span class="math inline">\(Y\)</span> such that <span class="math inline">\(\dots\)</span> , there exists a unique morphism <span class="math inline">\(Y\rightarrow X\)</span> such that <span class="math inline">\(\dots\)</span> .”</li>
 </ul>
-<p><span class="math display">\[
-\begin {align} f&#39;(z_{0})&amp;=u&#39;_{x}(x_{0},y_{0})+iv&#39;_{x}(x_{0},y_{0})\\&amp;=v&#39;_{y}(x_{0},y_{0})-iu&#39;_{x}(x_{0},y_{0})\end {align}
-\]</span></p>
-<p>，由此立即推出： <span class="math display">\[
-\begin {aligned}\frac {\partial f}{\partial x}+i\frac {\partial f}{\partial y}=0\ or\left\{\begin {matrix} u&#39;_{x}=v&#39;_{y}\\u&#39;_{y}=-v&#39;_{x}\end {matrix}\right.\end {aligned}
-\]</span></p>
+<h3 id="quotients">§5.3 Quotients</h3>
 <ul>
-<li><p><span class="math inline">\(f (z)=u+iv\)</span> 在 <span class="math inline">\(D\)</span> 内全纯 <span class="math inline">\(\Leftrightarrow\)</span><span class="math inline">\(u,v\)</span> 在 <span class="math inline">\(D\)</span> 内有一阶连续偏微商且满足 <span class="math inline">\(Cauchy-Riemann\)</span> 条件.</p></li>
-<li><p>事实上，如果 <span class="math inline">\(f (z)=u+iv\)</span>​在 <span class="math inline">\(D\)</span>​内全纯，则 <span class="math inline">\(f&#39;(z)\)</span>​也在 <span class="math inline">\(D\)</span>​内全纯，由此得到 <span class="math inline">\(\Delta u=\Delta v=0\)</span>​.</p></li>
-<li><p>引入记号： <span class="math display">\[
-\left\{
-\begin {align}
-\frac {\partial}{\partial z}=\frac {1}{2}(\frac {\partial}{\partial x}-i\frac {\partial}{\partial y})\\
-\frac {\partial}{\partial \bar {z}}=\frac {1}{2}(\frac {\partial}{\partial x}+i\frac {\partial}{\partial y})
-\end {align}.
-\right.
-\]</span></p></li>
-</ul>
-<p>则 <span class="math inline">\(f\)</span> 全纯 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\begin {align}\frac {\partial f}{\partial \bar {z}}=0\end {align}\)</span>，同时 <span class="math inline">\(\begin {align}\Delta =4\frac {\partial^2}{\partial z\partial \bar {z}}=4\frac {\partial^2}{\partial \bar {z}\partial z}\end {align}\)</span>.</p>
-<ul>
-<li><span class="math inline">\(\begin {align}\mathrm {d} f=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y=\frac {\partial f}{\partial z}\mathrm {d} z+\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z} \end {align}\)</span>， 记 <span class="math inline">\(\begin {align}\partial f=\frac {\partial f}{\partial z}\mathrm {d} z,\bar {\partial} f=\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z} \end {align}\)</span>，则 <span class="math inline">\(\mathrm {d}=\partial+\bar {\partial}\)</span>.</li>
-<li>（共形性）设 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(D\)</span> 全纯，<span class="math inline">\(z_0\in D\)</span> 且 <span class="math inline">\(f&#39;(z_0)\neq0\)</span>，曲线 <span class="math inline">\(\gamma\)</span> 满足 <span class="math inline">\(\gamma (t)\ (0\leq t\leq1)\)</span> 在 <span class="math inline">\(D\)</span> 内过 <span class="math inline">\(z_0\)</span> 且 <span class="math inline">\(\gamma (0)=z_0\)</span>，<span class="math inline">\(\gamma (t)\)</span> 在 <span class="math inline">\(z_0\)</span> 处和实轴的夹角为 <span class="math inline">\(arg\ \gamma&#39;(t)\)</span>，<span class="math inline">\(f\)</span> 把 <span class="math inline">\(\gamma\)</span> 映射成曲线 <span class="math inline">\(\sigma (t)=f (\gamma (t))\)</span>，则 <span class="math inline">\(\sigma&#39;(t)=\gamma&#39;(t) f&#39;(\gamma (t))\)</span>，因此 <span class="math inline">\(arg\ f&#39;(z_0)=arg\ \sigma&#39;(0)-arg\ \gamma&#39;(0)\)</span><strong>（保角性）</strong>. 另外，有 <span class="math inline">\(\begin {align}\frac {\vert {f (z)-f (z_0)}\vert}{\vert z-z_0\vert}=\frac {\vert\omega-\omega_0\vert}{\vert z-z_0\vert}\rightarrow\vert f&#39;(z_0)\vert (z\rightarrow z_0,z\in \gamma) \end {align}\)</span>.</li>
-</ul>
-<h2 id="三复积分">三、复积分</h2>
-<ul>
-<li><p><span class="math inline">\(\begin {align} f=u+iv\Rightarrow\int f (t)\mathrm {d} t=\int u (t)\mathrm {d} t+i\int v (t)\mathrm {d} t \end {align}.\)</span></p></li>
-<li><p>若 <span class="math inline">\(\gamma\)</span> 可求长，则：<span class="math inline">\(\begin {align}\int_\gamma f (z)\mathrm {d} z=\int_\gamma (u+iv)(\mathrm {d} x+i\mathrm {d} y) \end {align}.\)</span></p></li>
-<li><p>复外微分形式：<span class="math inline">\(\mathrm {d}\bar {z} \wedge \mathrm {d} z=2i\mathrm {d} x\wedge\mathrm {d} y=2i\mathrm {d} A.\)</span></p></li>
-<li><p>复形式的 Green 公式：若 <span class="math inline">\(\omega=\omega_1\mathrm {d} z+\omega_2\mathrm {d} z\)</span> 为 <span class="math inline">\(\Omega\)</span> 上的一次外微分算子，<span class="math inline">\(\omega_1,\omega_2\)</span> 为 <span class="math inline">\(z,\bar {z}\)</span> 的可微函数，则有 <span class="math inline">\(\begin {align}\int_{\partial \Omega}\omega=\iint_\Omega \mathrm {d}\omega \end {align}.\)</span></p></li>
+<li><p>“The quotient <span class="math inline">\(A/\sim\)</span> is universal with respect to the property of mapping <span class="math inline">\(A\)</span> to a set in such a way that equivalent elements have the same image.”</p></li>
+<li><p>The assertion above is talking about functions <span class="math inline">\(A\stackrel{\phi}{\longrightarrow} Z\)</span> with <span class="math inline">\(Z\)</span> any set, satisfying the property: <span class="math inline">\(a&#39;\sim a&#39;&#39;\rightarrow \phi(a&#39;)=\phi(a&#39;&#39;)\)</span>. These morphisms are objects of a category; for convenience, let’s denote such an object by <span class="math inline">\((\phi,Z)\)</span>. The only reasonable way to define morphisms <span class="math inline">\((\phi_1,Z_1)\rightarrow(\phi_2,Z_2)\)</span> is as commutative diagrams</p>
+<p><img src="/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/image-20220117215734905.png"></p></li>
 </ul>
 
     </div>
@@ -336,18 +306,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%A4%8D%E5%88%86%E6%9E%90/" rel="tag"># 复分析</a>
+              <a href="/tags/Algebra-Chapter-0/" rel="tag"># Algebra Chapter 0</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2021/12/10/Algebra-Chapter-0-1-3-Categories/" rel="prev" title="Algebra Chapter 0 - 1.3 Categories">
+                  <i class="fa fa-chevron-left"></i> Algebra Chapter 0 - 1.3 Categories
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/12/10/Algebra-Chapter-0-1-3-Categories/" rel="next" title="Algebra Chapter 0 - 1.3 Categories">
-                  Algebra Chapter 0 - 1.3 Categories <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
