@@ -21,12 +21,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"alxzzhou.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="¶§5.1 - Initial and final objects ¶Definition 5.1   Let $\mathsf{C}$ be a category. Then object $I$ of $\mathsf{C}$ is $initial$ if for every object $A$ of $\mathsf{C}$ there exists exactly one morphi">
+<meta name="description" content="§5.1 - Initial and final objects Definition 5.1  Let \(\mathsf{C}\) be a category. Then object \(I\) of \(\mathsf{C}\) is \(initial\) if for every object \(A\) of \(\mathsf{C}\) there exists exactl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Algebra Chapter 0 - 1.5 Univeral Properties">
 <meta property="og:url" content="http://alxzzhou.github.io/2022/01/17/2022-01-17-Algebra-Chapter-0---1.5-Univeral-Properties/index.html">
 <meta property="og:site_name" content="alxz&#39;s code &amp; math">
-<meta property="og:description" content="¶§5.1 - Initial and final objects ¶Definition 5.1   Let $\mathsf{C}$ be a category. Then object $I$ of $\mathsf{C}$ is $initial$ if for every object $A$ of $\mathsf{C}$ there exists exactly one morphi">
+<meta property="og:description" content="§5.1 - Initial and final objects Definition 5.1  Let \(\mathsf{C}\) be a category. Then object \(I\) of \(\mathsf{C}\) is \(initial\) if for every object \(A\) of \(\mathsf{C}\) there exists exactl">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://alxzzhou.github.io/2022/01/17/2022-01-17-Algebra-Chapter-0---1.5-Univeral-Properties/image-20220117215734905.png">
 <meta property="og:image" content="http://alxzzhou.github.io/2022/01/17/2022-01-17-Algebra-Chapter-0---1.5-Univeral-Properties/image-20220303222022906.png">
@@ -262,14 +262,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -280,45 +280,35 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="§5-1-Initial-and-final-objects"><a class="header-anchor" href="#§5-1-Initial-and-final-objects">¶</a>§5.1 - Initial and final objects</h3>
-<h4 id="Definition-5-1"><a class="header-anchor" href="#Definition-5-1">¶</a>Definition 5.1</h4>
+        <h3 id="initial-and-final-objects">§5.1 - Initial and final objects</h3>
+<h4 id="definition-5.1">Definition 5.1</h4>
 <ul>
-<li>
-<p>Let $\mathsf{C}$ be a category. Then object $I$ of $\mathsf{C}$ is <strong>$initial$</strong> if for every object $A$ of $\mathsf{C}$ there exists <strong>exactly one</strong> morphism $I\rightarrow A$ in $\mathsf{C}$:</p>
-<p>$\begin{align}\forall A \in \mathsf{Obj©}:\mathsf{Hom_C}(I,A)\end{align}$ is a singleton.</p>
-<span id="more"></span>
-</li>
-<li>
-<p>An object $F$ of $\mathsf{C}$ is $final$ in $\mathsf{C}$ if for every object $A$ of $C$ there exists <strong>exactly one</strong> morphism $A\rightarrow F$ in $\mathsf{C}$:</p>
-<p>$\begin{align}\forall A\in \mathsf{Obj©}:\ \mathsf{Hom_C}(A,F)  \end{align}$ is a singleton.</p>
-</li>
+<li><p>Let <span class="math inline">\(\mathsf{C}\)</span> be a category. Then object <span class="math inline">\(I\)</span> of <span class="math inline">\(\mathsf{C}\)</span> is <strong><span class="math inline">\(initial\)</span></strong> if for every object <span class="math inline">\(A\)</span> of <span class="math inline">\(\mathsf{C}\)</span> there exists <strong>exactly one</strong> morphism <span class="math inline">\(I\rightarrow A\)</span> in <span class="math inline">\(\mathsf{C}\)</span>:</p>
+<p><span class="math inline">\(\begin{align}\forall A \in \mathsf{Obj(C)}:\mathsf{Hom_C}(I,A)\end{align}\)</span> is a singleton.</p>
+<span id="more"></span></li>
+<li><p>An object <span class="math inline">\(F\)</span> of <span class="math inline">\(\mathsf{C}\)</span> is <span class="math inline">\(final\)</span> in <span class="math inline">\(\mathsf{C}\)</span> if for every object <span class="math inline">\(A\)</span> of <span class="math inline">\(C\)</span> there exists <strong>exactly one</strong> morphism <span class="math inline">\(A\rightarrow F\)</span> in <span class="math inline">\(\mathsf{C}\)</span>:</p>
+<p><span class="math inline">\(\begin{align}\forall A\in \mathsf{Obj(C)}:\ \mathsf{Hom_C}(A,F) \end{align}\)</span> is a singleton.</p></li>
 </ul>
-<h4 id="Proposition-5-4"><a class="header-anchor" href="#Proposition-5-4">¶</a>Proposition 5.4</h4>
+<h4 id="proposition-5.4">Proposition 5.4</h4>
 <ul>
-<li>$I_1,I_2\ are\ both\ inital\ objects\Rightarrow I_1\cong I_2$.</li>
-<li>$F_1,F_2\ are\ both\ final\ objects\Rightarrow F_1\cong F_2$.</li>
+<li><span class="math inline">\(I_1,I_2\ are\ both\ inital\ objects\Rightarrow I_1\cong I_2\)</span>.</li>
+<li><span class="math inline">\(F_1,F_2\ are\ both\ final\ objects\Rightarrow F_1\cong F_2\)</span>.</li>
 </ul>
-<h3 id="§5-2-Universal-Properties"><a class="header-anchor" href="#§5-2-Universal-Properties">¶</a>§5.2 Universal Properties</h3>
+<h3 id="universal-properties">§5.2 Universal Properties</h3>
 <ul>
-<li>We say that a construction satisfies a universal property when it may be viewed as a terminal object of a category. More often, the situation is complex and the ‘explanation’ of a universal property may follow the pattern, “object $X$ is universal with respect to the following property: for any $Y$ such that $\dots$ , there exists a unique morphism $Y\rightarrow X$ such that $\dots$ .”</li>
+<li>We say that a construction satisfies a universal property when it may be viewed as a terminal object of a category. More often, the situation is complex and the ‘explanation’ of a universal property may follow the pattern, “object <span class="math inline">\(X\)</span> is universal with respect to the following property: for any <span class="math inline">\(Y\)</span> such that <span class="math inline">\(\dots\)</span> , there exists a unique morphism <span class="math inline">\(Y\rightarrow X\)</span> such that <span class="math inline">\(\dots\)</span> .”</li>
 </ul>
-<h3 id="§5-3-Quotients"><a class="header-anchor" href="#§5-3-Quotients">¶</a>§5.3 Quotients</h3>
+<h3 id="quotients">§5.3 Quotients</h3>
 <ul>
-<li>
-<p>“The quotient $A/\sim$  is universal with respect to the property of mapping $A$ to a set in such a way that equivalent elements have the same image.”</p>
-</li>
-<li>
-<p>The assertion above is talking about functions $A\stackrel{\phi}{\longrightarrow} Z$ with $Z$ any set, satisfying the property: $a’\sim a’‘\rightarrow \phi(a’)=\phi(a’')$. These morphisms are objects of a category; for convenience, let’s denote such an object by $(\phi,Z)$. The only reasonable way to define morphisms $(\phi_1,Z_1)\rightarrow(\phi_2,Z_2)$ is as commutative diagrams</p>
-<p><img src="/2022/01/17/2022-01-17-Algebra-Chapter-0---1.5-Univeral-Properties/image-20220117215734905.png" alt></p>
-</li>
+<li><p>“The quotient <span class="math inline">\(A/\sim\)</span> is universal with respect to the property of mapping <span class="math inline">\(A\)</span> to a set in such a way that equivalent elements have the same image.”</p></li>
+<li><p>The assertion above is talking about functions <span class="math inline">\(A\stackrel{\phi}{\longrightarrow} Z\)</span> with <span class="math inline">\(Z\)</span> any set, satisfying the property: <span class="math inline">\(a&#39;\sim a&#39;&#39;\rightarrow \phi(a&#39;)=\phi(a&#39;&#39;)\)</span>. These morphisms are objects of a category; for convenience, let’s denote such an object by <span class="math inline">\((\phi,Z)\)</span>. The only reasonable way to define morphisms <span class="math inline">\((\phi_1,Z_1)\rightarrow(\phi_2,Z_2)\)</span> is as commutative diagrams</p>
+<p><img src="/2022/01/17/2022-01-17-Algebra-Chapter-0---1.5-Univeral-Properties/image-20220117215734905.png"></p></li>
 </ul>
-<h3 id="§5-4-Products"><a class="header-anchor" href="#§5-4-Products">¶</a>§5.4 Products</h3>
+<h3 id="products">§5.4 Products</h3>
 <ul>
-<li>
-<p>Let $A$, $B$ be sets, and consider the product $A\times B$, with the two partial projections:</p>
-<p><img src="/2022/01/17/2022-01-17-Algebra-Chapter-0---1.5-Univeral-Properties/image-20220303222022906.png" alt></p>
-<p>Then for every set $Z$ and</p>
-</li>
+<li><p>Let <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> be sets, and consider the product <span class="math inline">\(A\times B\)</span>, with the two partial projections:</p>
+<p><img src="/2022/01/17/2022-01-17-Algebra-Chapter-0---1.5-Univeral-Properties/image-20220303222022906.png"></p>
+<p>Then for every set <span class="math inline">\(Z\)</span> and</p></li>
 </ul>
 
     </div>
@@ -383,7 +373,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13 分钟</span>
+    <span title="站点阅读时长">14 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
