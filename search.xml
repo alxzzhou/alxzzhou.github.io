@@ -142,9 +142,7 @@
 <p>​ 第一次作业要求化简一个一元（变量只能为 <span class="math inline">\(x\)</span>）的表达式，其中可以出现空白符和连续的正负号，至少需要去掉所有括号。为了得到性能分，还需要进行合并同类项的操作。</p>
 <span id="more"></span>
 <p>###・程序架构</p>
-<figure>
-<img src="/2022/03/22/BUAA-OO-U1-Review/image-20220303222022906.png" alt="image-20220322114232578"><figcaption aria-hidden="true">image-20220322114232578</figcaption>
-</figure>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220303222022906.png"></p>
 <p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
 <p>​ 第一次作业采用了递归下降的处理方法，各个类的作用如下：</p>
 <ul>
@@ -164,7 +162,7 @@
 <li><p><strong>Parser</strong>：递归下降逐个解析 <code>ArrayList&lt;Tokens&gt;</code> 的元素。<code>glbPos</code> 表示 token 的位置，<code>isHigh () isMid () isLow ()</code> 方法判断此时的 token 是否代表运算符并判断优先级。递归下降的入口是 <code>parseExpr ()</code>，之后进入 <code>parseTerm ()</code> 和 <code>parseUnit ()</code>，再从 <code>parseUnit ()</code> 调用 <code>parseExpr ()</code> 实现递归下降。由于结构统一，因此每个 parse 方法的返回类型都是 Element。</p></li>
 </ul>
 <p>###・基于度量的结构分析</p>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322123607798.png" alt="image-20220322123607798" style="zoom:80%;"></p>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322123607798.png" alt style="zoom:80%;"></p>
 <p>​ 根据 CogC 指标排序，可以发现认知复杂度较高的方法为 <code>parseUnit ()</code> 和 <code>output ()</code>。</p>
 <p>​ <code>parseUnit ()</code> 方法复杂度较高的原因是因子的定义比较多，需要判断类型和是否有乘方，导致其中出现很多判断分支；<code>output ()</code> 的原因类似，也是出现了很多分支来判断如何输出字符串。</p>
 <p>###・bug 分析</p>
@@ -202,16 +200,14 @@ a*(x^b*\prod_{i=0}^{\infin}\ sin^{s_i}(S_i)*\prod_{j=0}^{\infin}\ cos^{c_i}(C_j)
 <li><p><strong>Lexer&amp;Parser&amp;Token</strong>：和第一次作业基本相同。</p></li>
 </ul>
 <p>###・基于度量的结构分析</p>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322174205046.png" alt="image-20220322174205046" style="zoom:80%;"></p>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322174205046.png" alt style="zoom:80%;"></p>
 <p>​ 根据 CogC 指标排序发现，认知复杂度较高的方法前两位仍然是 <code>parseUnit ()</code> 和 <code>output ()</code>，这是更复杂的因子定义和更复杂的输出逻辑造成的。此外一些化简方法的复杂度也较高。</p>
 <p>###・bug 分析</p>
 <p>​ 本次作业在强测和互测中都没有出现 bug，不过强测中一些点的性能分不高，这是因为我用原始的字符串来存储三角函数的内容，处理 <span class="math inline">\(sin (0)/cos (0)\)</span> 的化简时只考虑到字符串内容为 “0” 而忽视了 <span class="math inline">\(sin (-0)\)</span>、<span class="math inline">\(cos (+0)\)</span> 等，造成没有化简完全的情况。</p>
 <h2 id="第三次作业">- 第三次作业</h2>
 <p>​ 第三次作业在第二次作业的基础上允许了自定义函数的嵌套（求和函数内不允许出现自定义函数），同时三角函数内可以为表达式。</p>
 <p>###・程序架构</p>
-<figure>
-<img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322175955155.png" alt="image-20220322175955155"><figcaption aria-hidden="true">image-20220322175955155</figcaption>
-</figure>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322175955155.png"></p>
 <p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
 <p>​ 第三次作业在第二次作业的基础上只需要改动很少就可以，所以保持了原来的架构。其中最核心的改动是将 Poly 中存储三角函数的结构改为 <code>HashMap&lt;Element,BigInteger&gt;</code>，并～（差不多）~ 重写了 Poly 和 Element 的 <code>equals ()</code> 方法。</p>
 <p>​ 但是如果想要化简结果，则需要耗费很多时间来完善代码和测试。我花了大概两天时间才基本完成大概化简方法，其中有无数次测试 <span class="math inline">\(\rightarrow\)</span> 发现 bug<span class="math inline">\(\rightarrow\)</span> 修改代码 <span class="math inline">\(\rightarrow\)</span> 测试的循环😭。最核心的是三角函数平方和的化简，大致的逻辑为：</p>
@@ -223,7 +219,7 @@ a*(x^b*\prod_{i=0}^{\infin}\ sin^{s_i}(S_i)*\prod_{j=0}^{\infin}\ cos^{c_i}(C_j)
 <p>附序列化实现深拷贝的代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SerialCloneable</span> <span class="keyword">implements</span> <span class="title">Cloneable</span>,<span class="title">Serializable</span>  </span></span><br><span class="line"><span class="class"></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="keyword">try</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="comment">//save the object to a byte array  </span></span><br><span class="line">            ByteArrayOutputStream bout = <span class="keyword">new</span> ByteArrayOutputStream ();  </span><br><span class="line">            ObjectOutputStream out = <span class="keyword">new</span> ObjectOutputStream (bout);  </span><br><span class="line">            out.writeObject (<span class="keyword">this</span>);  </span><br><span class="line">            out.close ();  </span><br><span class="line"></span><br><span class="line">            <span class="comment">//read a clone of the object from the byte array  </span></span><br><span class="line">            ByteArrayInputStream bin = <span class="keyword">new</span> ByteArrayInputStream (bout.toByteArray ());  </span><br><span class="line">            ObjectInputStream in = <span class="keyword">new</span> ObjectInputStream (bin);  </span><br><span class="line">            Object result = in.readObject ();  </span><br><span class="line">            in.close ();  </span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> result;  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e)  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;    </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>###・基于度量的结构分析</p>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322182027486.png" alt="image-20220322182027486" style="zoom:80%;"></p>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322182027486.png" alt style="zoom:80%;"></p>
 <p>​ 根据分析数据可知，认知复杂度较高的方法主要是化简和输出。本次作业中 <code>parseUnit ()</code> 方法被拆分了，所以复杂度有所降低。</p>
 <p>###・bug 分析</p>
 <p>​ 本次作业出现了一些 bug，分析如下：</p>
