@@ -168,9 +168,7 @@
 <h2 id="第二次作业">- 第二次作业</h2>
 <p>​ 第二次作业在第一次作业的基础上增加了三角函数（括号内只能是非负整数和 <span class="math inline">\(x\)</span> 的非负整数幂）、自定义函数和求和函数，依然要求去除不必要的括号并展开所有自定义函数和求和函数。本次作业的函数不能嵌套。</p>
 <h3 id="程序架构-1">程序架构</h3>
-<figure>
-<img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322162937182.png" alt="image-20220322162937182"><figcaption aria-hidden="true">image-20220322162937182</figcaption>
-</figure>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322162937182.png"></p>
 <p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
 <p>​ 第二次作业仍然保持了递归下降的处理思路，因为找到了可以统一存储表达式各个部分的数据结构，感觉并没有重构的必要。<del>（其实是偷懒）</del></p>
 <ul>
@@ -187,7 +185,7 @@
 <li>当在输入中找到自定义函数（记为 <code>input</code>）的时候进行第二次正则匹配 &amp; 捕获（注意要找对函数名），按顺序获得需要代入的表达式，这样 <code>input</code> 和 <code>defL</code> 中参变量和实际表达式就以捕获组的序号进行了一一对应，方便处理如 <span class="math inline">\(f (y,x)=y-x\)</span> 等参变量不按顺序出现的自定义函数。</li>
 <li>读取 <code>defR</code>，将参变量替换为对应需要代入的表达式即可（记得在每个代入的表达式外套一层括号来表示这是一个整体，防止替换回去之后产生错误），这里需要注意的一点是如果先进行了 <span class="math inline">\(y\)</span> 或者 <span class="math inline">\(z\)</span> 的替换而参变量中有 <span class="math inline">\(x\)</span>，那么在将 <span class="math inline">\(y\)</span> 替换为含 <span class="math inline">\(x\)</span> 的表达式之后可能会重复替换 <span class="math inline">\(x\)</span>（比如 <span class="math inline">\(f (y,x)=y-x\)</span>，<code>input</code> 为 <span class="math inline">\(f (x,x+1)\)</span>，那么替换过程就是 <span class="math inline">\(y-x\rightarrow x-x\rightarrow (x+1)-(x+1)\rightarrow 0\)</span>，这显然是不正确的）。这里我的解决方法是：在替换的时候都把 <span class="math inline">\(x\)</span> 替换为不相关的字符 <span class="math inline">\(w\)</span>，最后再统一 <code>replaceAll ("w","x")</code> 即可。</li>
 </ul>
-<p>在处理自定义函数的时候，助教一再强调不要暴力字符串替换，而是 &lt; b &gt; 先对表达式进行建模，再代入原式 ，奈何我没有想到很好的建模方法，于是只是使用了暴力替换。不过如果用表达式树处理的话建模会方便很多，可以先对各个表达式建一棵树，代入的时候替换掉上面的节点再插入原来的表达式树即可。</p></li>
+<p>在处理自定义函数的时候，助教一再强调不要暴力字符串替换，而是 <b> 先对表达式进行建模，再代入原式 </b> ，奈何我没有想到很好的建模方法，于是只是使用了暴力替换。不过如果用表达式树处理的话建模会方便很多，可以先对各个表达式建一棵树，代入的时候替换掉上面的节点再插入原来的表达式树即可。</p></li>
 <li><p><b> 求和函数 </b>：也是使用了字符串替换的方法，通过循环 + StringBuilder 构建需要替换的字符串。这里有三个需要注意的点：</p>
 <ul>
 <li><span class="math inline">\(sin\)</span> 中也包含字母 i，替换的时候要小心。可以先把三角函数名提前换为 s&amp;c 来解决。</li>
