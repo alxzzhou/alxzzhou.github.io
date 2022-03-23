@@ -21,12 +21,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"alxzzhou.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="¶Definition 3.1.0 ​	A $category$ $\mathsf{C}$ consists of:   a class $\mathrm{Obj}(\mathsf{C})$ of $objects$ of the category   for every two objects $A,B$ of $\mathsf{C}$ , a set $\mathrm{Obj}_{\maths">
+<meta name="description" content="Definition 3.1.0 ​ A \(category\) \(\mathsf{C}\) consists of:  a class \(\mathrm{Obj}(\mathsf{C})\) of \(objects\) of the category for every two objects \(A,B\) of \(\mathsf{C}\) , a set \(\mathrm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Algebra Chapter 0 - 1.3 Categories">
 <meta property="og:url" content="http://alxzzhou.github.io/2021/12/10/Algebra-Chapter-0-1-3-Categories/index.html">
 <meta property="og:site_name" content="alxz&#39;s code &amp; math">
-<meta property="og:description" content="¶Definition 3.1.0 ​	A $category$ $\mathsf{C}$ consists of:   a class $\mathrm{Obj}(\mathsf{C})$ of $objects$ of the category   for every two objects $A,B$ of $\mathsf{C}$ , a set $\mathrm{Obj}_{\maths">
+<meta property="og:description" content="Definition 3.1.0 ​ A \(category\) \(\mathsf{C}\) consists of:  a class \(\mathrm{Obj}(\mathsf{C})\) of \(objects\) of the category for every two objects \(A,B\) of \(\mathsf{C}\) , a set \(\mathrm">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://alxzzhou.github.io/2021/12/10/Algebra-Chapter-0-1-3-Categories/Gr_1">
 <meta property="article:published_time" content="2021-12-10T02:01:46.000Z">
@@ -261,7 +261,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.2k</span>
+      <span>2.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -279,37 +279,33 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="Definition-3-1-0"><a class="header-anchor" href="#Definition-3-1-0">¶</a>Definition 3.1.0</h4>
-<p>​	A $category$ $\mathsf{C}$ consists of:</p>
+        <h4 id="definition-3.1.0">Definition 3.1.0</h4>
+<p>​ A <span class="math inline">\(category\)</span> <span class="math inline">\(\mathsf{C}\)</span> consists of:</p>
 <ul>
-<li>
-<p>a class $\mathrm{Obj}(\mathsf{C})$ of $objects$ of the category</p>
-</li>
-<li>
-<p>for every two objects $A,B$ of $\mathsf{C}$ , a set $\mathrm{Obj}_{\mathsf{C}}(A,B)$ of $morphisms$ , with the properties listed below.</p>
-<span id="more"></span>
-</li>
+<li><p>a class <span class="math inline">\(\mathrm{Obj}(\mathsf{C})\)</span> of <span class="math inline">\(objects\)</span> of the category</p></li>
+<li><p>for every two objects <span class="math inline">\(A,B\)</span> of <span class="math inline">\(\mathsf{C}\)</span> , a set <span class="math inline">\(\mathrm{Obj}_{\mathsf{C}}(A,B)\)</span> of <span class="math inline">\(morphisms\)</span> , with the properties listed below.</p>
+<span id="more"></span></li>
 </ul>
-<p>​	Defining properties of morphisms:</p>
+<p>​ Defining properties of morphisms:</p>
 <ul>
-<li>For every object $A$ of $\mathsf{C}$ , there exists (at least) one morphism $1_A\in \mathrm{Hom}_\mathsf{C}(A,B)$ , the ‘identity’ on $A$.</li>
-<li>$\mathrm{Hom}<em>\mathsf{C}(A,B)\times\mathrm{Hom}</em>\mathsf{C}(B,C)$$=\mathrm{Hom}_\mathsf{C}(A,C)$.</li>
-<li>Composition Law: $(hg)f=h(gf)$.</li>
-<li>For all $f\in \mathrm{Hom}_\mathsf{C}(A,B)$ , we have $f1_A=1_Bf=f$.</li>
+<li>For every object <span class="math inline">\(A\)</span> of <span class="math inline">\(\mathsf{C}\)</span> , there exists (at least) one morphism <span class="math inline">\(1_A\in \mathrm{Hom}_\mathsf{C}(A,B)\)</span> , the ‘identity’ on <span class="math inline">\(A\)</span>.</li>
+<li><span class="math inline">\(\mathrm{Hom}_\mathsf{C}(A,B)\times\mathrm{Hom}_\mathsf{C}(B,C)\)</span><span class="math inline">\(=\mathrm{Hom}_\mathsf{C}(A,C)\)</span>.</li>
+<li>Composition Law: <span class="math inline">\((hg)f=h(gf)\)</span>.</li>
+<li>For all <span class="math inline">\(f\in \mathrm{Hom}_\mathsf{C}(A,B)\)</span> , we have <span class="math inline">\(f1_A=1_Bf=f\)</span>.</li>
 </ul>
-<h4 id="Definition-3-1-1"><a class="header-anchor" href="#Definition-3-1-1">¶</a>Definition 3.1.1</h4>
-<p>​	$\mathrm{End}<em>\mathsf{C}(A)=\mathrm{Hom}</em>\mathsf{C}(A,A)$.</p>
-<h4 id="Example-3-1"><a class="header-anchor" href="#Example-3-1">¶</a>Example 3.1</h4>
-<p>​	Consider category $\mathsf{C}$ , and let $A$ be an object of $\mathsf{C}$ . We define a category $\mathsf{C}_A$ whose objects are certain morphisms in $\mathsf{C}$ : $\mathrm{Obj}(\mathsf{C}<em>A)=all\ morphisms\ from\ $$any\ object\ of\ \mathsf{C}\ to\ A$ . Pictorially, an object in $\mathsf{C}</em>{A}$ is an arrow $Z\stackrel{f}{\rightarrow}A$ .</p>
-<p>​	Suppose $Z_1\stackrel{f_1}{\longrightarrow}A$ and $Z_2\stackrel{f_2}{\longrightarrow}A$ , morphisms $f_1\rightarrow f_2$ are defined to be commutative diagrams shown below.</p>
-<p><img src="/2021/12/10/Algebra-Chapter-0-1-3-Categories/Gr_1" alt></p>
-<p>​	The composition of morphisms in $\mathsf{C}$ can be verified without difficulty. Categories constructed in this pattern is called $slice \  category$ , which is a special form of $comma\ category$ .</p>
-<h4 id="Example-3-2"><a class="header-anchor" href="#Example-3-2">¶</a>Example 3.2</h4>
-<p>​	An similar example of <strong>Example 3.1</strong> can be obtained by considering morphisms in a category $\mathsf{C}$ from a fixed object $A$ to all objects in $\mathsf{C}$, with morphisms defined by suitable commutative diagrams. The category defined above is called $coslice\ category$.</p>
-<h4 id="Example-3-3"><a class="header-anchor" href="#Example-3-3">¶</a>Example 3.3</h4>
-<p>​	An example of coslice category is shown by letting $\mathsf{C=Set}$ and $A=$ a fixed singleton ${<em>}$. We call this category $\mathsf{Set^</em>}$.</p>
-<p>​	An object in this category is a morphism $f:{<em>}\rightarrow S$ in $\mathsf{Set}$ where $S$ is any set. The information of ab object in $\mathsf{Set^{</em>}}$ consists of the choice of a nonempty set $S$ and an element $s\in S$ which is the element $f(*)$. Thus we may denote objects in this category as pairs $(S,s)$. A morphism between two such objects, $(S,s)\rightarrow(T,t)$, corresponds to a set function $\sigma:S\rightarrow T$ such that $\sigma(s)=t$.</p>
-<p>​	Objects of $\mathsf{Set}^*$ are called ‘pointed sets’ and many structures are pointed sets. For example, <strong>group homomorphisms</strong> sends one identity to another.</p>
+<h4 id="definition-3.1.1">Definition 3.1.1</h4>
+<p>​ <span class="math inline">\(\mathrm{End}_\mathsf{C}(A)=\mathrm{Hom}_\mathsf{C}(A,A)\)</span>.</p>
+<h4 id="example-3.1">Example 3.1</h4>
+<p>​ Consider category <span class="math inline">\(\mathsf{C}\)</span> , and let <span class="math inline">\(A\)</span> be an object of <span class="math inline">\(\mathsf{C}\)</span> . We define a category <span class="math inline">\(\mathsf{C}_A\)</span> whose objects are certain morphisms in <span class="math inline">\(\mathsf{C}\)</span> : <span class="math inline">\(\mathrm{Obj}(\mathsf{C}_A)=all\ morphisms\ from\ \)</span><span class="math inline">\(any\ object\ of\ \mathsf{C}\ to\ A\)</span> . Pictorially, an object in <span class="math inline">\(\mathsf{C}_{A}\)</span> is an arrow <span class="math inline">\(Z\stackrel{f}{\rightarrow}A\)</span> .</p>
+<p>​ Suppose <span class="math inline">\(Z_1\stackrel{f_1}{\longrightarrow}A\)</span> and <span class="math inline">\(Z_2\stackrel{f_2}{\longrightarrow}A\)</span> , morphisms <span class="math inline">\(f_1\rightarrow f_2\)</span> are defined to be commutative diagrams shown below.</p>
+<p><img src="/2021/12/10/Algebra-Chapter-0-1-3-Categories/Gr_1"></p>
+<p>​ The composition of morphisms in <span class="math inline">\(\mathsf{C}\)</span> can be verified without difficulty. Categories constructed in this pattern is called <span class="math inline">\(slice \  category\)</span> , which is a special form of <span class="math inline">\(comma\ category\)</span> .</p>
+<h4 id="example-3.2">Example 3.2</h4>
+<p>​ An similar example of <strong>Example 3.1</strong> can be obtained by considering morphisms in a category <span class="math inline">\(\mathsf{C}\)</span> from a fixed object <span class="math inline">\(A\)</span> to all objects in <span class="math inline">\(\mathsf{C}\)</span>, with morphisms defined by suitable commutative diagrams. The category defined above is called <span class="math inline">\(coslice\ category\)</span>.</p>
+<h4 id="example-3.3">Example 3.3</h4>
+<p>​ An example of coslice category is shown by letting <span class="math inline">\(\mathsf{C=Set}\)</span> and <span class="math inline">\(A=\)</span> a fixed singleton <span class="math inline">\(\{*\}\)</span>. We call this category <span class="math inline">\(\mathsf{Set^*}\)</span>.</p>
+<p>​ An object in this category is a morphism <span class="math inline">\(f:\{*\}\rightarrow S\)</span> in <span class="math inline">\(\mathsf{Set}\)</span> where <span class="math inline">\(S\)</span> is any set. The information of ab object in <span class="math inline">\(\mathsf{Set^{*}}\)</span> consists of the choice of a nonempty set <span class="math inline">\(S\)</span> and an element <span class="math inline">\(s\in S\)</span> which is the element <span class="math inline">\(f(*)\)</span>. Thus we may denote objects in this category as pairs <span class="math inline">\((S,s)\)</span>. A morphism between two such objects, <span class="math inline">\((S,s)\rightarrow(T,t)\)</span>, corresponds to a set function <span class="math inline">\(\sigma:S\rightarrow T\)</span> such that <span class="math inline">\(\sigma(s)=t\)</span>.</p>
+<p>​ Objects of <span class="math inline">\(\mathsf{Set}^*\)</span> are called ‘pointed sets’ and many structures are pointed sets. For example, <strong>group homomorphisms</strong> sends one identity to another.</p>
 
     </div>
 
@@ -331,7 +327,7 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/Algebra-Chapter-0-1-5-Univeral-Properties/" rel="next" title="Algebra Chapter 0 - 1.5 Univeral Properties">
+                <a href="/2022/01/17/2022-01-17-Algebra-Chapter-0---1.5-Univeral-Properties/" rel="next" title="Algebra Chapter 0 - 1.5 Univeral Properties">
                   Algebra Chapter 0 - 1.5 Univeral Properties <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -366,14 +362,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">14k</span>
+    <span title="站点总字数">15k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13 分钟</span>
+    <span title="站点阅读时长">14 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
