@@ -3,33 +3,37 @@
   <entry>
     <title>Algebra Chapter 0 - 1.3 Categories</title>
     <url>/2021/12/10/Algebra-Chapter-0-1-3-Categories/</url>
-    <content><![CDATA[<h4 id="definition-3.1.0">Definition 3.1.0</h4>
-<p>​ A <span class="math inline">\(category\)</span> <span class="math inline">\(\mathsf{C}\)</span> consists of:</p>
+    <content><![CDATA[<h4 id="Definition-3-1-0"><a class="header-anchor" href="#Definition-3-1-0">¶</a>Definition 3.1.0</h4>
+<p>​	A $category$ $\mathsf{C}$ consists of:</p>
 <ul>
-<li><p>a class <span class="math inline">\(\mathrm{Obj}(\mathsf{C})\)</span> of <span class="math inline">\(objects\)</span> of the category</p></li>
-<li><p>for every two objects <span class="math inline">\(A,B\)</span> of <span class="math inline">\(\mathsf{C}\)</span> , a set <span class="math inline">\(\mathrm{Obj}_{\mathsf{C}}(A,B)\)</span> of <span class="math inline">\(morphisms\)</span> , with the properties listed below.</p>
-<span id="more"></span></li>
+<li>
+<p>a class $\mathrm{Obj}(\mathsf{C})$ of $objects$ of the category</p>
+</li>
+<li>
+<p>for every two objects $A,B$ of $\mathsf{C}$ , a set $\mathrm{Obj}_{\mathsf{C}}(A,B)$ of $morphisms$ , with the properties listed below.</p>
+<span id="more"></span>
+</li>
 </ul>
-<p>​ Defining properties of morphisms:</p>
+<p>​	Defining properties of morphisms:</p>
 <ul>
-<li>For every object <span class="math inline">\(A\)</span> of <span class="math inline">\(\mathsf{C}\)</span> , there exists (at least) one morphism <span class="math inline">\(1_A\in \mathrm{Hom}_\mathsf{C}(A,B)\)</span> , the ‘identity’ on <span class="math inline">\(A\)</span>.</li>
-<li><span class="math inline">\(\mathrm{Hom}_\mathsf{C}(A,B)\times\mathrm{Hom}_\mathsf{C}(B,C)\)</span><span class="math inline">\(=\mathrm{Hom}_\mathsf{C}(A,C)\)</span>.</li>
-<li>Composition Law: <span class="math inline">\((hg)f=h(gf)\)</span>.</li>
-<li>For all <span class="math inline">\(f\in \mathrm{Hom}_\mathsf{C}(A,B)\)</span> , we have <span class="math inline">\(f1_A=1_Bf=f\)</span>.</li>
+<li>For every object $A$ of $\mathsf{C}$ , there exists (at least) one morphism $1_A\in \mathrm{Hom}_\mathsf{C}(A,B)$ , the ‘identity’ on $A$.</li>
+<li>$\mathrm{Hom}<em>\mathsf{C}(A,B)\times\mathrm{Hom}</em>\mathsf{C}(B,C)$$=\mathrm{Hom}_\mathsf{C}(A,C)$.</li>
+<li>Composition Law: $(hg)f=h(gf)$.</li>
+<li>For all $f\in \mathrm{Hom}_\mathsf{C}(A,B)$ , we have $f1_A=1_Bf=f$.</li>
 </ul>
-<h4 id="definition-3.1.1">Definition 3.1.1</h4>
-<p>​ <span class="math inline">\(\mathrm{End}_\mathsf{C}(A)=\mathrm{Hom}_\mathsf{C}(A,A)\)</span>.</p>
-<h4 id="example-3.1">Example 3.1</h4>
-<p>​ Consider category <span class="math inline">\(\mathsf{C}\)</span> , and let <span class="math inline">\(A\)</span> be an object of <span class="math inline">\(\mathsf{C}\)</span> . We define a category <span class="math inline">\(\mathsf{C}_A\)</span> whose objects are certain morphisms in <span class="math inline">\(\mathsf{C}\)</span> : <span class="math inline">\(\mathrm{Obj}(\mathsf{C}_A)=all\ morphisms\ from\ \)</span><span class="math inline">\(any\ object\ of\ \mathsf{C}\ to\ A\)</span> . Pictorially, an object in <span class="math inline">\(\mathsf{C}_{A}\)</span> is an arrow <span class="math inline">\(Z\stackrel{f}{\rightarrow}A\)</span> .</p>
-<p>​ Suppose <span class="math inline">\(Z_1\stackrel{f_1}{\longrightarrow}A\)</span> and <span class="math inline">\(Z_2\stackrel{f_2}{\longrightarrow}A\)</span> , morphisms <span class="math inline">\(f_1\rightarrow f_2\)</span> are defined to be commutative diagrams shown below.</p>
-<p><img src="/2021/12/10/Algebra-Chapter-0-1-3-Categories/Gr_1"></p>
-<p>​ The composition of morphisms in <span class="math inline">\(\mathsf{C}\)</span> can be verified without difficulty. Categories constructed in this pattern is called <span class="math inline">\(slice \  category\)</span> , which is a special form of <span class="math inline">\(comma\ category\)</span> .</p>
-<h4 id="example-3.2">Example 3.2</h4>
-<p>​ An similar example of <strong>Example 3.1</strong> can be obtained by considering morphisms in a category <span class="math inline">\(\mathsf{C}\)</span> from a fixed object <span class="math inline">\(A\)</span> to all objects in <span class="math inline">\(\mathsf{C}\)</span>, with morphisms defined by suitable commutative diagrams. The category defined above is called <span class="math inline">\(coslice\ category\)</span>.</p>
-<h4 id="example-3.3">Example 3.3</h4>
-<p>​ An example of coslice category is shown by letting <span class="math inline">\(\mathsf{C=Set}\)</span> and <span class="math inline">\(A=\)</span> a fixed singleton <span class="math inline">\(\{*\}\)</span>. We call this category <span class="math inline">\(\mathsf{Set^*}\)</span>.</p>
-<p>​ An object in this category is a morphism <span class="math inline">\(f:\{*\}\rightarrow S\)</span> in <span class="math inline">\(\mathsf{Set}\)</span> where <span class="math inline">\(S\)</span> is any set. The information of ab object in <span class="math inline">\(\mathsf{Set^{*}}\)</span> consists of the choice of a nonempty set <span class="math inline">\(S\)</span> and an element <span class="math inline">\(s\in S\)</span> which is the element <span class="math inline">\(f(*)\)</span>. Thus we may denote objects in this category as pairs <span class="math inline">\((S,s)\)</span>. A morphism between two such objects, <span class="math inline">\((S,s)\rightarrow(T,t)\)</span>, corresponds to a set function <span class="math inline">\(\sigma:S\rightarrow T\)</span> such that <span class="math inline">\(\sigma(s)=t\)</span>.</p>
-<p>​ Objects of <span class="math inline">\(\mathsf{Set}^*\)</span> are called ‘pointed sets’ and many structures are pointed sets. For example, <strong>group homomorphisms</strong> sends one identity to another.</p>
+<h4 id="Definition-3-1-1"><a class="header-anchor" href="#Definition-3-1-1">¶</a>Definition 3.1.1</h4>
+<p>​	$\mathrm{End}<em>\mathsf{C}(A)=\mathrm{Hom}</em>\mathsf{C}(A,A)$.</p>
+<h4 id="Example-3-1"><a class="header-anchor" href="#Example-3-1">¶</a>Example 3.1</h4>
+<p>​	Consider category $\mathsf{C}$ , and let $A$ be an object of $\mathsf{C}$ . We define a category $\mathsf{C}_A$ whose objects are certain morphisms in $\mathsf{C}$ : $\mathrm{Obj}(\mathsf{C}<em>A)=all\ morphisms\ from\ $$any\ object\ of\ \mathsf{C}\ to\ A$ . Pictorially, an object in $\mathsf{C}</em>{A}$ is an arrow $Z\stackrel{f}{\rightarrow}A$ .</p>
+<p>​	Suppose $Z_1\stackrel{f_1}{\longrightarrow}A$ and $Z_2\stackrel{f_2}{\longrightarrow}A$ , morphisms $f_1\rightarrow f_2$ are defined to be commutative diagrams shown below.</p>
+<p><img src="/2021/12/10/Algebra-Chapter-0-1-3-Categories/Gr_1" alt></p>
+<p>​	The composition of morphisms in $\mathsf{C}$ can be verified without difficulty. Categories constructed in this pattern is called $slice \  category$ , which is a special form of $comma\ category$ .</p>
+<h4 id="Example-3-2"><a class="header-anchor" href="#Example-3-2">¶</a>Example 3.2</h4>
+<p>​	An similar example of <strong>Example 3.1</strong> can be obtained by considering morphisms in a category $\mathsf{C}$ from a fixed object $A$ to all objects in $\mathsf{C}$, with morphisms defined by suitable commutative diagrams. The category defined above is called $coslice\ category$.</p>
+<h4 id="Example-3-3"><a class="header-anchor" href="#Example-3-3">¶</a>Example 3.3</h4>
+<p>​	An example of coslice category is shown by letting $\mathsf{C=Set}$ and $A=$ a fixed singleton ${<em>}$. We call this category $\mathsf{Set^</em>}$.</p>
+<p>​	An object in this category is a morphism $f:{<em>}\rightarrow S$ in $\mathsf{Set}$ where $S$ is any set. The information of ab object in $\mathsf{Set^{</em>}}$ consists of the choice of a nonempty set $S$ and an element $s\in S$ which is the element $f(*)$. Thus we may denote objects in this category as pairs $(S,s)$. A morphism between two such objects, $(S,s)\rightarrow(T,t)$, corresponds to a set function $\sigma:S\rightarrow T$ such that $\sigma(s)=t$.</p>
+<p>​	Objects of $\mathsf{Set}^*$ are called ‘pointed sets’ and many structures are pointed sets. For example, <strong>group homomorphisms</strong> sends one identity to another.</p>
 ]]></content>
       <tags>
         <tag>Algebra Chapter 0</tag>
@@ -38,36 +42,44 @@
   <entry>
     <title>Algebra Chapter 0 - 1.5 Univeral Properties</title>
     <url>/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/</url>
-    <content><![CDATA[<h3 id="initial-and-final-objects">§5.1 - Initial and final objects</h3>
-<h4 id="definition-5.1">Definition 5.1</h4>
+    <content><![CDATA[<h3 id="§5-1-Initial-and-final-objects"><a class="header-anchor" href="#§5-1-Initial-and-final-objects">¶</a>§5.1 - Initial and final objects</h3>
+<h4 id="Definition-5-1"><a class="header-anchor" href="#Definition-5-1">¶</a>Definition 5.1</h4>
 <ul>
-<li><p>Let <span class="math inline">\(\mathsf{C}\)</span> be a category. Then object <span class="math inline">\(I\)</span> of <span class="math inline">\(\mathsf{C}\)</span> is <strong><span class="math inline">\(initial\)</span></strong> if for every object <span class="math inline">\(A\)</span> of <span class="math inline">\(\mathsf{C}\)</span> there exists <strong>exactly one</strong> morphism <span class="math inline">\(I\rightarrow A\)</span> in <span class="math inline">\(\mathsf{C}\)</span>:</p>
-<p><span class="math inline">\(\begin{align}\forall A \in \mathsf{Obj(C)}:\mathsf{Hom_C}(I,A)\end{align}\)</span> is a singleton.</p>
-<span id="more"></span></li>
-<li><p>An object <span class="math inline">\(F\)</span> of <span class="math inline">\(\mathsf{C}\)</span> is <span class="math inline">\(final\)</span> in <span class="math inline">\(\mathsf{C}\)</span> if for every object <span class="math inline">\(A\)</span> of <span class="math inline">\(C\)</span> there exists <strong>exactly one</strong> morphism <span class="math inline">\(A\rightarrow F\)</span> in <span class="math inline">\(\mathsf{C}\)</span>:</p>
-<p><span class="math inline">\(\begin{align}\forall A\in \mathsf{Obj(C)}:\ \mathsf{Hom_C}(A,F) \end{align}\)</span> is a singleton.</p></li>
+<li>
+<p>Let $\mathsf{C}$ be a category. Then object $I$ of $\mathsf{C}$ is <strong>$initial$</strong> if for every object $A$ of $\mathsf{C}$ there exists <strong>exactly one</strong> morphism $I\rightarrow A$ in $\mathsf{C}$:</p>
+<p>$\begin{align}\forall A \in \mathsf{Obj©}:\mathsf{Hom_C}(I,A)\end{align}$ is a singleton.</p>
+<span id="more"></span>
+</li>
+<li>
+<p>An object $F$ of $\mathsf{C}$ is $final$ in $\mathsf{C}$ if for every object $A$ of $C$ there exists <strong>exactly one</strong> morphism $A\rightarrow F$ in $\mathsf{C}$:</p>
+<p>$\begin{align}\forall A\in \mathsf{Obj©}:\ \mathsf{Hom_C}(A,F)  \end{align}$ is a singleton.</p>
+</li>
 </ul>
-<h4 id="proposition-5.4">Proposition 5.4</h4>
+<h4 id="Proposition-5-4"><a class="header-anchor" href="#Proposition-5-4">¶</a>Proposition 5.4</h4>
 <ul>
-<li><span class="math inline">\(I_1,I_2\ are\ both\ inital\ objects\Rightarrow I_1\cong I_2\)</span>.</li>
-<li><span class="math inline">\(F_1,F_2\ are\ both\ final\ objects\Rightarrow F_1\cong F_2\)</span>.</li>
+<li>$I_1,I_2\ are\ both\ inital\ objects\Rightarrow I_1\cong I_2$.</li>
+<li>$F_1,F_2\ are\ both\ final\ objects\Rightarrow F_1\cong F_2$.</li>
 </ul>
-<h3 id="universal-properties">§5.2 Universal Properties</h3>
+<h3 id="§5-2-Universal-Properties"><a class="header-anchor" href="#§5-2-Universal-Properties">¶</a>§5.2 Universal Properties</h3>
 <ul>
-<li>We say that a construction satisfies a universal property when it may be viewed as a terminal object of a category. More often, the situation is complex and the ‘explanation’ of a universal property may follow the pattern, “object <span class="math inline">\(X\)</span> is universal with respect to the following property: for any <span class="math inline">\(Y\)</span> such that <span class="math inline">\(\dots\)</span> , there exists a unique morphism <span class="math inline">\(Y\rightarrow X\)</span> such that <span class="math inline">\(\dots\)</span> .”</li>
+<li>We say that a construction satisfies a universal property when it may be viewed as a terminal object of a category. More often, the situation is complex and the ‘explanation’ of a universal property may follow the pattern, “object $X$ is universal with respect to the following property: for any $Y$ such that $\dots$ , there exists a unique morphism $Y\rightarrow X$ such that $\dots$ .”</li>
 </ul>
-<h3 id="quotients">§5.3 Quotients</h3>
+<h3 id="§5-3-Quotients"><a class="header-anchor" href="#§5-3-Quotients">¶</a>§5.3 Quotients</h3>
 <ul>
-<li><p>“The quotient <span class="math inline">\(A/\sim\)</span> is universal with respect to the property of mapping <span class="math inline">\(A\)</span> to a set in such a way that equivalent elements have the same image.”</p></li>
-<li><p>The assertion above is talking about functions <span class="math inline">\(A\stackrel{\phi}{\longrightarrow} Z\)</span> with <span class="math inline">\(Z\)</span> any set, satisfying the property: <span class="math inline">\(a&#39;\sim a&#39;&#39;\rightarrow \phi(a&#39;)=\phi(a&#39;&#39;)\)</span>. These morphisms are objects of a category; for convenience, let’s denote such an object by <span class="math inline">\((\phi,Z)\)</span>. The only reasonable way to define morphisms <span class="math inline">\((\phi_1,Z_1)\rightarrow(\phi_2,Z_2)\)</span> is as commutative diagrams</p>
-<p><img src="/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/image-20220117215734905.png"></p></li>
+<li>
+<p>“The quotient $A/\sim$  is universal with respect to the property of mapping $A$ to a set in such a way that equivalent elements have the same image.”</p>
+</li>
+<li>
+<p>The assertion above is talking about functions $A\stackrel{\phi}{\longrightarrow} Z$ with $Z$ any set, satisfying the property: $a’\sim a’‘\rightarrow \phi(a’)=\phi(a’')$. These morphisms are objects of a category; for convenience, let’s denote such an object by $(\phi,Z)$. The only reasonable way to define morphisms $(\phi_1,Z_1)\rightarrow(\phi_2,Z_2)$ is as commutative diagrams</p>
+<p><img src="/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/image-20220117215734905.png" alt></p>
+</li>
 </ul>
-<h3 id="products">§5.4 Products</h3>
+<h3 id="§5-4-Products"><a class="header-anchor" href="#§5-4-Products">¶</a>§5.4 Products</h3>
 <ul>
-<li><p>Let <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> be sets, and consider the product <span class="math inline">\(A\times B\)</span>, with the two partial projections:</p>
-<figure>
-<img src="/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/Users\alxzz\Desktop\Typora%20PICs\image-20220303222022906.png" alt="image-20220303222022906"><figcaption aria-hidden="true">image-20220303222022906</figcaption>
-</figure></li>
+<li>
+<p>Let $A$, $B$ be sets, and consider the product $A\times B$, with the two partial projections:</p>
+<p>![image-20220303222022906](C:\Users\alxzz\Desktop\Typora PICs\image-20220303222022906.png)</p>
+</li>
 </ul>
 ]]></content>
       <tags>
@@ -75,174 +87,222 @@
       </tags>
   </entry>
   <entry>
-    <title>「复分析」Chapter1：微积分</title>
-    <url>/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/</url>
-    <content><![CDATA[<h2 id="一回顾">一、回顾</h2>
-<h4 id="外微分形式r3">外微分形式（<span class="math inline">\(R^3\)</span>）</h4>
-<ul>
-<li><p><span class="math inline">\(\mathrm {d} x\)</span> 与 <span class="math inline">\(\mathrm {d} y\)</span> 外乘积记作 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y\)</span>，且有关系 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y=-\mathrm {d} y∧\mathrm {d} x\)</span>.</p>
-<span id="more"></span></li>
-<li><p>对外微分形式 <span class="math inline">\(\omega\)</span> 定义微分算子 <span class="math inline">\(\mathrm {d}\)</span>，则有：</p></li>
-</ul>
-<h5 id="omegaf-rightarrow-mathrm-domegafrac-partial-fpartial-xmathrm-d-xfrac-partial-fpartial-ymathrm-d-yfrac-partial-fpartial-zmathrm-d-z"><span class="math inline">\(①\omega=f \rightarrow \mathrm {d}\omega=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y+\frac {\partial f}{\partial z}\mathrm {d} z\)</span></h5>
-<h5 id="begin-split②omegasumlimits_cyc-amathrm-d-ywedge-mathrm-d-z-rightarrow-mathrm-domegasumlimits_cyc-frac-partial-apartial-xmathrm-d-xwedge-mathrm-d-ywedge-mathrm-d-zend-split"><span class="math inline">\(\begin {split}②&amp;\omega=\sum\limits_{cyc} A\mathrm {d} y\wedge \mathrm {d} z \\&amp;\Rightarrow \mathrm {d}\omega=(\sum\limits_{cyc} \frac {\partial A}{\partial x})\mathrm {d} x\wedge \mathrm {d} y\wedge \mathrm {d} z\end {split}\)</span></h5>
-<h5 id="begin-split③-omega-pmathrm-d-xqmathrm-d-yrmathrm-d-zrightarrow-mathrm-domegasumlimits_cycfrac-partial-rpartial-y-frac-partial-qpartial-zmathrm-d-ymathrm-d-z-end-split"><span class="math inline">\(\begin {split}③\ &amp;\omega =P\mathrm {d} x+Q\mathrm {d} y+R\mathrm {d} z\\&amp;\Rightarrow \mathrm {d}\omega=\sum\limits_{cyc}(\frac {\partial R}{\partial y}-\frac {\partial Q}{\partial z})\mathrm {d} y∧\mathrm {d} z \end {split}\)</span></h5>
-<h5 id="omega-h-mathrm-d-xwedgemathrm-d-ywedgemathrm-d-zrightarrowmathrm-domega0"><span class="math inline">\(④\omega = H \mathrm {d} x\wedge\mathrm {d} y\wedge\mathrm {d} z\Rightarrow\mathrm {d}\omega=0\)</span></h5>
-<ul>
-<li><p><span class="math inline">\((Poincare\ Lemma)\)</span>​ <span class="math inline">\(\omega\)</span>​是外微分形式且系数有二阶连续偏导等价于 <span class="math inline">\(\mathrm {d}\mathrm {d}\omega=0\)</span>​.（即若 <span class="math inline">\(p\)</span>​次外微分形式 <span class="math inline">\(\omega\)</span>​有 <span class="math inline">\(\mathrm {d}\omega=0\)</span>​则存在 <span class="math inline">\(p-1\)</span>​次外微分形式 <span class="math inline">\(\alpha\)</span>​使得 <span class="math inline">\(\omega=\mathrm {d}\alpha\)</span>​）</p></li>
-<li><p>统一 <span class="math inline">\(Green、Gauss、Stokes\)</span>​公式：<span class="math display">\[\begin {align}\int_{\partial\Sigma}\ \omega=\int_{\Sigma}\ \mathrm {d}\omega\end {align}\]</span>.​</p></li>
-</ul>
-<h2 id="二复微分">二、复微分</h2>
-<ul>
-<li><span class="math inline">\(f:\mathbb {C}\rightarrow\mathbb {C}\)</span>​，导数定义类似。若 <span class="math inline">\(f (z)\)</span>​在定义域上每一点可微，则称 <span class="math inline">\(f\)</span>​ 解析或全纯.</li>
-<li><span class="math inline">\((Cauchy-Riemann)\)</span>​ 若 <span class="math inline">\(f (z)=u (x,y)+iv (x,y)\)</span>​在 <span class="math inline">\(z_{0}=x_{0}+iy_{0}\)</span>​处可微，则有</li>
-</ul>
-<p><span class="math display">\[
-\begin {align} f&#39;(z_{0})&amp;=u&#39;_{x}(x_{0},y_{0})+iv&#39;_{x}(x_{0},y_{0})\\&amp;=v&#39;_{y}(x_{0},y_{0})-iu&#39;_{x}(x_{0},y_{0})\end {align}
-\]</span></p>
-<p>，由此立即推出： <span class="math display">\[
-\begin {aligned}\frac {\partial f}{\partial x}+i\frac {\partial f}{\partial y}=0\ or\left\{\begin {matrix} u&#39;_{x}=v&#39;_{y}\\u&#39;_{y}=-v&#39;_{x}\end {matrix}\right.\end {aligned}
-\]</span></p>
-<ul>
-<li><p><span class="math inline">\(f (z)=u+iv\)</span> 在 <span class="math inline">\(D\)</span> 内全纯 <span class="math inline">\(\Leftrightarrow\)</span><span class="math inline">\(u,v\)</span> 在 <span class="math inline">\(D\)</span> 内有一阶连续偏微商且满足 <span class="math inline">\(Cauchy-Riemann\)</span> 条件.</p></li>
-<li><p>事实上，如果 <span class="math inline">\(f (z)=u+iv\)</span>​在 <span class="math inline">\(D\)</span>​内全纯，则 <span class="math inline">\(f&#39;(z)\)</span>​也在 <span class="math inline">\(D\)</span>​内全纯，由此得到 <span class="math inline">\(\Delta u=\Delta v=0\)</span>​.</p></li>
-<li><p>引入记号： <span class="math display">\[
-\left\{
-\begin {align}
-\frac {\partial}{\partial z}=\frac {1}{2}(\frac {\partial}{\partial x}-i\frac {\partial}{\partial y})\\
-\frac {\partial}{\partial \bar {z}}=\frac {1}{2}(\frac {\partial}{\partial x}+i\frac {\partial}{\partial y})
-\end {align}.
-\right.
-\]</span></p></li>
-</ul>
-<p>则 <span class="math inline">\(f\)</span> 全纯 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\begin {align}\frac {\partial f}{\partial \bar {z}}=0\end {align}\)</span>，同时 <span class="math inline">\(\begin {align}\Delta =4\frac {\partial^2}{\partial z\partial \bar {z}}=4\frac {\partial^2}{\partial \bar {z}\partial z}\end {align}\)</span>.</p>
-<ul>
-<li><span class="math inline">\(\begin {align}\mathrm {d} f=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y=\frac {\partial f}{\partial z}\mathrm {d} z+\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z} \end {align}\)</span>， 记 <span class="math inline">\(\begin {align}\partial f=\frac {\partial f}{\partial z}\mathrm {d} z,\bar {\partial} f=\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z} \end {align}\)</span>，则 <span class="math inline">\(\mathrm {d}=\partial+\bar {\partial}\)</span>.</li>
-<li>（共形性）设 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(D\)</span> 全纯，<span class="math inline">\(z_0\in D\)</span> 且 <span class="math inline">\(f&#39;(z_0)\neq0\)</span>，曲线 <span class="math inline">\(\gamma\)</span> 满足 <span class="math inline">\(\gamma (t)\ (0\leq t\leq1)\)</span> 在 <span class="math inline">\(D\)</span> 内过 <span class="math inline">\(z_0\)</span> 且 <span class="math inline">\(\gamma (0)=z_0\)</span>，<span class="math inline">\(\gamma (t)\)</span> 在 <span class="math inline">\(z_0\)</span> 处和实轴的夹角为 <span class="math inline">\(arg\ \gamma&#39;(t)\)</span>，<span class="math inline">\(f\)</span> 把 <span class="math inline">\(\gamma\)</span> 映射成曲线 <span class="math inline">\(\sigma (t)=f (\gamma (t))\)</span>，则 <span class="math inline">\(\sigma&#39;(t)=\gamma&#39;(t) f&#39;(\gamma (t))\)</span>，因此 <span class="math inline">\(arg\ f&#39;(z_0)=arg\ \sigma&#39;(0)-arg\ \gamma&#39;(0)\)</span><strong>（保角性）</strong>. 另外，有 <span class="math inline">\(\begin {align}\frac {\vert {f (z)-f (z_0)}\vert}{\vert z-z_0\vert}=\frac {\vert\omega-\omega_0\vert}{\vert z-z_0\vert}\rightarrow\vert f&#39;(z_0)\vert (z\rightarrow z_0,z\in \gamma) \end {align}\)</span>.</li>
-</ul>
-<h2 id="三复积分">三、复积分</h2>
-<ul>
-<li><p><span class="math inline">\(\begin {align} f=u+iv\Rightarrow\int f (t)\mathrm {d} t=\int u (t)\mathrm {d} t+i\int v (t)\mathrm {d} t \end {align}.\)</span></p></li>
-<li><p>若 <span class="math inline">\(\gamma\)</span> 可求长，则：<span class="math inline">\(\begin {align}\int_\gamma f (z)\mathrm {d} z=\int_\gamma (u+iv)(\mathrm {d} x+i\mathrm {d} y) \end {align}.\)</span></p></li>
-<li><p>复外微分形式：<span class="math inline">\(\mathrm {d}\bar {z} \wedge \mathrm {d} z=2i\mathrm {d} x\wedge\mathrm {d} y=2i\mathrm {d} A.\)</span></p></li>
-<li><p>复形式的 Green 公式：若 <span class="math inline">\(\omega=\omega_1\mathrm {d} z+\omega_2\mathrm {d} z\)</span> 为 <span class="math inline">\(\Omega\)</span> 上的一次外微分算子，<span class="math inline">\(\omega_1,\omega_2\)</span> 为 <span class="math inline">\(z,\bar {z}\)</span> 的可微函数，则有 <span class="math inline">\(\begin {align}\int_{\partial \Omega}\omega=\iint_\Omega \mathrm {d}\omega \end {align}.\)</span></p></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>复分析</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>BUAA OO U1 Review</title>
     <url>/2022/03/22/BUAA-OO-U1-Review/</url>
-    <content><![CDATA[<h1 id="buaa-oo-第一单元总结">BUAA OO 第一单元总结</h1>
-<h2 id="第一次作业">- 第一次作业</h2>
-<p>​ 第一次作业要求化简一个一元（变量只能为 <span class="math inline">\(x\)</span>）的表达式，其中可以出现空白符和连续的正负号，至少需要去掉所有括号。为了得到性能分，还需要进行合并同类项的操作。</p>
+    <content><![CDATA[<h1>BUAA OO 第一单元总结</h1>
+<h2 id="第一次作业"><a class="header-anchor" href="#第一次作业">¶</a>- 第一次作业</h2>
+<p>​		第一次作业要求化简一个一元（变量只能为 $x$）的表达式，其中可以出现空白符和连续的正负号，至少需要去掉所有括号。为了得到性能分，还需要进行合并同类项的操作。</p>
 <span id="more"></span>
-<h3 id="程序架构">程序架构</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220303222022906.png"></p>
+<h3 id="程序架构"><a class="header-anchor" href="#程序架构">¶</a>程序架构</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220303222022906.png" alt></p>
 <p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
-<p>​ 第一次作业采用了递归下降的处理方法，各个类的作用如下：</p>
+<p>​		第一次作业采用了递归下降的处理方法，各个类的作用如下：</p>
 <ul>
-<li><p><strong>Element</strong>：使用 <code>HashMap&lt;Integer,BigInteger&gt;</code> 存储各个元素的信息，其中 Key 表示次数，Value 表示系数。由于第一次作业不包含任何其他特殊函数，所以无论是因子、项还是表达式都可以用 Element 来存储，结构比较统一，方便运算和化简。</p>
+<li>
+<p><strong>Element</strong>：使用 <code>HashMap&lt;Integer,BigInteger&gt;</code> 存储各个元素的信息，其中 Key 表示次数，Value 表示系数。由于第一次作业不包含任何其他特殊函数，所以无论是因子、项还是表达式都可以用 Element 来存储，结构比较统一，方便运算和化简。</p>
 <p>为方便叙述，给出因子、项和表达式的定义：</p>
 <ul>
 <li><b> 因子 </b>：（+/-）变量的幂 + 常数的幂 + 括号表达式的幂（其中幂次为 1 可以省略幂指数）</li>
 <li><b> 项 </b>：因子的乘积</li>
 <li><b> 表达式 </b>：项的加和</li>
-</ul></li>
-<li><p><strong>Token</strong>：存储表达式基本单元的类，如操作符、括号、操作数和变量。</p></li>
-<li><p><strong>Lexer</strong>：对输入表达式进行词法分析的类，将字符串分割为若干 token 并存入 <code>ArrayList&lt;Token&gt;</code>，并且在读入过程中进行初步化简：</p>
+</ul>
+</li>
+<li>
+<p><strong>Token</strong>：存储表达式基本单元的类，如操作符、括号、操作数和变量。</p>
+</li>
+<li>
+<p><strong>Lexer</strong>：对输入表达式进行词法分析的类，将字符串分割为若干 token 并存入 <code>ArrayList&lt;Token&gt;</code>，并且在读入过程中进行初步化简：</p>
 <ul>
 <li>将连续的一串加减号划归为一个加 / 减号。</li>
 <li>对于操作数直接用字符串存储，在后续处理过程中可以直接使用转换为整数。</li>
-</ul></li>
-<li><p><strong>Parser</strong>：递归下降逐个解析 <code>ArrayList&lt;Tokens&gt;</code> 的元素。<code>glbPos</code> 表示 token 的位置，<code>isHigh () isMid () isLow ()</code> 方法判断此时的 token 是否代表运算符并判断优先级。递归下降的入口是 <code>parseExpr ()</code>，之后进入 <code>parseTerm ()</code> 和 <code>parseUnit ()</code>，再从 <code>parseUnit ()</code> 调用 <code>parseExpr ()</code> 实现递归下降。由于结构统一，因此每个 parse 方法的返回类型都是 Element。</p></li>
 </ul>
-<h3 id="基于度量的结构分析">基于度量的结构分析</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322123607798.png"></p>
-<p>​ 根据 CogC 指标排序，可以发现认知复杂度较高的方法为 <code>parseUnit ()</code> 和 <code>output ()</code>。</p>
-<p>​ <code>parseUnit ()</code> 方法复杂度较高的原因是因子的定义比较多，需要判断类型和是否有乘方，导致其中出现很多判断分支；<code>output ()</code> 的原因类似，也是出现了很多分支来判断如何输出字符串。</p>
-<h3 id="bug-分析">bug 分析</h3>
-<p>​ 本次作业的 bug 出现在形式化定义上。一开始我把因子定义为变量的幂 + 常数 + 表达式的幂，可以注意到这里缺少了常数的幂，于是输入 <code>x*2**2</code> 获得的结果就为 <code>4*x**2</code>，因为程序把 <code>x*2</code>parse 成了一个整体，于是在强测中出现了 bug。在 <code>parseUnit ()</code> 方法中添加一个判断即可解决。</p>
-<h2 id="第二次作业">- 第二次作业</h2>
-<p>​ 第二次作业在第一次作业的基础上增加了三角函数（括号内只能是非负整数和 <span class="math inline">\(x\)</span> 的非负整数幂）、自定义函数和求和函数，依然要求去除不必要的括号并展开所有自定义函数和求和函数。本次作业的函数不能嵌套。</p>
-<h3 id="程序架构-1">程序架构</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322162937182.png"></p>
+</li>
+<li>
+<p><strong>Parser</strong>：递归下降逐个解析 <code>ArrayList&lt;Tokens&gt;</code> 的元素。<code>glbPos</code> 表示 token 的位置，<code>isHigh () isMid () isLow ()</code> 方法判断此时的 token 是否代表运算符并判断优先级。递归下降的入口是 <code>parseExpr ()</code>，之后进入 <code>parseTerm ()</code> 和 <code>parseUnit ()</code>，再从 <code>parseUnit ()</code> 调用 <code>parseExpr ()</code> 实现递归下降。由于结构统一，因此每个 parse 方法的返回类型都是 Element。</p>
+</li>
+</ul>
+<h3 id="基于度量的结构分析"><a class="header-anchor" href="#基于度量的结构分析">¶</a>基于度量的结构分析</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322123607798.png" alt></p>
+<p>​	根据 CogC 指标排序，可以发现认知复杂度较高的方法为 <code>parseUnit ()</code> 和 <code>output ()</code>。</p>
+<p>​	<code>parseUnit ()</code> 方法复杂度较高的原因是因子的定义比较多，需要判断类型和是否有乘方，导致其中出现很多判断分支；<code>output ()</code> 的原因类似，也是出现了很多分支来判断如何输出字符串。</p>
+<h3 id="bug-分析"><a class="header-anchor" href="#bug-分析">¶</a>bug 分析</h3>
+<p>​	本次作业的 bug 出现在形式化定义上。一开始我把因子定义为变量的幂 + 常数 + 表达式的幂，可以注意到这里缺少了常数的幂，于是输入 <code>x*2**2</code> 获得的结果就为 <code>4*x**2</code>，因为程序把 <code>x*2</code>parse 成了一个整体，于是在强测中出现了 bug。在 <code>parseUnit ()</code> 方法中添加一个判断即可解决。</p>
+<h2 id="第二次作业"><a class="header-anchor" href="#第二次作业">¶</a>- 第二次作业</h2>
+<p>​		第二次作业在第一次作业的基础上增加了三角函数（括号内只能是非负整数和 $x$ 的非负整数幂）、自定义函数和求和函数，依然要求去除不必要的括号并展开所有自定义函数和求和函数。本次作业的函数不能嵌套。</p>
+<h3 id="程序架构-v2"><a class="header-anchor" href="#程序架构-v2">¶</a>程序架构</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322162937182.png" alt></p>
 <p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
-<p>​ 第二次作业仍然保持了递归下降的处理思路，因为找到了可以统一存储表达式各个部分的数据结构，感觉并没有重构的必要。<del>（其实是偷懒）</del></p>
+<p>​		第二次作业仍然保持了递归下降的处理思路，因为找到了可以统一存储表达式各个部分的数据结构，感觉并没有重构的必要。<s>（其实是偷懒）</s></p>
 <ul>
-<li><p><strong>Poly</strong>：这里我将项定义为： <span class="math display">\[
-\begin {align} a*({x^{b} }*\prod_{i=0}^{\infty}\ {sin^{s_i}(S_i)}*\prod_{j=0}^{\infty}\ {cos^{c_i}(C_j))} \end {align}
-\]</span> 而 Poly 则存储了最外层括号里面的内容，<span class="math inline">\(b\)</span> 对应 <code>exp</code>，<code>sinSet</code> 和 <code>cosSet</code> 分别对应两个累乘。<code>HashMap&lt;String,BigInteger&gt;</code> 中的 <code>String</code> 记录的是 <span class="math inline">\(S_i\)</span>，因为本次作业三角函数中只能是 <span class="math inline">\(x^p\ (p\ge0)\)</span> 或者 <span class="math inline">\(t\ (t\ge0,t\in \mathbb {Z})\)</span>，因此格式是完全确定且唯一的，可以用字符串存储。而且因子和项都可以用这种形式处理，这使得计算方面更加简便。</p></li>
-<li><p><strong>Element</strong>：<code>HashMap&lt;Poly,BigInteger&gt;</code> 表示了 <code>Poly</code> 和系数 <span class="math inline">\(a\)</span> 的对应关系集合，即许多项的和。</p>
-<p>其中包含了两个化简的方法，分别是特殊处理 <span class="math inline">\(sin (0)/cos (0)\)</span> 和处理三角函数平方和。</p></li>
-<li><p><strong>PreProcessing</strong>：这个类用来处理自定义函数和求和函数，并且把第一次作业中出现的一些化简步骤整合了进来。下面简要说明如何处理两种函数。</p>
+<li>
+<p><strong>Poly</strong>：这里我将项定义为：<br>
+$$<br>
+\begin {align} a*({x^{b} }<em>\prod_{i=0}<sup>{\infty} {sin</sup>{s_i}(S_i)}</em>\prod_{j=0}<sup>{\infty} {cos</sup>{c_i}(C_j))} \end {align}<br>
+$$<br>
+而 Poly 则存储了最外层括号里面的内容，$b$ 对应 <code>exp</code>，<code>sinSet</code> 和 <code>cosSet</code> 分别对应两个累乘。<code>HashMap&lt;String,BigInteger&gt;</code> 中的 <code>String</code> 记录的是 $S_i$，因为本次作业三角函数中只能是 $x^p\ (p\ge0)$ 或者 $t\ (t\ge0,t\in \mathbb {Z})$，因此格式是完全确定且唯一的，可以用字符串存储。而且因子和项都可以用这种形式处理，这使得计算方面更加简便。</p>
+</li>
+<li>
+<p><strong>Element</strong>：<code>HashMap&lt;Poly,BigInteger&gt;</code> 表示了 <code>Poly</code> 和系数 $a$ 的对应关系集合，即许多项的和。</p>
+<p>其中包含了两个化简的方法，分别是特殊处理 $sin (0)/cos (0)$ 和处理三角函数平方和。</p>
+</li>
+<li>
+<p><strong>PreProcessing</strong>：这个类用来处理自定义函数和求和函数，并且把第一次作业中出现的一些化简步骤整合了进来。下面简要说明如何处理两种函数。</p>
 <ul>
-<li><p><b> 自定义函数 </b>：</p>
+<li>
+<p><b> 自定义函数 </b>：</p>
 <ul>
 <li>读入自定义函数的定义，根据等号划分为左右两部分，分别为 <code>defL</code> 和 <code>defR</code>，使用正则匹配的捕获组来捕获 <code>defL</code> 的函数名以及变量（按顺序）。注意在此之前需要得到此函数变量的数量，然后使用特定的 Pattern 来匹配（我定义了一个 Pattern 数组，用来存放不同变量数量的 <code>defL</code> 正则表达式）。</li>
-<li>当在输入中找到自定义函数（记为 <code>input</code>）的时候进行第二次正则匹配 &amp; 捕获（注意要找对函数名），按顺序获得需要代入的表达式，这样 <code>input</code> 和 <code>defL</code> 中参变量和实际表达式就以捕获组的序号进行了一一对应，方便处理如 <span class="math inline">\(f (y,x)=y-x\)</span> 等参变量不按顺序出现的自定义函数。</li>
-<li>读取 <code>defR</code>，将参变量替换为对应需要代入的表达式即可（记得在每个代入的表达式外套一层括号来表示这是一个整体，防止替换回去之后产生错误），这里需要注意的一点是如果先进行了 <span class="math inline">\(y\)</span> 或者 <span class="math inline">\(z\)</span> 的替换而参变量中有 <span class="math inline">\(x\)</span>，那么在将 <span class="math inline">\(y\)</span> 替换为含 <span class="math inline">\(x\)</span> 的表达式之后可能会重复替换 <span class="math inline">\(x\)</span>（比如 <span class="math inline">\(f (y,x)=y-x\)</span>，<code>input</code> 为 <span class="math inline">\(f (x,x+1)\)</span>，那么替换过程就是 <span class="math inline">\(y-x\rightarrow x-x\rightarrow (x+1)-(x+1)\rightarrow 0\)</span>，这显然是不正确的）。这里我的解决方法是：在替换的时候都把 <span class="math inline">\(x\)</span> 替换为不相关的字符 <span class="math inline">\(w\)</span>，最后再统一 <code>replaceAll ("w","x")</code> 即可。</li>
+<li>当在输入中找到自定义函数（记为 <code>input</code>）的时候进行第二次正则匹配 &amp; 捕获（注意要找对函数名），按顺序获得需要代入的表达式，这样 <code>input</code> 和 <code>defL</code> 中参变量和实际表达式就以捕获组的序号进行了一一对应，方便处理如 $f (y,x)=y-x$ 等参变量不按顺序出现的自定义函数。</li>
+<li>读取 <code>defR</code>，将参变量替换为对应需要代入的表达式即可（记得在每个代入的表达式外套一层括号来表示这是一个整体，防止替换回去之后产生错误），这里需要注意的一点是如果先进行了 $y$ 或者 $z$ 的替换而参变量中有 $x$，那么在将 $y$ 替换为含 $x$ 的表达式之后可能会重复替换 $x$（比如 $f (y,x)=y-x$，<code>input</code> 为 $f (x,x+1)$，那么替换过程就是 $y-x\rightarrow x-x\rightarrow (x+1)-(x+1)\rightarrow 0$，这显然是不正确的）。这里我的解决方法是：在替换的时候都把 $x$ 替换为不相关的字符 $w$，最后再统一 <code>replaceAll (&quot;w&quot;,&quot;x&quot;)</code> 即可。</li>
 </ul>
-<p>在处理自定义函数的时候，助教一再强调不要暴力字符串替换，而是 <b> 先对表达式进行建模，再代入原式 </b> ，奈何我没有想到很好的建模方法，于是只是使用了暴力替换。不过如果用表达式树处理的话建模会方便很多，可以先对各个表达式建一棵树，代入的时候替换掉上面的节点再插入原来的表达式树即可。</p></li>
-<li><p><b> 求和函数 </b>：也是使用了字符串替换的方法，通过循环 + StringBuilder 构建需要替换的字符串。这里有三个需要注意的点：</p>
+<p>在处理自定义函数的时候，助教一再强调不要暴力字符串替换，而是 <b> 先对表达式进行建模，再代入原式 </b> ，奈何我没有想到很好的建模方法，于是只是使用了暴力替换。不过如果用表达式树处理的话建模会方便很多，可以先对各个表达式建一棵树，代入的时候替换掉上面的节点再插入原来的表达式树即可。</p>
+</li>
+<li>
+<p><b> 求和函数 </b>：也是使用了字符串替换的方法，通过循环 + StringBuilder 构建需要替换的字符串。这里有三个需要注意的点：</p>
 <ul>
-<li><span class="math inline">\(sin\)</span> 中也包含字母 i，替换的时候要小心。可以先把三角函数名提前换为 s&amp;c 来解决。</li>
+<li>$sin$ 中也包含字母 i，替换的时候要小心。可以先把三角函数名提前换为 s&amp;c 来解决。</li>
 <li>如果求和上限小于下限，则本项应为 0。</li>
 <li>求和上下限最好定义为 <code>BigInteger</code> 类型防止溢出。</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Lexer&amp;Parser&amp;Token</strong>：和第一次作业基本相同。</p></li>
 </ul>
-<h3 id="基于度量的结构分析-1">基于度量的结构分析</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322174205046.png"></p>
-<p>​ 根据 CogC 指标排序发现，认知复杂度较高的方法前两位仍然是 <code>parseUnit ()</code> 和 <code>output ()</code>，这是更复杂的因子定义和更复杂的输出逻辑造成的。此外一些化简方法的复杂度也较高。</p>
-<h3 id="bug-分析-1">bug 分析</h3>
-<p>​ 本次作业在强测和互测中都没有出现 bug，不过强测中一些点的性能分不高，这是因为我用原始的字符串来存储三角函数的内容，处理 <span class="math inline">\(sin (0)/cos (0)\)</span> 的化简时只考虑到字符串内容为 “0” 而忽视了 <span class="math inline">\(sin (-0)\)</span>、<span class="math inline">\(cos (+0)\)</span> 等，造成没有化简完全的情况。</p>
-<h2 id="第三次作业">- 第三次作业</h2>
-<p>​ 第三次作业在第二次作业的基础上允许了自定义函数的嵌套（求和函数内不允许出现自定义函数），同时三角函数内可以为表达式。</p>
-<h3 id="程序架构-2">程序架构</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322175955155.png"></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Lexer&amp;Parser&amp;Token</strong>：和第一次作业基本相同。</p>
+</li>
+</ul>
+<h3 id="基于度量的结构分析-v2"><a class="header-anchor" href="#基于度量的结构分析-v2">¶</a>基于度量的结构分析</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322174205046.png" alt></p>
+<p>​		根据 CogC 指标排序发现，认知复杂度较高的方法前两位仍然是 <code>parseUnit ()</code> 和 <code>output ()</code>，这是更复杂的因子定义和更复杂的输出逻辑造成的。此外一些化简方法的复杂度也较高。</p>
+<h3 id="bug-分析-v2"><a class="header-anchor" href="#bug-分析-v2">¶</a>bug 分析</h3>
+<p>​		本次作业在强测和互测中都没有出现 bug，不过强测中一些点的性能分不高，这是因为我用原始的字符串来存储三角函数的内容，处理 $sin (0)/cos (0)$ 的化简时只考虑到字符串内容为 “0” 而忽视了 $sin (-0)$、$cos (+0)$ 等，造成没有化简完全的情况。</p>
+<h2 id="第三次作业"><a class="header-anchor" href="#第三次作业">¶</a>- 第三次作业</h2>
+<p>​		第三次作业在第二次作业的基础上允许了自定义函数的嵌套（求和函数内不允许出现自定义函数），同时三角函数内可以为表达式。</p>
+<h3 id="程序架构-v3"><a class="header-anchor" href="#程序架构-v3">¶</a>程序架构</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322175955155.png" alt></p>
 <p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
-<p>​ 第三次作业在第二次作业的基础上只需要改动很少就可以，所以保持了原来的架构。其中最核心的改动是将 Poly 中存储三角函数的结构改为 <code>HashMap&lt;Element,BigInteger&gt;</code>，并～（差不多）~ 重写了 Poly 和 Element 的 <code>equals ()</code> 方法。</p>
-<p>​ 但是如果想要化简结果，则需要耗费很多时间来完善代码和测试。我花了大概两天时间才基本完成大概化简方法，其中有无数次测试 <span class="math inline">\(\rightarrow\)</span> 发现 bug<span class="math inline">\(\rightarrow\)</span> 修改代码 <span class="math inline">\(\rightarrow\)</span> 测试的循环😭。最核心的是三角函数平方和的化简，大致的逻辑为：</p>
+<p>​		第三次作业在第二次作业的基础上只需要改动很少就可以，所以保持了原来的架构。其中最核心的改动是将 Poly 中存储三角函数的结构改为 <code>HashMap&lt;Element,BigInteger&gt;</code>，并～（差不多）~ 重写了 Poly 和 Element 的 <code>equals ()</code> 方法。</p>
+<p>​		但是如果想要化简结果，则需要耗费很多时间来完善代码和测试。我花了大概两天时间才基本完成大概化简方法，其中有无数次测试 $\rightarrow$ 发现 bug$\rightarrow$ 修改代码 $\rightarrow$ 测试的循环😭。最核心的是三角函数平方和的化简，大致的逻辑为：</p>
 <ul>
-<li>遍历 Element 的 <code>HashMap</code>，看是否同时有两个不同的项，其中一个 <span class="math inline">\(sin\)</span> 的次数大于等于 2，另一个 <span class="math inline">\(cos\)</span> 的次数大于等于 2，并且其中包含的内容相同（<b> 这里需要重写 <code>equals ()</code> 方法 </b>，我自己另外写了一个 <code>equal ()</code> 来替代，这是不明智的做法）。其中内容相同的第一要素是三角函数中 Element 的 <code>HashMap</code> 的大小相同，所以需要在每次运算之后进行一次同类项合并。</li>
-<li>判断这两项在分别将第一步找出来的 <span class="math inline">\(sin\)</span> 和 <span class="math inline">\(cos\)</span> 次数减去 2 之后，剩下的部分是否相同，如果相同，则把 <span class="math inline">\(cos\)</span> 那项的系数减过去，而它自己丢掉一个 <span class="math inline">\(cos^2\)</span>。比如 <span class="math display">\[x*sin^3 (x+1)+2*cos^2 (x+1)*x*sin (x+1)\]</span> 化简为 <span class="math display">\[-x*sin^3 (x+1)+x*sin (x+1)\]</span> ，本质上就是作了 <span class="math inline">\(cos^2 P=1-sin^2 P\)</span> 的替换，虽然不是每个表达式都能完全化简，不过在相当一部分测试样例中都是奏效的。</li>
+<li>遍历 Element 的 <code>HashMap</code>，看是否同时有两个不同的项，其中一个 $sin$ 的次数大于等于 2，另一个 $cos$ 的次数大于等于 2，并且其中包含的内容相同（<b> 这里需要重写 <code>equals ()</code> 方法 </b>，我自己另外写了一个 <code>equal ()</code> 来替代，这是不明智的做法）。其中内容相同的第一要素是三角函数中 Element 的 <code>HashMap</code> 的大小相同，所以需要在每次运算之后进行一次同类项合并。</li>
+<li>判断这两项在分别将第一步找出来的 $sin$ 和 $cos$ 次数减去 2 之后，剩下的部分是否相同，如果相同，则把 $cos$ 那项的系数减过去，而它自己丢掉一个 $cos^2$。比如 $$x<em>sin^3 (x+1)+2</em>cos^2 (x+1)<em>x</em>sin (x+1)$$ 化简为 $$-x<em>sin^3 (x+1)+x</em>sin (x+1)$$ ，本质上就是作了 $cos^2 P=1-sin^2 P$ 的替换，虽然不是每个表达式都能完全化简，不过在相当一部分测试样例中都是奏效的。</li>
 </ul>
-<p>​ <b> 这里一个重要的点是深拷贝 / 浅拷贝的区别，比如第二步去掉 <span class="math inline">\(cos^2\)</span> 只需浅拷贝，直接修改 <code>this</code> 的 Poly 就可以，但是第一步中判断” 包含的内容相同 “时，不能真的分别去掉 <span class="math inline">\(sin^2\)</span> 和 <span class="math inline">\(cos^2\)</span>，而是需要复制一份独立的副本（不是引用同一个地址的数据，而是两块独立的内存空间，其中的内容相同），为此可以直接写一个 <code>copy ()</code> 方法来复制，也可以用序列化方法来实现深拷贝（具体实现原理可以上网搜索）。</b></p>
+<p>​		<b> 这里一个重要的点是深拷贝 / 浅拷贝的区别，比如第二步去掉 $cos^2$ 只需浅拷贝，直接修改 <code>this</code> 的 Poly 就可以，但是第一步中判断” 包含的内容相同 “时，不能真的分别去掉 $sin^2$ 和 $cos^2$，而是需要复制一份独立的副本（不是引用同一个地址的数据，而是两块独立的内存空间，其中的内容相同），为此可以直接写一个 <code>copy ()</code> 方法来复制，也可以用序列化方法来实现深拷贝（具体实现原理可以上网搜索）。</b></p>
 <p>附序列化实现深拷贝的代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SerialCloneable</span> <span class="keyword">implements</span> <span class="title">Cloneable</span>,<span class="title">Serializable</span>  </span></span><br><span class="line"><span class="class"></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="keyword">try</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="comment">//save the object to a byte array  </span></span><br><span class="line">            ByteArrayOutputStream bout = <span class="keyword">new</span> ByteArrayOutputStream ();  </span><br><span class="line">            ObjectOutputStream out = <span class="keyword">new</span> ObjectOutputStream (bout);  </span><br><span class="line">            out.writeObject (<span class="keyword">this</span>);  </span><br><span class="line">            out.close ();  </span><br><span class="line"></span><br><span class="line">            <span class="comment">//read a clone of the object from the byte array  </span></span><br><span class="line">            ByteArrayInputStream bin = <span class="keyword">new</span> ByteArrayInputStream (bout.toByteArray ());  </span><br><span class="line">            ObjectInputStream in = <span class="keyword">new</span> ObjectInputStream (bin);  </span><br><span class="line">            Object result = in.readObject ();  </span><br><span class="line">            in.close ();  </span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> result;  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e)  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;    </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="基于度量的结构分析-2">基于度量的结构分析</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322182027486.png"></p>
-<p>​ 根据分析数据可知，认知复杂度较高的方法主要是化简和输出。本次作业中 <code>parseUnit ()</code> 方法被拆分了，所以复杂度有所降低。</p>
-<h3 id="bug-分析-2">bug 分析</h3>
-<p>​ 本次作业出现了一些 bug，分析如下：</p>
+<h3 id="基于度量的结构分析-v3"><a class="header-anchor" href="#基于度量的结构分析-v3">¶</a>基于度量的结构分析</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322182027486.png" alt></p>
+<p>​		根据分析数据可知，认知复杂度较高的方法主要是化简和输出。本次作业中 <code>parseUnit ()</code> 方法被拆分了，所以复杂度有所降低。</p>
+<h3 id="bug-分析-v3"><a class="header-anchor" href="#bug-分析-v3">¶</a>bug 分析</h3>
+<p>​		本次作业出现了一些 bug，分析如下：</p>
 <ul>
 <li>由于自定义函数允许嵌套，使用正则表达式捕获组处理输入的表达式会出现错误：
 <ul>
 <li><b> 正则表达式不能进行括号的匹配 </b>，可能会在嵌套的函数中间进行截断，导致程序结果错误甚至报错。</li>
 <li><b> 解决方法 </b>：自行实现自定义函数内部表达式的括号匹配，等价于自己重新写了一个” 更加智能 “的捕获组。</li>
-</ul></li>
+</ul>
+</li>
 <li>三角函数输出格式错误：
 <ul>
-<li><b><code>output ()</code> 调用的 <code>needBracket ()</code> 方法逻辑有误 </b> ，一些情况下会少输出一对三角函数内的括号，比如应该输出 <span class="math inline">\(sin ((5*cos (x)))\)</span> 而只输出了 <span class="math inline">\(sin (5*cos (x))\)</span>。</li>
+<li><b><code>output ()</code> 调用的 <code>needBracket ()</code> 方法逻辑有误 </b> ，一些情况下会少输出一对三角函数内的括号，比如应该输出 $sin ((5<em>cos (x)))$ 而只输出了 $sin (5</em>cos (x))$。</li>
 <li><b> 解决方法 </b>：调整 <code>needBracket ()</code> 内部的逻辑。</li>
-</ul></li>
 </ul>
-<h2 id="hack-策略">- hack 策略</h2>
-<p>​ 下载其他同学的代码更多是为了学习架构（毕竟也没有自动评测机 + 没有发现细枝末节的 bug），因此在第一单元的互测中我并没有查看很多同学的代码，更多还是提交边缘数据和测试中出现 bug 的数据。</p>
-<h2 id="架构设计评价">- 架构设计评价</h2>
-<p>​ 三次作业的架构给我最大的印象就是：<b> 居然没有使用接口和继承 </b>。</p>
-<p>​ 其实第一单元作业并没有给我一种逐渐摸索架构的感觉，因为从第一次作业使用 <code>HashMap</code> 处理各种元素之后，第二次作业我的第一个思路就是：如何填充 <code>HashMap</code> 来继续保持结构的统一性。于是后来增加的 Poly 类就不能算是架构很大的调整，无非是细枝末节的完善以迎合新的需求，最后的第三次作业也可以说完全继承了第一次作业的架构。</p>
-<p>​ 可能是因为找到了一个统一的数据结构来存储因子、项和表达式，我没有再对项目进行细化处理。所有的计算都包含在 Element 和 Poly 类中；所有的表达式整体化简都在 PreProcessing 类中；所有的词法语法分析都包含在 Lexer 和 Parser 类中，相互之间的依赖关系比较浅，一个类处理完后交给另一个类。总体来说类之间的耦合程度很低，每个类基本上在各司其职，内聚程度比较高。</p>
-<p>​ 但是我认为这种架构的可扩展性不够，并且没有很好遵守” 对新增开放、对修改关闭 “的编程原则。可以发现从第一次到第三次作业的过程中，Element 类在不断膨胀，虽然后两次中添加了 Poly 来” 分担 “处理表达式的职能，但是仍然不是一个很好的解决方案。如果后续还有第四次甚至第五次迭代，这个架构有两种结果：要么膨胀到复杂度极高的状态，要么只能推倒重构。如果想要提高可扩展性，可以将 Element 和 Parser 拆开，增加其他的表达式元素类并使用接口。</p>
-<h2 id="心得体会">- 心得体会</h2>
-<p>​ 面向对象第一单元到这里就告一段落了，在本学期开始之前，我对 OO 的设想是：无非只是学一门新语言而已，但是这一单元带给我的绝不止熟悉 Java 的语法那么简单。面向对象不只是一种编程思想，还是一种理解世界的抽象化思维，它更加贴近人们平常认识事物的方式，并且便于迭代开发（这一单元使用面向过程恐怕最多可以通过第一次作业）。无论是对未来的程序设计还是对认识世界的思维方式，面向对象思想都大有可用之处。</p>
+</li>
+</ul>
+<h2 id="hack-策略"><a class="header-anchor" href="#hack-策略">¶</a>- hack 策略</h2>
+<p>​		下载其他同学的代码更多是为了学习架构（毕竟也没有自动评测机 + 没有发现细枝末节的 bug），因此在第一单元的互测中我并没有查看很多同学的代码，更多还是提交边缘数据和测试中出现 bug 的数据。</p>
+<h2 id="架构设计评价"><a class="header-anchor" href="#架构设计评价">¶</a>- 架构设计评价</h2>
+<p>​		三次作业的架构给我最大的印象就是：<b> 居然没有使用接口和继承 </b>。</p>
+<p>​		其实第一单元作业并没有给我一种逐渐摸索架构的感觉，因为从第一次作业使用 <code>HashMap</code> 处理各种元素之后，第二次作业我的第一个思路就是：如何填充 <code>HashMap</code> 来继续保持结构的统一性。于是后来增加的 Poly 类就不能算是架构很大的调整，无非是细枝末节的完善以迎合新的需求，最后的第三次作业也可以说完全继承了第一次作业的架构。</p>
+<p>​		可能是因为找到了一个统一的数据结构来存储因子、项和表达式，我没有再对项目进行细化处理。所有的计算都包含在 Element 和 Poly 类中；所有的表达式整体化简都在 PreProcessing 类中；所有的词法语法分析都包含在 Lexer 和 Parser 类中，相互之间的依赖关系比较浅，一个类处理完后交给另一个类。总体来说类之间的耦合程度很低，每个类基本上在各司其职，内聚程度比较高。</p>
+<p>​		但是我认为这种架构的可扩展性不够，并且没有很好遵守” 对新增开放、对修改关闭 “的编程原则。可以发现从第一次到第三次作业的过程中，Element 类在不断膨胀，虽然后两次中添加了 Poly 来” 分担 “处理表达式的职能，但是仍然不是一个很好的解决方案。如果后续还有第四次甚至第五次迭代，这个架构有两种结果：要么膨胀到复杂度极高的状态，要么只能推倒重构。如果想要提高可扩展性，可以将 Element 和 Parser 拆开，增加其他的表达式元素类并使用接口。</p>
+<h2 id="心得体会"><a class="header-anchor" href="#心得体会">¶</a>- 心得体会</h2>
+<p>​		面向对象第一单元到这里就告一段落了，在本学期开始之前，我对 OO 的设想是：无非只是学一门新语言而已，但是这一单元带给我的绝不止熟悉 Java 的语法那么简单。面向对象不只是一种编程思想，还是一种理解世界的抽象化思维，它更加贴近人们平常认识事物的方式，并且便于迭代开发（这一单元使用面向过程恐怕最多可以通过第一次作业）。无论是对未来的程序设计还是对认识世界的思维方式，面向对象思想都大有可用之处。</p>
 ]]></content>
       <tags>
         <tag>BUAA OO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「复分析」Chapter1：微积分</title>
+    <url>/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/</url>
+    <content><![CDATA[<h2 id="一、回顾"><a class="header-anchor" href="#一、回顾">¶</a>一、回顾</h2>
+<h4 id="外微分形式（-R-3-）"><a class="header-anchor" href="#外微分形式（-R-3-）">¶</a>外微分形式（$R^3$）</h4>
+<ul>
+<li>
+<p>$\mathrm {d} x$ 与 $\mathrm {d} y$ 外乘积记作 $\mathrm {d} x∧\mathrm {d} y$，且有关系 $\mathrm {d} x∧\mathrm {d} y=-\mathrm {d} y∧\mathrm {d} x$.</p>
+<span id="more"></span>
+</li>
+<li>
+<p>对外微分形式 $\omega$ 定义微分算子 $\mathrm {d}$，则有：</p>
+</li>
+</ul>
+<h5 id="①-omega-f-rightarrow-mathrm-d-omega-frac-partial-f-partial-x-mathrm-d-x-frac-partial-f-partial-y-mathrm-d-y-frac-partial-f-partial-z-mathrm-d-z"><a class="header-anchor" href="#①-omega-f-rightarrow-mathrm-d-omega-frac-partial-f-partial-x-mathrm-d-x-frac-partial-f-partial-y-mathrm-d-y-frac-partial-f-partial-z-mathrm-d-z">¶</a>$①\omega=f \rightarrow \mathrm {d}\omega=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y+\frac {\partial f}{\partial z}\mathrm {d} z$</h5>
+<h5 id="begin-split-②-omega-sum-limits-cyc-A-mathrm-d-y-wedge-mathrm-d-z-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-A-partial-x-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-end-split"><a class="header-anchor" href="#begin-split-②-omega-sum-limits-cyc-A-mathrm-d-y-wedge-mathrm-d-z-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-A-partial-x-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-end-split">¶</a>$\begin {split}②&amp;\omega=\sum\limits_{cyc} A\mathrm {d} y\wedge \mathrm {d} z \&amp;\Rightarrow \mathrm {d}\omega=(\sum\limits_{cyc} \frac {\partial A}{\partial x})\mathrm {d} x\wedge \mathrm {d} y\wedge \mathrm {d} z\end {split}$</h5>
+<h5 id="begin-split-③-omega-P-mathrm-d-x-Q-mathrm-d-y-R-mathrm-d-z-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-R-partial-y-frac-partial-Q-partial-z-mathrm-d-y∧-mathrm-d-z-end-split"><a class="header-anchor" href="#begin-split-③-omega-P-mathrm-d-x-Q-mathrm-d-y-R-mathrm-d-z-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-R-partial-y-frac-partial-Q-partial-z-mathrm-d-y∧-mathrm-d-z-end-split">¶</a>$\begin {split}③\ &amp;\omega =P\mathrm {d} x+Q\mathrm {d} y+R\mathrm {d} z\&amp;\Rightarrow \mathrm {d}\omega=\sum\limits_{cyc}(\frac {\partial R}{\partial y}-\frac {\partial Q}{\partial z})\mathrm {d} y∧\mathrm {d} z \end {split}$</h5>
+<h5 id="④-omega-H-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-Rightarrow-mathrm-d-omega-0"><a class="header-anchor" href="#④-omega-H-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-Rightarrow-mathrm-d-omega-0">¶</a>$④\omega = H \mathrm {d} x\wedge\mathrm {d} y\wedge\mathrm {d} z\Rightarrow\mathrm {d}\omega=0$</h5>
+<ul>
+<li>
+<p>$(Poincare\ Lemma)$​	$\omega$​是外微分形式且系数有二阶连续偏导等价于 $\mathrm {d}\mathrm {d}\omega=0$​.（即若 $p$​次外微分形式 $\omega$​有 $\mathrm {d}\omega=0$​则存在 $p-1$​次外微分形式 $\alpha$​使得 $\omega=\mathrm {d}\alpha$​）</p>
+</li>
+<li>
+<p>统一 $Green、Gauss、Stokes$​公式：$$\begin {align}\int_{\partial\Sigma}\ \omega=\int_{\Sigma}\ \mathrm {d}\omega\end {align}$$.​</p>
+</li>
+</ul>
+<h2 id="二、复微分"><a class="header-anchor" href="#二、复微分">¶</a>二、复微分</h2>
+<ul>
+<li>$f:\mathbb {C}\rightarrow\mathbb {C}$​，导数定义类似。若 $f (z)$​在定义域上每一点可微，则称 $f$​ 解析或全纯.</li>
+<li>$(Cauchy-Riemann)$​	若 $f (z)=u (x,y)+iv (x,y)$​在 $z_{0}=x_{0}+iy_{0}$​处可微，则有</li>
+</ul>
+<p>$$<br>
+\begin {align} f’(z_{0})&amp;=u’<em>{x}(x</em>{0},y_{0})+iv’<em>{x}(x</em>{0},y_{0})\&amp;=v’<em>{y}(x</em>{0},y_{0})-iu’<em>{x}(x</em>{0},y_{0})\end {align}<br>
+$$</p>
+<p>，由此立即推出：<br>
+$$<br>
+\begin {aligned}\frac {\partial f}{\partial x}+i\frac {\partial f}{\partial y}=0\ or\left{\begin {matrix} u’<em>{x}=v’</em>{y}\u’<em>{y}=-v’</em>{x}\end {matrix}\right.\end {aligned}<br>
+$$</p>
+<ul>
+<li>
+<p>$f (z)=u+iv$ 在 $D$ 内全纯 $\Leftrightarrow$$u,v$ 在 $D$ 内有一阶连续偏微商且满足 $Cauchy-Riemann$ 条件.</p>
+</li>
+<li>
+<p>事实上，如果 $f (z)=u+iv$​在 $D$​内全纯，则 $f’(z)$​也在 $D$​内全纯，由此得到 $\Delta u=\Delta v=0$​.</p>
+</li>
+<li>
+<p>引入记号：<br>
+$$<br>
+\left{<br>
+\begin {align}<br>
+\frac {\partial}{\partial z}=\frac {1}{2}(\frac {\partial}{\partial x}-i\frac {\partial}{\partial y})\<br>
+\frac {\partial}{\partial \bar {z}}=\frac {1}{2}(\frac {\partial}{\partial x}+i\frac {\partial}{\partial y})<br>
+\end {align}.<br>
+\right.<br>
+$$</p>
+</li>
+</ul>
+<p>则 $f$ 全纯 $\Leftrightarrow$ $\begin {align}\frac {\partial f}{\partial \bar {z}}=0\end {align}$，同时 $\begin {align}\Delta =4\frac {\partial^2}{\partial z\partial \bar {z}}=4\frac {\partial^2}{\partial \bar {z}\partial z}\end {align}$.</p>
+<ul>
+<li>$\begin {align}\mathrm {d} f=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y=\frac {\partial f}{\partial z}\mathrm {d} z+\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z}  \end {align}$， 记 $\begin {align}\partial f=\frac {\partial f}{\partial z}\mathrm {d} z,\bar {\partial} f=\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z} \end {align}$，则 $\mathrm {d}=\partial+\bar {\partial}$.</li>
+<li>（共形性）设 $f$ 在 $D$ 全纯，$z_0\in D$ 且 $f’(z_0)\neq0$，曲线 $\gamma$ 满足 $\gamma (t)\ (0\leq t\leq1)$ 在 $D$ 内过 $z_0$ 且 $\gamma (0)=z_0$，$\gamma (t)$ 在 $z_0$ 处和实轴的夹角为 $arg\ \gamma’(t)$，$f$ 把 $\gamma$ 映射成曲线 $\sigma (t)=f (\gamma (t))$，则 $\sigma’(t)=\gamma’(t) f’(\gamma (t))$，因此 $arg\ f’(z_0)=arg\ \sigma’(0)-arg\ \gamma’(0)$<strong>（保角性）</strong>. 另外，有 $\begin {align}\frac {\vert {f (z)-f (z_0)}\vert}{\vert z-z_0\vert}=\frac {\vert\omega-\omega_0\vert}{\vert z-z_0\vert}\rightarrow\vert f’(z_0)\vert (z\rightarrow z_0,z\in \gamma) \end {align}$.</li>
+</ul>
+<h2 id="三、复积分"><a class="header-anchor" href="#三、复积分">¶</a>三、复积分</h2>
+<ul>
+<li>
+<p>$\begin {align} f=u+iv\Rightarrow\int f (t)\mathrm {d} t=\int u (t)\mathrm {d} t+i\int v (t)\mathrm {d} t \end {align}.$</p>
+</li>
+<li>
+<p>若 $\gamma$ 可求长，则：$\begin {align}\int_\gamma f (z)\mathrm {d} z=\int_\gamma (u+iv)(\mathrm {d} x+i\mathrm {d} y) \end {align}.$</p>
+</li>
+<li>
+<p>复外微分形式：$\mathrm {d}\bar {z} \wedge \mathrm {d} z=2i\mathrm {d} x\wedge\mathrm {d} y=2i\mathrm {d} A.$</p>
+</li>
+<li>
+<p>复形式的 Green 公式：若 $\omega=\omega_1\mathrm {d} z+\omega_2\mathrm {d} z$ 为 $\Omega$ 上的一次外微分算子，$\omega_1,\omega_2$ 为 $z,\bar {z}$ 的可微函数，则有 $\begin {align}\int_{\partial \Omega}\omega=\iint_\Omega \mathrm {d}\omega \end {align}.$</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>复分析</tag>
       </tags>
   </entry>
 </search>
