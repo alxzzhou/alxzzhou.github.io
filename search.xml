@@ -75,6 +75,64 @@
       </tags>
   </entry>
   <entry>
+    <title>「复分析」Chapter1：微积分</title>
+    <url>/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/</url>
+    <content><![CDATA[<h2 id="一回顾">一、回顾</h2>
+<h4 id="外微分形式r3">外微分形式（<span class="math inline">\(R^3\)</span>）</h4>
+<ul>
+<li><p><span class="math inline">\(\mathrm {d} x\)</span> 与 <span class="math inline">\(\mathrm {d} y\)</span> 外乘积记作 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y\)</span>，且有关系 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y=-\mathrm {d} y∧\mathrm {d} x\)</span>.</p>
+<span id="more"></span></li>
+<li><p>对外微分形式 <span class="math inline">\(\omega\)</span> 定义微分算子 <span class="math inline">\(\mathrm {d}\)</span>，则有：</p></li>
+</ul>
+<h5 id="omegaf-rightarrow-mathrm-domegafrac-partial-fpartial-xmathrm-d-xfrac-partial-fpartial-ymathrm-d-yfrac-partial-fpartial-zmathrm-d-z"><span class="math inline">\(①\omega=f \rightarrow \mathrm {d}\omega=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y+\frac {\partial f}{\partial z}\mathrm {d} z\)</span></h5>
+<h5 id="begin-split②omegasumlimits_cyc-amathrm-d-ywedge-mathrm-d-z-rightarrow-mathrm-domegasumlimits_cyc-frac-partial-apartial-xmathrm-d-xwedge-mathrm-d-ywedge-mathrm-d-zend-split"><span class="math inline">\(\begin {split}②&amp;\omega=\sum\limits_{cyc} A\mathrm {d} y\wedge \mathrm {d} z \\&amp;\Rightarrow \mathrm {d}\omega=(\sum\limits_{cyc} \frac {\partial A}{\partial x})\mathrm {d} x\wedge \mathrm {d} y\wedge \mathrm {d} z\end {split}\)</span></h5>
+<h5 id="begin-split③-omega-pmathrm-d-xqmathrm-d-yrmathrm-d-zrightarrow-mathrm-domegasumlimits_cycfrac-partial-rpartial-y-frac-partial-qpartial-zmathrm-d-ymathrm-d-z-end-split"><span class="math inline">\(\begin {split}③\ &amp;\omega =P\mathrm {d} x+Q\mathrm {d} y+R\mathrm {d} z\\&amp;\Rightarrow \mathrm {d}\omega=\sum\limits_{cyc}(\frac {\partial R}{\partial y}-\frac {\partial Q}{\partial z})\mathrm {d} y∧\mathrm {d} z \end {split}\)</span></h5>
+<h5 id="omega-h-mathrm-d-xwedgemathrm-d-ywedgemathrm-d-zrightarrowmathrm-domega0"><span class="math inline">\(④\omega = H \mathrm {d} x\wedge\mathrm {d} y\wedge\mathrm {d} z\Rightarrow\mathrm {d}\omega=0\)</span></h5>
+<ul>
+<li><p><span class="math inline">\((Poincare\ Lemma)\)</span>​ <span class="math inline">\(\omega\)</span>​是外微分形式且系数有二阶连续偏导等价于 <span class="math inline">\(\mathrm {d}\mathrm {d}\omega=0\)</span>​.（即若 <span class="math inline">\(p\)</span>​次外微分形式 <span class="math inline">\(\omega\)</span>​有 <span class="math inline">\(\mathrm {d}\omega=0\)</span>​则存在 <span class="math inline">\(p-1\)</span>​次外微分形式 <span class="math inline">\(\alpha\)</span>​使得 <span class="math inline">\(\omega=\mathrm {d}\alpha\)</span>​）</p></li>
+<li><p>统一 <span class="math inline">\(Green、Gauss、Stokes\)</span>​公式：<span class="math display">\[\begin {align}\int_{\partial\Sigma}\ \omega=\int_{\Sigma}\ \mathrm {d}\omega\end {align}\]</span>.​</p></li>
+</ul>
+<h2 id="二复微分">二、复微分</h2>
+<ul>
+<li><span class="math inline">\(f:\mathbb {C}\rightarrow\mathbb {C}\)</span>​，导数定义类似。若 <span class="math inline">\(f (z)\)</span>​在定义域上每一点可微，则称 <span class="math inline">\(f\)</span>​ 解析或全纯.</li>
+<li><span class="math inline">\((Cauchy-Riemann)\)</span>​ 若 <span class="math inline">\(f (z)=u (x,y)+iv (x,y)\)</span>​在 <span class="math inline">\(z_{0}=x_{0}+iy_{0}\)</span>​处可微，则有</li>
+</ul>
+<p><span class="math display">\[
+\begin {align} f&#39;(z_{0})&amp;=u&#39;_{x}(x_{0},y_{0})+iv&#39;_{x}(x_{0},y_{0})\\&amp;=v&#39;_{y}(x_{0},y_{0})-iu&#39;_{x}(x_{0},y_{0})\end {align}
+\]</span></p>
+<p>，由此立即推出： <span class="math display">\[
+\begin {aligned}\frac {\partial f}{\partial x}+i\frac {\partial f}{\partial y}=0\ or\left\{\begin {matrix} u&#39;_{x}=v&#39;_{y}\\u&#39;_{y}=-v&#39;_{x}\end {matrix}\right.\end {aligned}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(f (z)=u+iv\)</span> 在 <span class="math inline">\(D\)</span> 内全纯 <span class="math inline">\(\Leftrightarrow\)</span><span class="math inline">\(u,v\)</span> 在 <span class="math inline">\(D\)</span> 内有一阶连续偏微商且满足 <span class="math inline">\(Cauchy-Riemann\)</span> 条件.</p></li>
+<li><p>事实上，如果 <span class="math inline">\(f (z)=u+iv\)</span>​在 <span class="math inline">\(D\)</span>​内全纯，则 <span class="math inline">\(f&#39;(z)\)</span>​也在 <span class="math inline">\(D\)</span>​内全纯，由此得到 <span class="math inline">\(\Delta u=\Delta v=0\)</span>​.</p></li>
+<li><p>引入记号： <span class="math display">\[
+\left\{
+\begin {align}
+\frac {\partial}{\partial z}=\frac {1}{2}(\frac {\partial}{\partial x}-i\frac {\partial}{\partial y})\\
+\frac {\partial}{\partial \bar {z}}=\frac {1}{2}(\frac {\partial}{\partial x}+i\frac {\partial}{\partial y})
+\end {align}.
+\right.
+\]</span></p></li>
+</ul>
+<p>则 <span class="math inline">\(f\)</span> 全纯 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\begin {align}\frac {\partial f}{\partial \bar {z}}=0\end {align}\)</span>，同时 <span class="math inline">\(\begin {align}\Delta =4\frac {\partial^2}{\partial z\partial \bar {z}}=4\frac {\partial^2}{\partial \bar {z}\partial z}\end {align}\)</span>.</p>
+<ul>
+<li><span class="math inline">\(\begin {align}\mathrm {d} f=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y=\frac {\partial f}{\partial z}\mathrm {d} z+\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z} \end {align}\)</span>， 记 <span class="math inline">\(\begin {align}\partial f=\frac {\partial f}{\partial z}\mathrm {d} z,\bar {\partial} f=\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z} \end {align}\)</span>，则 <span class="math inline">\(\mathrm {d}=\partial+\bar {\partial}\)</span>.</li>
+<li>（共形性）设 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(D\)</span> 全纯，<span class="math inline">\(z_0\in D\)</span> 且 <span class="math inline">\(f&#39;(z_0)\neq0\)</span>，曲线 <span class="math inline">\(\gamma\)</span> 满足 <span class="math inline">\(\gamma (t)\ (0\leq t\leq1)\)</span> 在 <span class="math inline">\(D\)</span> 内过 <span class="math inline">\(z_0\)</span> 且 <span class="math inline">\(\gamma (0)=z_0\)</span>，<span class="math inline">\(\gamma (t)\)</span> 在 <span class="math inline">\(z_0\)</span> 处和实轴的夹角为 <span class="math inline">\(arg\ \gamma&#39;(t)\)</span>，<span class="math inline">\(f\)</span> 把 <span class="math inline">\(\gamma\)</span> 映射成曲线 <span class="math inline">\(\sigma (t)=f (\gamma (t))\)</span>，则 <span class="math inline">\(\sigma&#39;(t)=\gamma&#39;(t) f&#39;(\gamma (t))\)</span>，因此 <span class="math inline">\(arg\ f&#39;(z_0)=arg\ \sigma&#39;(0)-arg\ \gamma&#39;(0)\)</span><strong>（保角性）</strong>. 另外，有 <span class="math inline">\(\begin {align}\frac {\vert {f (z)-f (z_0)}\vert}{\vert z-z_0\vert}=\frac {\vert\omega-\omega_0\vert}{\vert z-z_0\vert}\rightarrow\vert f&#39;(z_0)\vert (z\rightarrow z_0,z\in \gamma) \end {align}\)</span>.</li>
+</ul>
+<h2 id="三复积分">三、复积分</h2>
+<ul>
+<li><p><span class="math inline">\(\begin {align} f=u+iv\Rightarrow\int f (t)\mathrm {d} t=\int u (t)\mathrm {d} t+i\int v (t)\mathrm {d} t \end {align}.\)</span></p></li>
+<li><p>若 <span class="math inline">\(\gamma\)</span> 可求长，则：<span class="math inline">\(\begin {align}\int_\gamma f (z)\mathrm {d} z=\int_\gamma (u+iv)(\mathrm {d} x+i\mathrm {d} y) \end {align}.\)</span></p></li>
+<li><p>复外微分形式：<span class="math inline">\(\mathrm {d}\bar {z} \wedge \mathrm {d} z=2i\mathrm {d} x\wedge\mathrm {d} y=2i\mathrm {d} A.\)</span></p></li>
+<li><p>复形式的 Green 公式：若 <span class="math inline">\(\omega=\omega_1\mathrm {d} z+\omega_2\mathrm {d} z\)</span> 为 <span class="math inline">\(\Omega\)</span> 上的一次外微分算子，<span class="math inline">\(\omega_1,\omega_2\)</span> 为 <span class="math inline">\(z,\bar {z}\)</span> 的可微函数，则有 <span class="math inline">\(\begin {align}\int_{\partial \Omega}\omega=\iint_\Omega \mathrm {d}\omega \end {align}.\)</span></p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>复分析</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BUAA OO U1 Review</title>
     <url>/2022/03/22/BUAA-OO-U1-Review/</url>
     <content><![CDATA[<h1 id="buaa-oo-第一单元总结">BUAA OO 第一单元总结</h1>
@@ -185,64 +243,6 @@
 ]]></content>
       <tags>
         <tag>BUAA OO</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>「复分析」Chapter1：微积分</title>
-    <url>/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/</url>
-    <content><![CDATA[<h2 id="一回顾">一、回顾</h2>
-<h4 id="外微分形式r3">外微分形式（<span class="math inline">\(R^3\)</span>）</h4>
-<ul>
-<li><p><span class="math inline">\(\mathrm {d} x\)</span> 与 <span class="math inline">\(\mathrm {d} y\)</span> 外乘积记作 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y\)</span>，且有关系 <span class="math inline">\(\mathrm {d} x∧\mathrm {d} y=-\mathrm {d} y∧\mathrm {d} x\)</span>.</p>
-<span id="more"></span></li>
-<li><p>对外微分形式 <span class="math inline">\(\omega\)</span> 定义微分算子 <span class="math inline">\(\mathrm {d}\)</span>，则有：</p></li>
-</ul>
-<h5 id="omegaf-rightarrow-mathrm-domegafrac-partial-fpartial-xmathrm-d-xfrac-partial-fpartial-ymathrm-d-yfrac-partial-fpartial-zmathrm-d-z"><span class="math inline">\(①\omega=f \rightarrow \mathrm {d}\omega=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y+\frac {\partial f}{\partial z}\mathrm {d} z\)</span></h5>
-<h5 id="begin-split②omegasumlimits_cyc-amathrm-d-ywedge-mathrm-d-z-rightarrow-mathrm-domegasumlimits_cyc-frac-partial-apartial-xmathrm-d-xwedge-mathrm-d-ywedge-mathrm-d-zend-split"><span class="math inline">\(\begin {split}②&amp;\omega=\sum\limits_{cyc} A\mathrm {d} y\wedge \mathrm {d} z \\&amp;\Rightarrow \mathrm {d}\omega=(\sum\limits_{cyc} \frac {\partial A}{\partial x})\mathrm {d} x\wedge \mathrm {d} y\wedge \mathrm {d} z\end {split}\)</span></h5>
-<h5 id="begin-split③-omega-pmathrm-d-xqmathrm-d-yrmathrm-d-zrightarrow-mathrm-domegasumlimits_cycfrac-partial-rpartial-y-frac-partial-qpartial-zmathrm-d-ymathrm-d-z-end-split"><span class="math inline">\(\begin {split}③\ &amp;\omega =P\mathrm {d} x+Q\mathrm {d} y+R\mathrm {d} z\\&amp;\Rightarrow \mathrm {d}\omega=\sum\limits_{cyc}(\frac {\partial R}{\partial y}-\frac {\partial Q}{\partial z})\mathrm {d} y∧\mathrm {d} z \end {split}\)</span></h5>
-<h5 id="omega-h-mathrm-d-xwedgemathrm-d-ywedgemathrm-d-zrightarrowmathrm-domega0"><span class="math inline">\(④\omega = H \mathrm {d} x\wedge\mathrm {d} y\wedge\mathrm {d} z\Rightarrow\mathrm {d}\omega=0\)</span></h5>
-<ul>
-<li><p><span class="math inline">\((Poincare\ Lemma)\)</span>​ <span class="math inline">\(\omega\)</span>​是外微分形式且系数有二阶连续偏导等价于 <span class="math inline">\(\mathrm {d}\mathrm {d}\omega=0\)</span>​.（即若 <span class="math inline">\(p\)</span>​次外微分形式 <span class="math inline">\(\omega\)</span>​有 <span class="math inline">\(\mathrm {d}\omega=0\)</span>​则存在 <span class="math inline">\(p-1\)</span>​次外微分形式 <span class="math inline">\(\alpha\)</span>​使得 <span class="math inline">\(\omega=\mathrm {d}\alpha\)</span>​）</p></li>
-<li><p>统一 <span class="math inline">\(Green、Gauss、Stokes\)</span>​公式：<span class="math display">\[\begin {align}\int_{\partial\Sigma}\ \omega=\int_{\Sigma}\ \mathrm {d}\omega\end {align}\]</span>.​</p></li>
-</ul>
-<h2 id="二复微分">二、复微分</h2>
-<ul>
-<li><span class="math inline">\(f:\mathbb {C}\rightarrow\mathbb {C}\)</span>​，导数定义类似。若 <span class="math inline">\(f (z)\)</span>​在定义域上每一点可微，则称 <span class="math inline">\(f\)</span>​ 解析或全纯.</li>
-<li><span class="math inline">\((Cauchy-Riemann)\)</span>​ 若 <span class="math inline">\(f (z)=u (x,y)+iv (x,y)\)</span>​在 <span class="math inline">\(z_{0}=x_{0}+iy_{0}\)</span>​处可微，则有</li>
-</ul>
-<p><span class="math display">\[
-\begin {align} f&#39;(z_{0})&amp;=u&#39;_{x}(x_{0},y_{0})+iv&#39;_{x}(x_{0},y_{0})\\&amp;=v&#39;_{y}(x_{0},y_{0})-iu&#39;_{x}(x_{0},y_{0})\end {align}
-\]</span></p>
-<p>，由此立即推出： <span class="math display">\[
-\begin {aligned}\frac {\partial f}{\partial x}+i\frac {\partial f}{\partial y}=0\ or\left\{\begin {matrix} u&#39;_{x}=v&#39;_{y}\\u&#39;_{y}=-v&#39;_{x}\end {matrix}\right.\end {aligned}
-\]</span></p>
-<ul>
-<li><p><span class="math inline">\(f (z)=u+iv\)</span> 在 <span class="math inline">\(D\)</span> 内全纯 <span class="math inline">\(\Leftrightarrow\)</span><span class="math inline">\(u,v\)</span> 在 <span class="math inline">\(D\)</span> 内有一阶连续偏微商且满足 <span class="math inline">\(Cauchy-Riemann\)</span> 条件.</p></li>
-<li><p>事实上，如果 <span class="math inline">\(f (z)=u+iv\)</span>​在 <span class="math inline">\(D\)</span>​内全纯，则 <span class="math inline">\(f&#39;(z)\)</span>​也在 <span class="math inline">\(D\)</span>​内全纯，由此得到 <span class="math inline">\(\Delta u=\Delta v=0\)</span>​.</p></li>
-<li><p>引入记号： <span class="math display">\[
-\left\{
-\begin {align}
-\frac {\partial}{\partial z}=\frac {1}{2}(\frac {\partial}{\partial x}-i\frac {\partial}{\partial y})\\
-\frac {\partial}{\partial \bar {z}}=\frac {1}{2}(\frac {\partial}{\partial x}+i\frac {\partial}{\partial y})
-\end {align}.
-\right.
-\]</span></p></li>
-</ul>
-<p>则 <span class="math inline">\(f\)</span> 全纯 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\begin {align}\frac {\partial f}{\partial \bar {z}}=0\end {align}\)</span>，同时 <span class="math inline">\(\begin {align}\Delta =4\frac {\partial^2}{\partial z\partial \bar {z}}=4\frac {\partial^2}{\partial \bar {z}\partial z}\end {align}\)</span>.</p>
-<ul>
-<li><span class="math inline">\(\begin {align}\mathrm {d} f=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y=\frac {\partial f}{\partial z}\mathrm {d} z+\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z} \end {align}\)</span>， 记 <span class="math inline">\(\begin {align}\partial f=\frac {\partial f}{\partial z}\mathrm {d} z,\bar {\partial} f=\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z} \end {align}\)</span>，则 <span class="math inline">\(\mathrm {d}=\partial+\bar {\partial}\)</span>.</li>
-<li>（共形性）设 <span class="math inline">\(f\)</span> 在 <span class="math inline">\(D\)</span> 全纯，<span class="math inline">\(z_0\in D\)</span> 且 <span class="math inline">\(f&#39;(z_0)\neq0\)</span>，曲线 <span class="math inline">\(\gamma\)</span> 满足 <span class="math inline">\(\gamma (t)\ (0\leq t\leq1)\)</span> 在 <span class="math inline">\(D\)</span> 内过 <span class="math inline">\(z_0\)</span> 且 <span class="math inline">\(\gamma (0)=z_0\)</span>，<span class="math inline">\(\gamma (t)\)</span> 在 <span class="math inline">\(z_0\)</span> 处和实轴的夹角为 <span class="math inline">\(arg\ \gamma&#39;(t)\)</span>，<span class="math inline">\(f\)</span> 把 <span class="math inline">\(\gamma\)</span> 映射成曲线 <span class="math inline">\(\sigma (t)=f (\gamma (t))\)</span>，则 <span class="math inline">\(\sigma&#39;(t)=\gamma&#39;(t) f&#39;(\gamma (t))\)</span>，因此 <span class="math inline">\(arg\ f&#39;(z_0)=arg\ \sigma&#39;(0)-arg\ \gamma&#39;(0)\)</span><strong>（保角性）</strong>. 另外，有 <span class="math inline">\(\begin {align}\frac {\vert {f (z)-f (z_0)}\vert}{\vert z-z_0\vert}=\frac {\vert\omega-\omega_0\vert}{\vert z-z_0\vert}\rightarrow\vert f&#39;(z_0)\vert (z\rightarrow z_0,z\in \gamma) \end {align}\)</span>.</li>
-</ul>
-<h2 id="三复积分">三、复积分</h2>
-<ul>
-<li><p><span class="math inline">\(\begin {align} f=u+iv\Rightarrow\int f (t)\mathrm {d} t=\int u (t)\mathrm {d} t+i\int v (t)\mathrm {d} t \end {align}.\)</span></p></li>
-<li><p>若 <span class="math inline">\(\gamma\)</span> 可求长，则：<span class="math inline">\(\begin {align}\int_\gamma f (z)\mathrm {d} z=\int_\gamma (u+iv)(\mathrm {d} x+i\mathrm {d} y) \end {align}.\)</span></p></li>
-<li><p>复外微分形式：<span class="math inline">\(\mathrm {d}\bar {z} \wedge \mathrm {d} z=2i\mathrm {d} x\wedge\mathrm {d} y=2i\mathrm {d} A.\)</span></p></li>
-<li><p>复形式的 Green 公式：若 <span class="math inline">\(\omega=\omega_1\mathrm {d} z+\omega_2\mathrm {d} z\)</span> 为 <span class="math inline">\(\Omega\)</span> 上的一次外微分算子，<span class="math inline">\(\omega_1,\omega_2\)</span> 为 <span class="math inline">\(z,\bar {z}\)</span> 的可微函数，则有 <span class="math inline">\(\begin {align}\int_{\partial \Omega}\omega=\iint_\Omega \mathrm {d}\omega \end {align}.\)</span></p></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>复分析</tag>
       </tags>
   </entry>
 </search>
