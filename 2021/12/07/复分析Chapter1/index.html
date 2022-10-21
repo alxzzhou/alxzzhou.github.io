@@ -21,12 +21,12 @@
   <link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"alxzzhou.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="¶一、回顾 ¶外微分形式（$R^3$）   $\mathrm {d} x$ 与 $\mathrm {d} y$ 外乘积记作 $\mathrm {d} x∧\mathrm {d} y$，且有关系 $\mathrm {d} x∧\mathrm {d} y&#x3D;-\mathrm {d} y∧\mathrm {d} x$.">
+<meta name="description" content="一、回顾外微分形式（$R^3$） $\mathrm {d} x$ 与 $\mathrm {d} y$ 外乘积记作 $\mathrm {d} x∧\mathrm {d} y$，且有关系 $\mathrm {d} x∧\mathrm {d} y&#x3D;-\mathrm {d} y∧\mathrm {d} x$.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「复分析」Chapter1：微积分">
 <meta property="og:url" content="http://alxzzhou.github.io/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/index.html">
 <meta property="og:site_name" content="alxz&#39;s code &amp; math">
-<meta property="og:description" content="¶一、回顾 ¶外微分形式（$R^3$）   $\mathrm {d} x$ 与 $\mathrm {d} y$ 外乘积记作 $\mathrm {d} x∧\mathrm {d} y$，且有关系 $\mathrm {d} x∧\mathrm {d} y&#x3D;-\mathrm {d} y∧\mathrm {d} x$.">
+<meta property="og:description" content="一、回顾外微分形式（$R^3$） $\mathrm {d} x$ 与 $\mathrm {d} y$ 外乘积记作 $\mathrm {d} x∧\mathrm {d} y$，且有关系 $\mathrm {d} x∧\mathrm {d} y&#x3D;-\mathrm {d} y∧\mathrm {d} x$.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-07T04:21:49.000Z">
 <meta property="article:modified_time" content="2022-01-17T08:37:19.630Z">
@@ -277,79 +277,52 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="一、回顾"><a class="header-anchor" href="#一、回顾">¶</a>一、回顾</h2>
-<h4 id="外微分形式（-R-3-）"><a class="header-anchor" href="#外微分形式（-R-3-）">¶</a>外微分形式（$R^3$）</h4>
-<ul>
-<li>
-<p>$\mathrm {d} x$ 与 $\mathrm {d} y$ 外乘积记作 $\mathrm {d} x∧\mathrm {d} y$，且有关系 $\mathrm {d} x∧\mathrm {d} y=-\mathrm {d} y∧\mathrm {d} x$.</p>
+        <h2 id="一、回顾"><a href="#一、回顾" class="headerlink" title="一、回顾"></a>一、回顾</h2><h4 id="外微分形式（-R-3-）"><a href="#外微分形式（-R-3-）" class="headerlink" title="外微分形式（$R^3$）"></a>外微分形式（$R^3$）</h4><ul>
+<li><p>$\mathrm {d} x$ 与 $\mathrm {d} y$ 外乘积记作 $\mathrm {d} x∧\mathrm {d} y$，且有关系 $\mathrm {d} x∧\mathrm {d} y=-\mathrm {d} y∧\mathrm {d} x$.</p>
 <span id="more"></span>
 </li>
-<li>
-<p>对外微分形式 $\omega$ 定义微分算子 $\mathrm {d}$，则有：</p>
+<li><p>对外微分形式 $\omega$ 定义微分算子 $\mathrm {d}$，则有：</p>
 </li>
 </ul>
-<h5 id="①-omega-f-rightarrow-mathrm-d-omega-frac-partial-f-partial-x-mathrm-d-x-frac-partial-f-partial-y-mathrm-d-y-frac-partial-f-partial-z-mathrm-d-z"><a class="header-anchor" href="#①-omega-f-rightarrow-mathrm-d-omega-frac-partial-f-partial-x-mathrm-d-x-frac-partial-f-partial-y-mathrm-d-y-frac-partial-f-partial-z-mathrm-d-z">¶</a>$①\omega=f \rightarrow \mathrm {d}\omega=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y+\frac {\partial f}{\partial z}\mathrm {d} z$</h5>
-<h5 id="begin-split-②-omega-sum-limits-cyc-A-mathrm-d-y-wedge-mathrm-d-z-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-A-partial-x-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-end-split"><a class="header-anchor" href="#begin-split-②-omega-sum-limits-cyc-A-mathrm-d-y-wedge-mathrm-d-z-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-A-partial-x-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-end-split">¶</a>$\begin {split}②&amp;\omega=\sum\limits_{cyc} A\mathrm {d} y\wedge \mathrm {d} z \&amp;\Rightarrow \mathrm {d}\omega=(\sum\limits_{cyc} \frac {\partial A}{\partial x})\mathrm {d} x\wedge \mathrm {d} y\wedge \mathrm {d} z\end {split}$</h5>
-<h5 id="begin-split-③-omega-P-mathrm-d-x-Q-mathrm-d-y-R-mathrm-d-z-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-R-partial-y-frac-partial-Q-partial-z-mathrm-d-y∧-mathrm-d-z-end-split"><a class="header-anchor" href="#begin-split-③-omega-P-mathrm-d-x-Q-mathrm-d-y-R-mathrm-d-z-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-R-partial-y-frac-partial-Q-partial-z-mathrm-d-y∧-mathrm-d-z-end-split">¶</a>$\begin {split}③\ &amp;\omega =P\mathrm {d} x+Q\mathrm {d} y+R\mathrm {d} z\&amp;\Rightarrow \mathrm {d}\omega=\sum\limits_{cyc}(\frac {\partial R}{\partial y}-\frac {\partial Q}{\partial z})\mathrm {d} y∧\mathrm {d} z \end {split}$</h5>
-<h5 id="④-omega-H-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-Rightarrow-mathrm-d-omega-0"><a class="header-anchor" href="#④-omega-H-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-Rightarrow-mathrm-d-omega-0">¶</a>$④\omega = H \mathrm {d} x\wedge\mathrm {d} y\wedge\mathrm {d} z\Rightarrow\mathrm {d}\omega=0$</h5>
-<ul>
-<li>
-<p>$(Poincare\ Lemma)$​	$\omega$​是外微分形式且系数有二阶连续偏导等价于 $\mathrm {d}\mathrm {d}\omega=0$​.（即若 $p$​次外微分形式 $\omega$​有 $\mathrm {d}\omega=0$​则存在 $p-1$​次外微分形式 $\alpha$​使得 $\omega=\mathrm {d}\alpha$​）</p>
+<h5 id="①-omega-f-rightarrow-mathrm-d-omega-frac-partial-f-partial-x-mathrm-d-x-frac-partial-f-partial-y-mathrm-d-y-frac-partial-f-partial-z-mathrm-d-z"><a href="#①-omega-f-rightarrow-mathrm-d-omega-frac-partial-f-partial-x-mathrm-d-x-frac-partial-f-partial-y-mathrm-d-y-frac-partial-f-partial-z-mathrm-d-z" class="headerlink" title="$①\omega=f \rightarrow \mathrm {d}\omega=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y+\frac {\partial f}{\partial z}\mathrm {d} z$"></a>$①\omega=f \rightarrow \mathrm {d}\omega=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y+\frac {\partial f}{\partial z}\mathrm {d} z$</h5><h5 id="begin-split-②-amp-omega-sum-limits-cyc-A-mathrm-d-y-wedge-mathrm-d-z-amp-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-A-partial-x-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-end-split"><a href="#begin-split-②-amp-omega-sum-limits-cyc-A-mathrm-d-y-wedge-mathrm-d-z-amp-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-A-partial-x-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-end-split" class="headerlink" title="$\begin {split}②&amp;\omega=\sum\limits_{cyc} A\mathrm {d} y\wedge \mathrm {d} z \\&amp;\Rightarrow \mathrm {d}\omega=(\sum\limits_{cyc} \frac {\partial A}{\partial x})\mathrm {d} x\wedge \mathrm {d} y\wedge \mathrm {d} z\end {split}$"></a>$\begin {split}②&amp;\omega=\sum\limits_{cyc} A\mathrm {d} y\wedge \mathrm {d} z \\&amp;\Rightarrow \mathrm {d}\omega=(\sum\limits_{cyc} \frac {\partial A}{\partial x})\mathrm {d} x\wedge \mathrm {d} y\wedge \mathrm {d} z\end {split}$</h5><h5 id="begin-split-③-amp-omega-P-mathrm-d-x-Q-mathrm-d-y-R-mathrm-d-z-amp-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-R-partial-y-frac-partial-Q-partial-z-mathrm-d-y∧-mathrm-d-z-end-split"><a href="#begin-split-③-amp-omega-P-mathrm-d-x-Q-mathrm-d-y-R-mathrm-d-z-amp-Rightarrow-mathrm-d-omega-sum-limits-cyc-frac-partial-R-partial-y-frac-partial-Q-partial-z-mathrm-d-y∧-mathrm-d-z-end-split" class="headerlink" title="$\begin {split}③\ &amp;\omega =P\mathrm {d} x+Q\mathrm {d} y+R\mathrm {d} z\\&amp;\Rightarrow \mathrm {d}\omega=\sum\limits_{cyc}(\frac {\partial R}{\partial y}-\frac {\partial Q}{\partial z})\mathrm {d} y∧\mathrm {d} z \end {split}$"></a>$\begin {split}③\ &amp;\omega =P\mathrm {d} x+Q\mathrm {d} y+R\mathrm {d} z\\&amp;\Rightarrow \mathrm {d}\omega=\sum\limits_{cyc}(\frac {\partial R}{\partial y}-\frac {\partial Q}{\partial z})\mathrm {d} y∧\mathrm {d} z \end {split}$</h5><h5 id="④-omega-H-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-Rightarrow-mathrm-d-omega-0"><a href="#④-omega-H-mathrm-d-x-wedge-mathrm-d-y-wedge-mathrm-d-z-Rightarrow-mathrm-d-omega-0" class="headerlink" title="$④\omega = H \mathrm {d} x\wedge\mathrm {d} y\wedge\mathrm {d} z\Rightarrow\mathrm {d}\omega=0$"></a>$④\omega = H \mathrm {d} x\wedge\mathrm {d} y\wedge\mathrm {d} z\Rightarrow\mathrm {d}\omega=0$</h5><ul>
+<li><p>$(Poincare\ Lemma)$​    $\omega$​是外微分形式且系数有二阶连续偏导等价于 $\mathrm {d}\mathrm {d}\omega=0$​.（即若 $p$​次外微分形式 $\omega$​有 $\mathrm {d}\omega=0$​则存在 $p-1$​次外微分形式 $\alpha$​使得 $\omega=\mathrm {d}\alpha$​）</p>
 </li>
-<li>
-<p>统一 $Green、Gauss、Stokes$​公式：$$\begin {align}\int_{\partial\Sigma}\ \omega=\int_{\Sigma}\ \mathrm {d}\omega\end {align}$$.​</p>
+<li><p>统一 $Green、Gauss、Stokes$​公式：<script type="math/tex">\begin {align}\int_{\partial\Sigma}\ \omega=\int_{\Sigma}\ \mathrm {d}\omega\end {align}</script>.​</p>
 </li>
 </ul>
-<h2 id="二、复微分"><a class="header-anchor" href="#二、复微分">¶</a>二、复微分</h2>
-<ul>
+<h2 id="二、复微分"><a href="#二、复微分" class="headerlink" title="二、复微分"></a>二、复微分</h2><ul>
 <li>$f:\mathbb {C}\rightarrow\mathbb {C}$​，导数定义类似。若 $f (z)$​在定义域上每一点可微，则称 $f$​ 解析或全纯.</li>
-<li>$(Cauchy-Riemann)$​	若 $f (z)=u (x,y)+iv (x,y)$​在 $z_{0}=x_{0}+iy_{0}$​处可微，则有</li>
+<li>$(Cauchy-Riemann)$​    若 $f (z)=u (x,y)+iv (x,y)$​在 $z_{0}=x_{0}+iy_{0}$​处可微，则有</li>
 </ul>
-<p>$$<br>
-\begin {align} f’(z_{0})&amp;=u’<em>{x}(x</em>{0},y_{0})+iv’<em>{x}(x</em>{0},y_{0})\&amp;=v’<em>{y}(x</em>{0},y_{0})-iu’<em>{x}(x</em>{0},y_{0})\end {align}<br>
-$$</p>
-<p>，由此立即推出：<br>
-$$<br>
-\begin {aligned}\frac {\partial f}{\partial x}+i\frac {\partial f}{\partial y}=0\ or\left{\begin {matrix} u’<em>{x}=v’</em>{y}\u’<em>{y}=-v’</em>{x}\end {matrix}\right.\end {aligned}<br>
-$$</p>
-<ul>
-<li>
-<p>$f (z)=u+iv$ 在 $D$ 内全纯 $\Leftrightarrow$$u,v$ 在 $D$ 内有一阶连续偏微商且满足 $Cauchy-Riemann$ 条件.</p>
+<script type="math/tex; mode=display">
+\begin {align} f'(z_{0})&=u'_{x}(x_{0},y_{0})+iv'_{x}(x_{0},y_{0})\\&=v'_{y}(x_{0},y_{0})-iu'_{x}(x_{0},y_{0})\end {align}</script><p>，由此立即推出：</p>
+<script type="math/tex; mode=display">
+\begin {aligned}\frac {\partial f}{\partial x}+i\frac {\partial f}{\partial y}=0\ or\left\{\begin {matrix} u'_{x}=v'_{y}\\u'_{y}=-v'_{x}\end {matrix}\right.\end {aligned}</script><ul>
+<li><p>$f (z)=u+iv$ 在 $D$ 内全纯 $\Leftrightarrow$$u,v$ 在 $D$ 内有一阶连续偏微商且满足 $Cauchy-Riemann$ 条件. </p>
 </li>
-<li>
-<p>事实上，如果 $f (z)=u+iv$​在 $D$​内全纯，则 $f’(z)$​也在 $D$​内全纯，由此得到 $\Delta u=\Delta v=0$​.</p>
+<li><p>事实上，如果 $f (z)=u+iv$​在 $D$​内全纯，则 $f’(z)$​也在 $D$​内全纯，由此得到 $\Delta u=\Delta v=0$​.</p>
 </li>
-<li>
-<p>引入记号：<br>
-$$<br>
-\left{<br>
-\begin {align}<br>
-\frac {\partial}{\partial z}=\frac {1}{2}(\frac {\partial}{\partial x}-i\frac {\partial}{\partial y})\<br>
-\frac {\partial}{\partial \bar {z}}=\frac {1}{2}(\frac {\partial}{\partial x}+i\frac {\partial}{\partial y})<br>
-\end {align}.<br>
-\right.<br>
-$$</p>
-</li>
+<li><p>引入记号：</p>
+<script type="math/tex; mode=display">
+\left\{
+\begin {align}
+\frac {\partial}{\partial z}=\frac {1}{2}(\frac {\partial}{\partial x}-i\frac {\partial}{\partial y})\\
+\frac {\partial}{\partial \bar {z}}=\frac {1}{2}(\frac {\partial}{\partial x}+i\frac {\partial}{\partial y})
+\end {align}.
+\right.</script></li>
 </ul>
 <p>则 $f$ 全纯 $\Leftrightarrow$ $\begin {align}\frac {\partial f}{\partial \bar {z}}=0\end {align}$，同时 $\begin {align}\Delta =4\frac {\partial^2}{\partial z\partial \bar {z}}=4\frac {\partial^2}{\partial \bar {z}\partial z}\end {align}$.</p>
 <ul>
 <li>$\begin {align}\mathrm {d} f=\frac {\partial f}{\partial x}\mathrm {d} x+\frac {\partial f}{\partial y}\mathrm {d} y=\frac {\partial f}{\partial z}\mathrm {d} z+\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z}  \end {align}$， 记 $\begin {align}\partial f=\frac {\partial f}{\partial z}\mathrm {d} z,\bar {\partial} f=\frac {\partial f}{\partial \bar {z}}\mathrm {d}\bar {z} \end {align}$，则 $\mathrm {d}=\partial+\bar {\partial}$.</li>
 <li>（共形性）设 $f$ 在 $D$ 全纯，$z_0\in D$ 且 $f’(z_0)\neq0$，曲线 $\gamma$ 满足 $\gamma (t)\ (0\leq t\leq1)$ 在 $D$ 内过 $z_0$ 且 $\gamma (0)=z_0$，$\gamma (t)$ 在 $z_0$ 处和实轴的夹角为 $arg\ \gamma’(t)$，$f$ 把 $\gamma$ 映射成曲线 $\sigma (t)=f (\gamma (t))$，则 $\sigma’(t)=\gamma’(t) f’(\gamma (t))$，因此 $arg\ f’(z_0)=arg\ \sigma’(0)-arg\ \gamma’(0)$<strong>（保角性）</strong>. 另外，有 $\begin {align}\frac {\vert {f (z)-f (z_0)}\vert}{\vert z-z_0\vert}=\frac {\vert\omega-\omega_0\vert}{\vert z-z_0\vert}\rightarrow\vert f’(z_0)\vert (z\rightarrow z_0,z\in \gamma) \end {align}$.</li>
 </ul>
-<h2 id="三、复积分"><a class="header-anchor" href="#三、复积分">¶</a>三、复积分</h2>
-<ul>
-<li>
-<p>$\begin {align} f=u+iv\Rightarrow\int f (t)\mathrm {d} t=\int u (t)\mathrm {d} t+i\int v (t)\mathrm {d} t \end {align}.$</p>
+<h2 id="三、复积分"><a href="#三、复积分" class="headerlink" title="三、复积分"></a>三、复积分</h2><ul>
+<li><p>$\begin {align} f=u+iv\Rightarrow\int f (t)\mathrm {d} t=\int u (t)\mathrm {d} t+i\int v (t)\mathrm {d} t \end {align}.$</p>
 </li>
-<li>
-<p>若 $\gamma$ 可求长，则：$\begin {align}\int_\gamma f (z)\mathrm {d} z=\int_\gamma (u+iv)(\mathrm {d} x+i\mathrm {d} y) \end {align}.$</p>
+<li><p>若 $\gamma$ 可求长，则：$\begin {align}\int_\gamma f (z)\mathrm {d} z=\int_\gamma (u+iv)(\mathrm {d} x+i\mathrm {d} y) \end {align}.$</p>
 </li>
-<li>
-<p>复外微分形式：$\mathrm {d}\bar {z} \wedge \mathrm {d} z=2i\mathrm {d} x\wedge\mathrm {d} y=2i\mathrm {d} A.$</p>
-</li>
-<li>
-<p>复形式的 Green 公式：若 $\omega=\omega_1\mathrm {d} z+\omega_2\mathrm {d} z$ 为 $\Omega$ 上的一次外微分算子，$\omega_1,\omega_2$ 为 $z,\bar {z}$ 的可微函数，则有 $\begin {align}\int_{\partial \Omega}\omega=\iint_\Omega \mathrm {d}\omega \end {align}.$</p>
-</li>
+<li>复外微分形式：$\mathrm {d}\bar {z} \wedge \mathrm {d} z=2i\mathrm {d} x\wedge\mathrm {d} y=2i\mathrm {d} A.$</li>
+<li>复形式的 Green 公式：若 $\omega=\omega_1\mathrm {d} z+\omega_2\mathrm {d} z$ 为 $\Omega$ 上的一次外微分算子，$\omega_1,\omega_2$ 为 $z,\bar {z}$ 的可微函数，则有 $\begin {align}\int_{\partial \Omega}\omega=\iint_\Omega \mathrm {d}\omega \end {align}.$</li>
 </ul>
 
     </div>
