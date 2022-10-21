@@ -21,23 +21,22 @@
   <link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"alxzzhou.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="#🛰BUAA OO 第二单元总结 ✍第五次作业 🏠程序架构 （UML 类图中省略了一些不重要的 getter&amp;setter 方法和构造方法，下同）  💬重要类描述 + 调度器设计 🤐 RequestQueue： ​ 第一次作业对于 Request 的处理比较常规，就是和大部分同学一样写了线程安全类 RequestQueue 以保证重要结构被多线程同时访问时的数据安全。">
+<meta name="description" content="Concurrent Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUAA OO U2 Review">
 <meta property="og:url" content="http://alxzzhou.github.io/2022/05/26/BUAA-OO-U2-Review/index.html">
 <meta property="og:site_name" content="alxz&#39;s code &amp; math">
-<meta property="og:description" content="#🛰BUAA OO 第二单元总结 ✍第五次作业 🏠程序架构 （UML 类图中省略了一些不重要的 getter&amp;setter 方法和构造方法，下同）  💬重要类描述 + 调度器设计 🤐 RequestQueue： ​ 第一次作业对于 Request 的处理比较常规，就是和大部分同学一样写了线程安全类 RequestQueue 以保证重要结构被多线程同时访问时的数据安全。">
+<meta property="og:description" content="Concurrent Programming">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://alxzzhou.github.io/2022/05/26/BUAA-OO-U2-Review/U2A1.png">
-<meta property="og:image" content="http://alxzzhou.github.io/2022/05/26/BUAA-OO-U2-Review/U2A2.png">
-<meta property="og:image" content="http://alxzzhou.github.io/2022/05/26/BUAA-OO-U2-Review/U2A3.png">
-<meta property="og:image" content="http://alxzzhou.github.io/2022/05/26/BUAA-OO-U2-Review/U2A3_seq.png">
+<meta property="og:image" content="http://alxzzhou.github.io/2022/05/26/BUAA-OO-U2-Review/BUAA-OO-U2-Review%5CU2A1.png">
+<meta property="og:image" content="http://alxzzhou.github.io/2022/05/26/BUAA-OO-U2-Review/BUAA-OO-U2-Review%5CU2A2.png">
+<meta property="og:image" content="http://alxzzhou.github.io/2022/05/26/BUAA-OO-U2-Review/BUAA-OO-U2-Review%5CU2A3.png">
 <meta property="article:published_time" content="2022-05-26T02:58:07.000Z">
-<meta property="article:modified_time" content="2022-10-21T14:23:13.786Z">
+<meta property="article:modified_time" content="2022-10-21T14:31:35.260Z">
 <meta property="article:author" content="alxz">
 <meta property="article:tag" content="BUAA OO">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://alxzzhou.github.io/2022/05/26/BUAA-OO-U2-Review/U2A1.png">
+<meta name="twitter:image" content="http://alxzzhou.github.io/2022/05/26/BUAA-OO-U2-Review/BUAA-OO-U2-Review%5CU2A1.png">
 
 
 <link rel="canonical" href="http://alxzzhou.github.io/2022/05/26/BUAA-OO-U2-Review/">
@@ -256,7 +255,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-21 22:23:13" itemprop="dateModified" datetime="2022-10-21T22:23:13+08:00">2022-10-21</time>
+      <time title="修改时间：2022-10-21 22:31:35" itemprop="dateModified" datetime="2022-10-21T22:31:35+08:00">2022-10-21</time>
     </span>
 
   
@@ -266,7 +265,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>6.9k</span>
+      <span>7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -277,6 +276,7 @@
     </span>
 </div>
 
+            <div class="post-description">Concurrent Programming</div>
         </div>
       </header>
 
@@ -285,75 +285,75 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>#🛰BUAA OO 第二单元总结</p>
-<h2 id="第五次作业">✍第五次作业</h2>
-<h3 id="程序架构">🏠程序架构</h3>
+<h2 id="✍第五次作业"><a class="header-anchor" href="#✍第五次作业">¶</a>✍第五次作业</h2>
+<h3 id="🏠程序架构"><a class="header-anchor" href="#🏠程序架构">¶</a>🏠程序架构</h3>
 <p><strong>（UML 类图中省略了一些不重要的 <code>getter&amp;setter</code> 方法和构造方法，下同）</strong></p>
-<p><img src="/2022/05/26/BUAA-OO-U2-Review/U2A1.png"></p>
-<h4 id="重要类描述-调度器设计">💬重要类描述 + 调度器设计</h4>
+<p><img src="/2022/05/26/BUAA-OO-U2-Review/BUAA-OO-U2-Review%5CU2A1.png" alt></p>
+<h4 id="💬重要类描述-调度器设计"><a class="header-anchor" href="#💬重要类描述-调度器设计">¶</a>💬重要类描述 + 调度器设计</h4>
 <p>🤐 <strong><code>RequestQueue</code></strong>：</p>
-<p>​ 第一次作业对于 <code>Request</code> 的处理比较常规，就是和大部分同学一样写了线程安全类 <code>RequestQueue</code> 以保证重要结构被多线程同时访问时的数据安全。内部包含 <code>ConcurrentLinkedQueue&lt;PersonRequest&gt;</code> 作为请求载体，直接包装其自带的线程安全方法（<code>poll ()</code>、<code>peek ()</code> 和 <code>remove ()</code> 等等）即可。线程安全的数据结构除此之外还有 <code>ArrayBlockingQueue</code>、<code>ConcurrentHashMap/ConcurrentHashSet</code>、<code>Vector</code> 和 <code>CopyOnWriteArrayList</code> 等等，可以满足绝大部分的需要了。</p>
+<p>​		第一次作业对于 <code>Request</code> 的处理比较常规，就是和大部分同学一样写了线程安全类 <code>RequestQueue</code> 以保证重要结构被多线程同时访问时的数据安全。内部包含 <code>ConcurrentLinkedQueue&lt;PersonRequest&gt;</code> 作为请求载体，直接包装其自带的线程安全方法（<code>poll ()</code>、<code>peek ()</code> 和 <code>remove ()</code> 等等）即可。线程安全的数据结构除此之外还有 <code>ArrayBlockingQueue</code>、<code>ConcurrentHashMap/ConcurrentHashSet</code>、<code>Vector</code> 和 <code>CopyOnWriteArrayList</code> 等等，可以满足绝大部分的需要了。</p>
 <p>🤐 <strong><code>Elevator</code></strong>：</p>
-<p>​ 电梯的功能的实现我采用了状态模式，因为电梯在这里只有四种状态：** 开门、关门、移动、等待 **，并且其之间的转换都遵循严格的条件，于是电梯可以拥有一个 <code>State</code> 接口字段，在状态转换的时候用 <code>setter</code> 方法切换一个 <code>new StateXXX ()</code>，并调用其中的方法 <code>behave ()</code> 的实现即可。一开始准备使用工厂模式来新建电梯的，但是由于本次作业对新增电梯没有考察且运行的电梯只有一种，所以为了简便就暂时搁置。</p>
+<p>​		电梯的功能的实现我采用了状态模式，因为电梯在这里只有四种状态：** 开门、关门、移动、等待 **，并且其之间的转换都遵循严格的条件，于是电梯可以拥有一个 <code>State</code> 接口字段，在状态转换的时候用 <code>setter</code> 方法切换一个 <code>new StateXXX ()</code>，并调用其中的方法 <code>behave ()</code> 的实现即可。一开始准备使用工厂模式来新建电梯的，但是由于本次作业对新增电梯没有考察且运行的电梯只有一种，所以为了简便就暂时搁置。</p>
 <p>🤐 <strong><code>InputHandler &amp; RequestDispatcher</code></strong>：</p>
-<p>​ 这两个类共同持有一个 <code>RequestQueue</code> 对象 <code>waitQueue</code>，表示等待队列。<code>InputHandler</code> 从输入中获取的 <code>Request</code> 被首先放入此队列等待，然后 <code>RequestDispatcher</code> 根据请求的楼座分配给对应的电梯即可。在此过程中要注意共享对象的线程安全问题并使用 <code>notifyAll ()</code> 及时唤醒等待在此对象上的线程。<code>RequestDispatcher</code> 还持有一个 <code>ConcurrentHashMap&lt;Elevator.ElevatorType, RequestQueue&gt;</code> 类型的 <code>requestQueue</code>，它存储了楼座和电梯请求队列之间的映射关系，在本次作业中每个楼座只有一台电梯，所以可以说一个楼座共用一个请求队列，也可以说一部电梯拥有一个请求队列。</p>
+<p>​		这两个类共同持有一个 <code>RequestQueue</code> 对象 <code>waitQueue</code>，表示等待队列。<code>InputHandler</code> 从输入中获取的 <code>Request</code> 被首先放入此队列等待，然后 <code>RequestDispatcher</code> 根据请求的楼座分配给对应的电梯即可。在此过程中要注意共享对象的线程安全问题并使用 <code>notifyAll ()</code> 及时唤醒等待在此对象上的线程。<code>RequestDispatcher</code> 还持有一个 <code>ConcurrentHashMap&lt;Elevator.ElevatorType, RequestQueue&gt;</code> 类型的 <code>requestQueue</code>，它存储了楼座和电梯请求队列之间的映射关系，在本次作业中每个楼座只有一台电梯，所以可以说一个楼座共用一个请求队列，也可以说一部电梯拥有一个请求队列。</p>
 <p>🤐 <strong><code>Strategy</code></strong>：</p>
-<p>​ 考虑到后续可能出现不同种类的电梯，它们运行的策略各不相同，于是创建了 <code>Strategy</code> 接口，让每部电梯持有一个其实现并调用 <code>getNext ()</code> 方法，这样就可以适应多种电梯的状况。在这里的策略我的设计是：电梯在 <code>StateWaiting</code> 状态判断是否需要运动，如果需要运动，则根据 ** 当前外部请求队列（等待被接的请求）和内部请求队列（等待送达的请求）** 来判断下一层该去往哪里，然后直接切换到 <code>StateMoving</code> 状态并更改楼层 &amp; 输出，在此过程中不会理睬外部队列增加的请求，即不会因为外部队列增加的请求而在运动途中更改目的地楼层。总体来说算是一种静态策略，但是效率尚可，同时避免了动态规划造成的线程不安全或者死锁之类的问题。</p>
-<p>​ 大致的电梯调度策略参考了 look 算法：优先判断电梯运行的方向前方是否还有 ** 同方向 ** 的目的地楼层（内部请求的目的地楼层和外部请求的起始楼层），如果有则去接 / 送，否则看是否有 ** 反方向 ** 需要接的请求，有则去接请求，没有就调转方向。注意去往目的地楼层后如果要接请求，不能把请求都接进来，而是只接 ** 同方向 ** 的请求。这里 <code>Strategy</code> 参考两个队列的请求数据计算去往楼层时要同时考虑电梯的方向和请求的方向，并且有很多临界条件，所以比较容易出 bug（比如在同一个楼层反复开关门，因为没有可以接到的请求而又没有调转方向）。</p>
-<h4 id="锁的选择和同步块设置">🔒锁的选择和同步块设置</h4>
-<p>​ 本单元三次作业我都只使用了 <code>synchronized</code> 修饰同步块，没有使用如 <code>ReentrantLock</code> 或者 <code>Condition</code> 之类的多线程控制类。在同步块的设置上主要注意：<code>synchronized</code> 括起来的部分应当尽可能小以提高多线程运行的效率，同时又需要保证对共享对象的操作要被完全包含以保证线程安全，这是需要一些权衡的。在本次作业中大面积 <code>synchronized</code> 块主要出现在各种 <code>State</code> 接口的实现类中，因为电梯并没有写线程安全方法（虽然其中包含的 <code>RequestQueue</code> 是线程安全类），所以要在状态转换之间自己实现。在本次作业中我由于 <code>synchronized</code> 块的范围设置不当而出现了巨大的 bug，~~ 追悔莫及～～。</p>
-<h3 id="出现的-bug">⛔出现的 bug</h3>
+<p>​		考虑到后续可能出现不同种类的电梯，它们运行的策略各不相同，于是创建了 <code>Strategy</code> 接口，让每部电梯持有一个其实现并调用 <code>getNext ()</code> 方法，这样就可以适应多种电梯的状况。在这里的策略我的设计是：电梯在 <code>StateWaiting</code> 状态判断是否需要运动，如果需要运动，则根据 ** 当前外部请求队列（等待被接的请求）和内部请求队列（等待送达的请求）** 来判断下一层该去往哪里，然后直接切换到 <code>StateMoving</code> 状态并更改楼层 &amp; 输出，在此过程中不会理睬外部队列增加的请求，即不会因为外部队列增加的请求而在运动途中更改目的地楼层。总体来说算是一种静态策略，但是效率尚可，同时避免了动态规划造成的线程不安全或者死锁之类的问题。</p>
+<p>​		大致的电梯调度策略参考了 look 算法：优先判断电梯运行的方向前方是否还有 ** 同方向 ** 的目的地楼层（内部请求的目的地楼层和外部请求的起始楼层），如果有则去接 / 送，否则看是否有 ** 反方向 ** 需要接的请求，有则去接请求，没有就调转方向。注意去往目的地楼层后如果要接请求，不能把请求都接进来，而是只接 ** 同方向 ** 的请求。这里 <code>Strategy</code> 参考两个队列的请求数据计算去往楼层时要同时考虑电梯的方向和请求的方向，并且有很多临界条件，所以比较容易出 bug（比如在同一个楼层反复开关门，因为没有可以接到的请求而又没有调转方向）。</p>
+<h4 id="🔒锁的选择和同步块设置"><a class="header-anchor" href="#🔒锁的选择和同步块设置">¶</a>🔒锁的选择和同步块设置</h4>
+<p>​		本单元三次作业我都只使用了 <code>synchronized</code> 修饰同步块，没有使用如 <code>ReentrantLock</code> 或者 <code>Condition</code> 之类的多线程控制类。在同步块的设置上主要注意：<code>synchronized</code> 括起来的部分应当尽可能小以提高多线程运行的效率，同时又需要保证对共享对象的操作要被完全包含以保证线程安全，这是需要一些权衡的。在本次作业中大面积 <code>synchronized</code> 块主要出现在各种 <code>State</code> 接口的实现类中，因为电梯并没有写线程安全方法（虽然其中包含的 <code>RequestQueue</code> 是线程安全类），所以要在状态转换之间自己实现。在本次作业中我由于 <code>synchronized</code> 块的范围设置不当而出现了巨大的 bug，~~ 追悔莫及～～。</p>
+<h3 id="⛔出现的-bug"><a class="header-anchor" href="#⛔出现的-bug">¶</a>⛔出现的 bug</h3>
 <p>本次作业的 bug 体现在两方面：</p>
 <p>1️⃣（上面提到的）<code>Strategy</code> 逻辑错误，可能导致在特殊情况下电梯被卡在同一层反复开关门。</p>
 <p>** 解决方法 **：改进策略类，对边界条件和特殊数据充分考虑。</p>
 <p>2️⃣同步块范围设置过大，导致电梯效率大幅度下降而超时。</p>
-<p>​ 在状态模式中，切换状态的语句如下：（由此可以推出电梯内有一个 <code>State</code> 接口，而接口的实现类中又持有一部电梯）</p>
+<p>​		在状态模式中，切换状态的语句如下：（由此可以推出电梯内有一个 <code>State</code> 接口，而接口的实现类中又持有一部电梯）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">elevator.setState (<span class="keyword">new</span> StateOpen (elevator));</span><br><span class="line">elevator.getStatus ().behave ();</span><br><span class="line"><span class="keyword">return</span>;</span><br></pre></td></tr></table></figure>
-<p>​ 而我一开始将这三行写在了 <code>synchronized</code> 块内，导致这部电梯切换状态并 <code>behave ()</code> 的时候还处在上一个状态的锁中，这样状态反复切换，锁一层层叠加，而每个状态共享的对象都相同（即电梯的外部等待队列），导致共享对象被加了若干层锁，访问和操作的效率极低。而弱测和中测的数据强度不够，导致没有超时的情况发生。</p>
+<p>​		而我一开始将这三行写在了 <code>synchronized</code> 块内，导致这部电梯切换状态并 <code>behave ()</code> 的时候还处在上一个状态的锁中，这样状态反复切换，锁一层层叠加，而每个状态共享的对象都相同（即电梯的外部等待队列），导致共享对象被加了若干层锁，访问和操作的效率极低。而弱测和中测的数据强度不够，导致没有超时的情况发生。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(outsideQueue) &#123;</span><br><span class="line">        ...</span><br><span class="line">        elevator.setState (<span class="keyword">new</span> StateOpen (elevator));</span><br><span class="line">		elevator.getStatus ().behave ();	<span class="comment">// 即使切换了状态，但状态 behave 的时候依然在这层锁内 </span></span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>** 解决方法 **：大面积检查 <code>synchronized</code> 块的范围，尽可能减小代码块规模。</p>
-<h2 id="第六次作业">✍第六次作业</h2>
-<h3 id="程序架构-1">🏠程序架构</h3>
+<h2 id="✍第六次作业"><a class="header-anchor" href="#✍第六次作业">¶</a>✍第六次作业</h2>
+<h3 id="🏠程序架构-v2"><a class="header-anchor" href="#🏠程序架构-v2">¶</a>🏠程序架构</h3>
 <p><strong>（第二次作业的时序图和第一次作业基本相同，故不再重复展示）</strong></p>
-<p><img src="/2022/05/26/BUAA-OO-U2-Review/U2A2.png"></p>
-<p>​ 第六次作业相比第五次作业主要增加了横向电梯和请求，并且可以动态增加横向和纵向的电梯。（<code>P</code> 代表 <code>parallel</code>，<code>V</code> 代表 <code>vertical</code>，下同）</p>
-<h4 id="重要类描述-调度器设计-1">💬重要类描述 + 调度器设计</h4>
+<p><img src="/2022/05/26/BUAA-OO-U2-Review/BUAA-OO-U2-Review%5CU2A2.png" alt></p>
+<p>​		第六次作业相比第五次作业主要增加了横向电梯和请求，并且可以动态增加横向和纵向的电梯。（<code>P</code> 代表 <code>parallel</code>，<code>V</code> 代表 <code>vertical</code>，下同）</p>
+<h4 id="💬重要类描述-调度器设计-v2"><a class="header-anchor" href="#💬重要类描述-调度器设计-v2">¶</a>💬重要类描述 + 调度器设计</h4>
 <p>（一些类和上一次作业基本相同或改动较小，故不再赘述）</p>
 <p>🤐 <strong><code>InputHandler &amp; RequestDispatcher</code></strong>：</p>
-<p>​ 本次作业中一个楼层或一个楼座可以有多部电梯，我给每部电梯都分配了一个队列，这样它可以根据自己队列的信息计算要去往的楼层，不必自由竞争（虽然听说自由竞争的策略效果还不错）。</p>
-<p>​ 每一部电梯都对于横向和纵向电梯，都维护了一个 <code>ConcurrentHashMap&lt;Integer,CopyOnWriteArrayList&lt;Integer&gt;&gt;</code> 和 <code>ConcurrentHashMap&lt;Integer, RequestQueue&gt;</code>，前者记录了 <code>floor /building ---&gt; SET &#123;id&#125;</code> 的映射，体现每一层或每一栋楼有哪些电梯在工作；后者记录了 <code>id ---&gt; outsideQueue</code> 的映射。这样 <code>InputHandler</code> 在添加电梯的时候对这两个数据结构进行添加操作，<code>RequestDispatcher</code> 分配请求的时候根据 <code>floor /building</code> 找到 <code>SET &#123;id&#125;</code>，再根据电梯此时的压力 <code>insideQueue.size () + outsideQueue.size ()</code> 排序，将请求分配给压力最小的电梯。</p>
-<p>​ 其实这种排序的权重分配不见得完全合理，因为内外请求对电梯运行时间的影响可能不同，可以改成 <code>a * insideQueue.size () + b * outsideQueue.size ()</code> 这种形式，多跑几个测试点看看哪个参数对 <span class="math inline">\((a,b)\)</span> 可以让时间最小（x</p>
+<p>​		本次作业中一个楼层或一个楼座可以有多部电梯，我给每部电梯都分配了一个队列，这样它可以根据自己队列的信息计算要去往的楼层，不必自由竞争（虽然听说自由竞争的策略效果还不错）。</p>
+<p>​		每一部电梯都对于横向和纵向电梯，都维护了一个 <code>ConcurrentHashMap&lt;Integer,CopyOnWriteArrayList&lt;Integer&gt;&gt;</code> 和 <code>ConcurrentHashMap&lt;Integer, RequestQueue&gt;</code>，前者记录了 <code>floor /building ---&gt; SET &#123;id&#125;</code> 的映射，体现每一层或每一栋楼有哪些电梯在工作；后者记录了 <code>id ---&gt; outsideQueue</code> 的映射。这样 <code>InputHandler</code> 在添加电梯的时候对这两个数据结构进行添加操作，<code>RequestDispatcher</code> 分配请求的时候根据 <code>floor /building</code> 找到 <code>SET &#123;id&#125;</code>，再根据电梯此时的压力 <code>insideQueue.size () + outsideQueue.size ()</code> 排序，将请求分配给压力最小的电梯。</p>
+<p>​		其实这种排序的权重分配不见得完全合理，因为内外请求对电梯运行时间的影响可能不同，可以改成 <code>a * insideQueue.size () + b * outsideQueue.size ()</code> 这种形式，多跑几个测试点看看哪个参数对 $(a,b)$ 可以让时间最小（x</p>
 <p>🤐 <strong><code>LiftV &amp; LiftP</code></strong>：</p>
-<p>​ 横向和纵向电梯的基本架构是类似的，仍然使用状态模式，只是把状态类写在了电梯类内部以增加电梯类字段的可见性。</p>
-<p>​ 纵向电梯的策略仍然沿用上一次作业的 look 算法。整体改动很小，故不再赘述。</p>
-<p>​ 横向电梯的特殊之处在于可以循环运动，这次作业中我规定横向电梯只能按照一个方向循环移动，在构造方法内的实现如下：</p>
+<p>​		横向和纵向电梯的基本架构是类似的，仍然使用状态模式，只是把状态类写在了电梯类内部以增加电梯类字段的可见性。</p>
+<p>​		纵向电梯的策略仍然沿用上一次作业的 look 算法。整体改动很小，故不再赘述。</p>
+<p>​		横向电梯的特殊之处在于可以循环运动，这次作业中我规定横向电梯只能按照一个方向循环移动，在构造方法内的实现如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Random random = <span class="keyword">new</span> Random ();</span><br><span class="line"><span class="keyword">this</span>.direction = random.nextInt (<span class="number">2</span>) == <span class="number">1</span> ? UP : DOWN;	</span><br><span class="line"><span class="comment">// UP = &quot;A -&gt; B -&gt; C -&gt; ...&quot;, DOWN = &quot;A -&gt; E -&gt; D -&gt; ...&quot;</span></span><br></pre></td></tr></table></figure>
-<p>​ 由上可知电梯请求的分配中没有考虑横向电梯的方向，这种方法看似暴力，但是在强测的大量随机数据测试中表现还不错，得到了 96 + 分。</p>
-<h2 id="第七次作业">✍第七次作业</h2>
-<h3 id="程序架构-2">🏠程序架构</h3>
-<p><img src="/2022/05/26/BUAA-OO-U2-Review/U2A3.png"></p>
-<p><img src="/2022/05/26/BUAA-OO-U2-Review/U2A3_seq.png" alt style="zoom:80%;"></p>
-<p>​ 第七次作业在第六次作业的基础上添加了需要换乘的请求和横向电梯的可达性（即不一定可以在每个楼座开门）。</p>
-<h4 id="重要类描述-调度器设计-2">💬重要类描述 + 调度器设计</h4>
+<p>​		由上可知电梯请求的分配中没有考虑横向电梯的方向，这种方法看似暴力，但是在强测的大量随机数据测试中表现还不错，得到了 96 + 分。</p>
+<h2 id="✍第七次作业"><a class="header-anchor" href="#✍第七次作业">¶</a>✍第七次作业</h2>
+<h3 id="🏠程序架构-v3"><a class="header-anchor" href="#🏠程序架构-v3">¶</a>🏠程序架构</h3>
+<p><img src="/2022/05/26/BUAA-OO-U2-Review/BUAA-OO-U2-Review%5CU2A3.png" alt></p>
+<p>&lt;img src=“BUAA-OO-U2-Review\U2A3_seq.png” alt=&quot;&quot;style=“zoom:80%;” /&gt;</p>
+<p>​		第七次作业在第六次作业的基础上添加了需要换乘的请求和横向电梯的可达性（即不一定可以在每个楼座开门）。</p>
+<h4 id="💬重要类描述-调度器设计-v3"><a class="header-anchor" href="#💬重要类描述-调度器设计-v3">¶</a>💬重要类描述 + 调度器设计</h4>
 <p>🤐 <strong><code>MyPersonRequest</code></strong>：</p>
-<p>​ 可以说这是本次作业最重要的一个类，它包装了官方包的 <code>Request</code> 类，含有下述字段：</p>
+<p>​		可以说这是本次作业最重要的一个类，它包装了官方包的 <code>Request</code> 类，含有下述字段：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> PersonRequest request;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">boolean</span> vertical;		<span class="comment">//	是否是纵向请求（默认不需要换乘）</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">boolean</span> hasFirstShifted;	<span class="comment">//	是否完成换乘第一阶段 </span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">boolean</span> hasSecondShifted;	<span class="comment">//	是否完成换乘第二阶段 </span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> shiftFloor;		<span class="comment">//	需要换乘的楼层 </span></span><br></pre></td></tr></table></figure>
-<p>​ “包装” 的含义就是，一个 <code>MyPersonRequest</code> 对象在创建之初就存储了所有的信息：换乘阶段、换乘楼层和 <code>PersonRequest</code> 对象的相关信息。但是可以根据三个 <code>boolean</code> 选择将哪些信息暴露给外面，这样其他类不需要拆包，也便于修改请求的状态：</p>
+<p>​		“包装” 的含义就是，一个 <code>MyPersonRequest</code> 对象在创建之初就存储了所有的信息：换乘阶段、换乘楼层和 <code>PersonRequest</code> 对象的相关信息。但是可以根据三个 <code>boolean</code> 选择将哪些信息暴露给外面，这样其他类不需要拆包，也便于修改请求的状态：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">getFromBuilding</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (!vertical &amp; hasSecondShifted) ? request.getToBuilding () : request.getFromBuilding ();&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">getToBuilding</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (!vertical &amp; hasFirstShifted) ? request.getToBuilding () : request.getFromBuilding ();&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getFromFloor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (!vertical &amp; hasFirstShifted) ? shiftFloor : request.getFromFloor ();&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getToFloor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (vertical || hasSecondShifted) ? request.getToFloor () : shiftFloor;&#125;</span><br></pre></td></tr></table></figure>
-<p>​ 本次作业可以让请求进行多次换乘，但是考虑到电梯运行和开关门的时间损耗，我只实现了一次换乘。一些动态的规划算法可以实现多次换乘，但是由于需要多次开关门，可能会得不偿失。请求的换乘可以看作三个阶段：<code>UP / DOWN -&gt; CHANGE BUILDING -&gt; UP / DOWN</code>，其中的两个箭头就标志了两个阶段的结束，<code>UP / DOWN</code> 在这里并不是必须的，因为有可能出现只需要横向移动就可以完成或者只需要一次纵向移动的请求。</p>
-<p>​ <code>shiftFloor</code> 的计算是请求分配过程中最重要的一步，单个请求在不同楼层换乘的时间差别不会太大，但是如果在强测的环境下，几十个请求同时到来，如何妥当地安排它们是很重要的事情。身边有些同学使用了图算法，计算如何换乘可以实现最短路，我认为这样有些复杂～～（其实是自己懒）~~，只是写了一个根据电梯相关信息计算代价的函数，然后排序找代价最小的楼层 <strong>（别忘了可达性）</strong>：</p>
+<p>​		本次作业可以让请求进行多次换乘，但是考虑到电梯运行和开关门的时间损耗，我只实现了一次换乘。一些动态的规划算法可以实现多次换乘，但是由于需要多次开关门，可能会得不偿失。请求的换乘可以看作三个阶段：<code>UP / DOWN -&gt; CHANGE BUILDING -&gt; UP / DOWN</code>，其中的两个箭头就标志了两个阶段的结束，<code>UP / DOWN</code> 在这里并不是必须的，因为有可能出现只需要横向移动就可以完成或者只需要一次纵向移动的请求。</p>
+<p>​		<code>shiftFloor</code> 的计算是请求分配过程中最重要的一步，单个请求在不同楼层换乘的时间差别不会太大，但是如果在强测的环境下，几十个请求同时到来，如何妥当地安排它们是很重要的事情。身边有些同学使用了图算法，计算如何换乘可以实现最短路，我认为这样有些复杂～～（其实是自己懒）~~，只是写了一个根据电梯相关信息计算代价的函数，然后排序找代价最小的楼层 <strong>（别忘了可达性）</strong>：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">weight</span><span class="params">(LiftP lift, PersonRequest req)</span> </span>&#123;	<span class="comment">// 注意这里的参数类型仍然是 PersonRequest</span></span><br><span class="line">    <span class="keyword">int</span> upper = Integer.max (req.getFromFloor (), req.getToFloor ());</span><br><span class="line">    <span class="keyword">int</span> lower = Integer.min (req.getFromFloor (), req.getToFloor ());</span><br><span class="line">    <span class="keyword">int</span> floor = lift.getFloor ();</span><br><span class="line">    <span class="keyword">int</span> speed = lift.getMoveDur ();</span><br><span class="line">    <span class="keyword">int</span> boundWeight = (upper &lt; floor || lower &gt; floor) ?</span><br><span class="line">            (upper &lt; floor) ? <span class="number">100</span> + <span class="number">10</span> * (floor - upper) :</span><br><span class="line">                    <span class="number">100</span> + <span class="number">10</span> * (lower - floor) : <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> speedWeight = speed / <span class="number">25</span>;</span><br><span class="line">    <span class="keyword">int</span> insidePressureWeight = lift.getInsideNum () * <span class="number">13</span>;</span><br><span class="line">    <span class="keyword">int</span> outsidePressureWeight = lift.getOutsideNum () * <span class="number">7</span>;</span><br><span class="line">    <span class="keyword">return</span> (boundWeight + speedWeight +</span><br><span class="line">            insidePressureWeight + outsidePressureWeight);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>​ 这里的所有数字都是后来捏出来觉得比较合适的。其实也很玄学，可能改了也不会出什么问题，而且也有一定的运气成分，后来调参调不下去感觉找不到最优的参数（当然找不到），就填了个感觉还凑合的提交了，没想到强测中表现还不错。</p>
+<p>​		这里的所有数字都是后来捏出来觉得比较合适的。其实也很玄学，可能改了也不会出什么问题，而且也有一定的运气成分，后来调参调不下去感觉找不到最优的参数（当然找不到），就填了个感觉还凑合的提交了，没想到强测中表现还不错。</p>
 <p>🤐 <strong><code>Counter</code></strong>：</p>
-<p>​ 一个很自然的想法是：需要换乘的请求在某个阶段完成之后，修改对应的状态再返回给调度器中的等待队列进行分发。但是 <code>RequestDispatcher</code> 线程结束的条件是等待队列 <code>inputQueue</code> 为空且其 <code>reachEnd</code> 标记被设置，而后者是 <code>InputHandler</code> 线程设置的，条件为 <code>request == null</code>。这样的结束条件显然不能满足换乘请求，因为有可能出现从文件中输入的请求被读完且 <code>inputQueue</code> 中的请求都被分配，但是正在运行的电梯里有需要换乘的请求，而此时输入和调度器线程都提前结束了，这就导致会出现请求不能彻底完成的情况。</p>
-<p>​ 为了解决这个问题，可以增加一个计数器模块，它在 <code>InputHandler</code> 读入新请求的时候自增，在电梯彻底完成一个请求的时候自减。这样 <code>InputHandler</code> 在计数器为 0 且所有请求已经被读入的情况下才可以停止。其实现很简单，只需要注意线程安全即可。</p>
-<h2 id="发现-bug-的策略">✔发现 bug 的策略</h2>
-<h3 id="自己的-bug">💦自己的 bug</h3>
-<p>​ 其实也没有什么成体系的策略，主要是随机数据点测试和自己手写小规模的测试点来检验特定模块的正确性。另外多线程的特点是 bug 不一定能复现，所以一个测试点多跑几次比较好。后来室友写了一个可以把输出根据不同电梯来拆分的程序，这使得 debug 过程效率提高了很多：原来只能肉眼观察小规模数据点的输出，最多只能看看有无死循环和异常，有了辅助程序就可以细致检查每部电梯是否正常运行，非常方便。</p>
-<h3 id="互测的-bug">👁‍🗨互测的 bug</h3>
-<p>​ 不得不说这单元的互测我没有第一单元积极，主要是没有数据生成器，手写数据点也很繁琐。所以互测中我只是提交了一些小规模的边界数据测试点，比如第一秒输入一个请求，等一分钟再加一部电梯这种（有的同学的程序不会正常结束）。</p>
-<h2 id="心得体会">🏃‍♀️心得体会</h2>
-<p>​ 电梯月终于结束了，不过个人感觉这单元的压力并没有比第一单元多很多～～（除了有次差点通宵以外）~~。第一次接触多线程编程，入门就花了很长时间，还好第一次作业赶上假期，课程组延长了几天，否则我是一定写不完的。因为第一次作业建立了一个还算合理的架构和电梯调度的算法（后面就没有动过，LOL），所以后面两次作业就比较顺利，线程之间如何沟通、同步等等都比较熟练了。</p>
-<p>​ 本单元作业一个最大的体会就是：大道至简（x）。在开始着手调度和请求分配算法的编写前，我想了很多实现的方法，身边的朋友和研讨课的同学也提出过很复杂但是效率很高的算法，~~ 一方面是因为自己比较懒，~~ 另一方面是觉得在强测这种大规模随机数据的测试中也许不一定越高级越好，所以第三次作业中的请求换乘楼层计算我只是写了个计算代价的函数，虽然看起来很原始，但是强测中没有低于 92 分的点，大部分都是 98 分上下。我的一个室友写了个更简短的计算代价的函数（可能只有几行或者十几行），最后强测分数比我高。因此电梯调度这种大规模且不确定性比较强的场景中不存在最佳的算法，但是可能存在代码效率最高的算法（指几行核心的调度算法得到强测 99+🤗）。</p>
+<p>​		一个很自然的想法是：需要换乘的请求在某个阶段完成之后，修改对应的状态再返回给调度器中的等待队列进行分发。但是 <code>RequestDispatcher</code> 线程结束的条件是等待队列 <code>inputQueue</code> 为空且其 <code>reachEnd</code> 标记被设置，而后者是 <code>InputHandler</code> 线程设置的，条件为 <code>request == null</code>。这样的结束条件显然不能满足换乘请求，因为有可能出现从文件中输入的请求被读完且 <code>inputQueue</code> 中的请求都被分配，但是正在运行的电梯里有需要换乘的请求，而此时输入和调度器线程都提前结束了，这就导致会出现请求不能彻底完成的情况。</p>
+<p>​		为了解决这个问题，可以增加一个计数器模块，它在 <code>InputHandler</code> 读入新请求的时候自增，在电梯彻底完成一个请求的时候自减。这样 <code>InputHandler</code> 在计数器为 0 且所有请求已经被读入的情况下才可以停止。其实现很简单，只需要注意线程安全即可。</p>
+<h2 id="✔发现-bug-的策略"><a class="header-anchor" href="#✔发现-bug-的策略">¶</a>✔发现 bug 的策略</h2>
+<h3 id="💦自己的-bug"><a class="header-anchor" href="#💦自己的-bug">¶</a>💦自己的 bug</h3>
+<p>​		其实也没有什么成体系的策略，主要是随机数据点测试和自己手写小规模的测试点来检验特定模块的正确性。另外多线程的特点是 bug 不一定能复现，所以一个测试点多跑几次比较好。后来室友写了一个可以把输出根据不同电梯来拆分的程序，这使得 debug 过程效率提高了很多：原来只能肉眼观察小规模数据点的输出，最多只能看看有无死循环和异常，有了辅助程序就可以细致检查每部电梯是否正常运行，非常方便。</p>
+<h3 id="👁‍🗨互测的-bug"><a class="header-anchor" href="#👁‍🗨互测的-bug">¶</a>👁‍🗨互测的 bug</h3>
+<p>​		不得不说这单元的互测我没有第一单元积极，主要是没有数据生成器，手写数据点也很繁琐。所以互测中我只是提交了一些小规模的边界数据测试点，比如第一秒输入一个请求，等一分钟再加一部电梯这种（有的同学的程序不会正常结束）。</p>
+<h2 id="🏃‍♀️心得体会"><a class="header-anchor" href="#🏃‍♀️心得体会">¶</a>🏃‍♀️心得体会</h2>
+<p>​		电梯月终于结束了，不过个人感觉这单元的压力并没有比第一单元多很多～～（除了有次差点通宵以外）~~。第一次接触多线程编程，入门就花了很长时间，还好第一次作业赶上假期，课程组延长了几天，否则我是一定写不完的。因为第一次作业建立了一个还算合理的架构和电梯调度的算法（后面就没有动过，LOL），所以后面两次作业就比较顺利，线程之间如何沟通、同步等等都比较熟练了。</p>
+<p>​		本单元作业一个最大的体会就是：大道至简（x）。在开始着手调度和请求分配算法的编写前，我想了很多实现的方法，身边的朋友和研讨课的同学也提出过很复杂但是效率很高的算法，~~ 一方面是因为自己比较懒，~~ 另一方面是觉得在强测这种大规模随机数据的测试中也许不一定越高级越好，所以第三次作业中的请求换乘楼层计算我只是写了个计算代价的函数，虽然看起来很原始，但是强测中没有低于 92 分的点，大部分都是 98 分上下。我的一个室友写了个更简短的计算代价的函数（可能只有几行或者十几行），最后强测分数比我高。因此电梯调度这种大规模且不确定性比较强的场景中不存在最佳的算法，但是可能存在代码效率最高的算法（指几行核心的调度算法得到强测 99+🤗）。</p>
 
     </div>
 
@@ -414,7 +414,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19 分钟</span>
+    <span title="站点阅读时长">18 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
