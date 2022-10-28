@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Algebra Chapter 0 - 1.3 Categories</title>
+    <url>/2021/12/10/Algebra-Chapter-0-1-3-Categories/</url>
+    <content><![CDATA[<h4 id="definition-3.1.0">Definition 3.1.0</h4>
+<p>​ A <span class="math inline">\(category\)</span> <span class="math inline">\(\mathsf{C}\)</span> consists of:</p>
+<ul>
+<li><p>a class <span class="math inline">\(\mathrm{Obj}(\mathsf{C})\)</span> of <span class="math inline">\(objects\)</span> of the category</p></li>
+<li><p>for every two objects <span class="math inline">\(A,B\)</span> of <span class="math inline">\(\mathsf{C}\)</span> , a set <span class="math inline">\(\mathrm{Obj}_{\mathsf{C}}(A,B)\)</span> of <span class="math inline">\(morphisms\)</span> , with the properties listed below.</p></li>
+</ul>
+<p>​ Defining properties of morphisms:</p>
+<ul>
+<li>For every object <span class="math inline">\(A\)</span> of <span class="math inline">\(\mathsf{C}\)</span> , there exists (at least) one morphism <span class="math inline">\(1_A\in \mathrm{Hom}_\mathsf{C}(A,B)\)</span> , the ‘identity’ on <span class="math inline">\(A\)</span>.</li>
+<li><span class="math inline">\(\mathrm{Hom}_\mathsf{C}(A,B)\times\mathrm{Hom}_\mathsf{C}(B,C)\)</span><span class="math inline">\(=\mathrm{Hom}_\mathsf{C}(A,C)\)</span>.</li>
+<li>Composition Law: <span class="math inline">\((hg)f=h(gf)\)</span>.</li>
+<li>For all <span class="math inline">\(f\in \mathrm{Hom}_\mathsf{C}(A,B)\)</span> , we have <span class="math inline">\(f1_A=1_Bf=f\)</span>.</li>
+</ul>
+<h4 id="definition-3.1.1">Definition 3.1.1</h4>
+<p>​ <span class="math inline">\(\mathrm{End}_\mathsf{C}(A)=\mathrm{Hom}_\mathsf{C}(A,A)\)</span>.</p>
+<h4 id="example-3.1">Example 3.1</h4>
+<p>​ Consider category <span class="math inline">\(\mathsf{C}\)</span> , and let <span class="math inline">\(A\)</span> be an object of <span class="math inline">\(\mathsf{C}\)</span> . We define a category <span class="math inline">\(\mathsf{C}_A\)</span> whose objects are certain morphisms in <span class="math inline">\(\mathsf{C}\)</span> : <span class="math inline">\(\mathrm{Obj}(\mathsf{C}_A)=all\ morphisms\ from\ \)</span><span class="math inline">\(any\ object\ of\ \mathsf{C}\ to\ A\)</span> . Pictorially, an object in <span class="math inline">\(\mathsf{C}_{A}\)</span> is an arrow <span class="math inline">\(Z\stackrel{f}{\rightarrow}A\)</span> .</p>
+<p>​ Suppose <span class="math inline">\(Z_1\stackrel{f_1}{\longrightarrow}A\)</span> and <span class="math inline">\(Z_2\stackrel{f_2}{\longrightarrow}A\)</span> , morphisms <span class="math inline">\(f_1\rightarrow f_2\)</span> are defined to be commutative diagrams shown below.</p>
+<p><img src="/2021/12/10/Algebra-Chapter-0-1-3-Categories/Gr_1"></p>
+<p>​ The composition of morphisms in <span class="math inline">\(\mathsf{C}\)</span> can be verified without difficulty. Categories constructed in this pattern is called <span class="math inline">\(slice \  category\)</span> , which is a special form of <span class="math inline">\(comma\ category\)</span> .</p>
+<h4 id="example-3.2">Example 3.2</h4>
+<p>​ An similar example of <strong>Example 3.1</strong> can be obtained by considering morphisms in a category <span class="math inline">\(\mathsf{C}\)</span> from a fixed object <span class="math inline">\(A\)</span> to all objects in <span class="math inline">\(\mathsf{C}\)</span>, with morphisms defined by suitable commutative diagrams. The category defined above is called <span class="math inline">\(coslice\ category\)</span>.</p>
+<h4 id="example-3.3">Example 3.3</h4>
+<p>​ An example of coslice category is shown by letting <span class="math inline">\(\mathsf{C=Set}\)</span> and <span class="math inline">\(A=\)</span> a fixed singleton <span class="math inline">\(\mathbb{S}\)</span>. We call this category <span class="math inline">\(\mathsf{Set^*}\)</span>.</p>
+<p>​ An object in this category is a morphism <span class="math inline">\(f:\mathbb{S}\rightarrow S\)</span> in <span class="math inline">\(\mathsf{Set}\)</span> where <span class="math inline">\(S\)</span> is any set. The information of ab object in <span class="math inline">\(\mathsf{Set^*}\)</span> consists of the choice of a nonempty set <span class="math inline">\(S\)</span> and an element <span class="math inline">\(s\in S\)</span> which is the element <span class="math inline">\(f(*)\)</span>. Thus we may denote objects in this category as pairs <span class="math inline">\((S,s)\)</span>. A morphism between two such objects, <span class="math inline">\((S,s)\rightarrow(T,t)\)</span>, corresponds to a set function <span class="math inline">\(\sigma:S\rightarrow T\)</span> such that <span class="math inline">\(\sigma(s)=t\)</span>.</p>
+<p>​ Objects of <span class="math inline">\(\mathsf{Set}^*\)</span> are called ‘pointed sets’ and many structures are pointed sets. For example, <strong>group homomorphisms</strong> sends one identity to another.</p>
+]]></content>
+      <tags>
+        <tag>Algebra Chapter 0</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Algebra Chapter 0 - 1.5 Univeral Properties</title>
     <url>/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/</url>
     <content><![CDATA[<h3 id="initial-and-final-objects">§5.1 - Initial and final objects</h3>
@@ -31,40 +65,6 @@
 <li><p>Let <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> be sets, and consider the product <span class="math inline">\(A\times B\)</span>, with the two partial projections:</p>
 <p><img src="/2022/01/17/Algebra-Chapter-0-1-5-Univeral-Properties/image-20220303222022906.png"></p></li>
 </ul>
-]]></content>
-      <tags>
-        <tag>Algebra Chapter 0</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Algebra Chapter 0 - 1.3 Categories</title>
-    <url>/2021/12/10/Algebra-Chapter-0-1-3-Categories/</url>
-    <content><![CDATA[<h4 id="definition-3.1.0">Definition 3.1.0</h4>
-<p>​ A <span class="math inline">\(category\)</span> <span class="math inline">\(\mathsf{C}\)</span> consists of:</p>
-<ul>
-<li><p>a class <span class="math inline">\(\mathrm{Obj}(\mathsf{C})\)</span> of <span class="math inline">\(objects\)</span> of the category</p></li>
-<li><p>for every two objects <span class="math inline">\(A,B\)</span> of <span class="math inline">\(\mathsf{C}\)</span> , a set <span class="math inline">\(\mathrm{Obj}_{\mathsf{C}}(A,B)\)</span> of <span class="math inline">\(morphisms\)</span> , with the properties listed below.</p></li>
-</ul>
-<p>​ Defining properties of morphisms:</p>
-<ul>
-<li>For every object <span class="math inline">\(A\)</span> of <span class="math inline">\(\mathsf{C}\)</span> , there exists (at least) one morphism <span class="math inline">\(1_A\in \mathrm{Hom}_\mathsf{C}(A,B)\)</span> , the ‘identity’ on <span class="math inline">\(A\)</span>.</li>
-<li><span class="math inline">\(\mathrm{Hom}_\mathsf{C}(A,B)\times\mathrm{Hom}_\mathsf{C}(B,C)\)</span><span class="math inline">\(=\mathrm{Hom}_\mathsf{C}(A,C)\)</span>.</li>
-<li>Composition Law: <span class="math inline">\((hg)f=h(gf)\)</span>.</li>
-<li>For all <span class="math inline">\(f\in \mathrm{Hom}_\mathsf{C}(A,B)\)</span> , we have <span class="math inline">\(f1_A=1_Bf=f\)</span>.</li>
-</ul>
-<h4 id="definition-3.1.1">Definition 3.1.1</h4>
-<p>​ <span class="math inline">\(\mathrm{End}_\mathsf{C}(A)=\mathrm{Hom}_\mathsf{C}(A,A)\)</span>.</p>
-<h4 id="example-3.1">Example 3.1</h4>
-<p>​ Consider category <span class="math inline">\(\mathsf{C}\)</span> , and let <span class="math inline">\(A\)</span> be an object of <span class="math inline">\(\mathsf{C}\)</span> . We define a category <span class="math inline">\(\mathsf{C}_A\)</span> whose objects are certain morphisms in <span class="math inline">\(\mathsf{C}\)</span> : <span class="math inline">\(\mathrm{Obj}(\mathsf{C}_A)=all\ morphisms\ from\ \)</span><span class="math inline">\(any\ object\ of\ \mathsf{C}\ to\ A\)</span> . Pictorially, an object in <span class="math inline">\(\mathsf{C}_{A}\)</span> is an arrow <span class="math inline">\(Z\stackrel{f}{\rightarrow}A\)</span> .</p>
-<p>​ Suppose <span class="math inline">\(Z_1\stackrel{f_1}{\longrightarrow}A\)</span> and <span class="math inline">\(Z_2\stackrel{f_2}{\longrightarrow}A\)</span> , morphisms <span class="math inline">\(f_1\rightarrow f_2\)</span> are defined to be commutative diagrams shown below.</p>
-<p><img src="/2021/12/10/Algebra-Chapter-0-1-3-Categories/Gr_1"></p>
-<p>​ The composition of morphisms in <span class="math inline">\(\mathsf{C}\)</span> can be verified without difficulty. Categories constructed in this pattern is called <span class="math inline">\(slice \  category\)</span> , which is a special form of <span class="math inline">\(comma\ category\)</span> .</p>
-<h4 id="example-3.2">Example 3.2</h4>
-<p>​ An similar example of <strong>Example 3.1</strong> can be obtained by considering morphisms in a category <span class="math inline">\(\mathsf{C}\)</span> from a fixed object <span class="math inline">\(A\)</span> to all objects in <span class="math inline">\(\mathsf{C}\)</span>, with morphisms defined by suitable commutative diagrams. The category defined above is called <span class="math inline">\(coslice\ category\)</span>.</p>
-<h4 id="example-3.3">Example 3.3</h4>
-<p>​ An example of coslice category is shown by letting <span class="math inline">\(\mathsf{C=Set}\)</span> and <span class="math inline">\(A=\)</span> a fixed singleton <span class="math inline">\(\mathbb{S}\)</span>. We call this category <span class="math inline">\(\mathsf{Set^*}\)</span>.</p>
-<p>​ An object in this category is a morphism <span class="math inline">\(f:\mathbb{S}\rightarrow S\)</span> in <span class="math inline">\(\mathsf{Set}\)</span> where <span class="math inline">\(S\)</span> is any set. The information of ab object in <span class="math inline">\(\mathsf{Set^*}\)</span> consists of the choice of a nonempty set <span class="math inline">\(S\)</span> and an element <span class="math inline">\(s\in S\)</span> which is the element <span class="math inline">\(f(*)\)</span>. Thus we may denote objects in this category as pairs <span class="math inline">\((S,s)\)</span>. A morphism between two such objects, <span class="math inline">\((S,s)\rightarrow(T,t)\)</span>, corresponds to a set function <span class="math inline">\(\sigma:S\rightarrow T\)</span> such that <span class="math inline">\(\sigma(s)=t\)</span>.</p>
-<p>​ Objects of <span class="math inline">\(\mathsf{Set}^*\)</span> are called ‘pointed sets’ and many structures are pointed sets. For example, <strong>group homomorphisms</strong> sends one identity to another.</p>
 ]]></content>
       <tags>
         <tag>Algebra Chapter 0</tag>
@@ -261,52 +261,6 @@
       </tags>
   </entry>
   <entry>
-    <title>BUAA OO U4 Review</title>
-    <url>/2022/10/21/BUAA-OO-U4-Review/</url>
-    <content><![CDATA[<h1 id="buaa-oo-第四单元总结-课程总结">BUAA OO 第四单元总结 &amp; 课程总结</h1>
-<h2 id="概述">🖊概述</h2>
-<p>​ 本单元的目标是在课程组提供的 UML 解析程序基础之上，封装自己的 UML 元素类来建模、指令查询和抛出异常等。在此之前需要熟悉 UML 类图、顺序图和状态图各个元素之间的基本关系，以便建立恰当的模型。</p>
-<h2 id="架构设计">🗺架构设计</h2>
-<p><img src="/2022/10/21/BUAA-OO-U4-Review/image-20220623165433835.png" alt="封装的类图" style="zoom:60%;"></p>
-<p><img src="/2022/10/21/BUAA-OO-U4-Review/image-20220623165613658.png" alt="整体架构" style="zoom:80%;"></p>
-<p>​ 三次作业是增量开发的关系，每次作业在之前的基础上添加新的功能（新的查询指令或者抛出异常），总体难度较低，但是工作量不小，需要兼顾到整体设计架构的简洁性和实现功能的正确性。</p>
-<p>​ 其中有三个类（<code>ClassDiagram</code>、<code>SequenceDiagram</code>、<code>StateDiagram</code>）是工具类，包含一些静态方法供 <code>UserApiImpl</code> 调用，否则会超行数😀。另外为了建模方便，构造方法中给出的 <code>UmlElement</code> 的顺序不一定满足需要，因为有些元素需要提前处理，所以在开始的时候我进行了排序，部分代码片段如下。（选择 <code>.stream ().sorted ()</code> 的原因是 <code>UmlMessage</code> 在列表中是按顺序排好的，需要保证排序的稳定性，因此不能使用普通的 <code>.sort ()</code>）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">elementWeight</span><span class="params">(UmlElement e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (e <span class="keyword">instanceof</span> UmlClass ||</span><br><span class="line">            e <span class="keyword">instanceof</span> UmlStateMachine ||</span><br><span class="line">            e <span class="keyword">instanceof</span> UmlCollaboration) ? <span class="number">0</span> :</span><br><span class="line">            (e <span class="keyword">instanceof</span> UmlInterface ||</span><br><span class="line">                e <span class="keyword">instanceof</span> UmlRegion ||</span><br><span class="line">                    e <span class="keyword">instanceof</span> UmlInteraction) ? <span class="number">1</span> :</span><br><span class="line">                    (e <span class="keyword">instanceof</span> UmlOperation ||</span><br><span class="line">                        e <span class="keyword">instanceof</span> UmlPseudostate ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlState ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlFinalState ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlLifeline ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlEndpoint) ? <span class="number">2</span> :</span><br><span class="line">                            (e <span class="keyword">instanceof</span> UmlTransition) ? <span class="number">3</span> :</span><br><span class="line">                                    (e <span class="keyword">instanceof</span> UmlParameter ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlEvent ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlMessage ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlAssociation) ? <span class="number">4</span> : <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">UserApiImpl</span><span class="params">(UmlElement... elements)</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;UmlElement&gt; elementList = <span class="keyword">new</span> ArrayList&lt;&gt;(Arrays.asList (elements));</span><br><span class="line">    elementList = (ArrayList&lt;UmlElement&gt;) elementList.stream ()</span><br><span class="line">            .sorted (Comparator.comparing (<span class="keyword">this</span>::elementWeight))</span><br><span class="line">            .collect (Collectors.toList ());</span><br><span class="line">    <span class="comment">// HANDLE UMLELEMENTS</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="设计思维和-oo-理解演进">🏃‍♀️设计思维和 OO 理解演进</h2>
-<h3 id="第一单元">第一单元</h3>
-<p>​ 经过了假期的 Pre 训练，我对 Java 语法和面向对象有了初步的认识，但还是被第一单元难住了。（x</p>
-<p>​ 第一单元中最重要的一步是抽象表达式元素的结构和相互之间的关系，比如三角函数如何存储、如何找到表达式计算的好方法等等问题都是必须考虑的。第一次作业因为没有引入其他函数和变量，因此一个 <code>HashMap&lt;Integer, Integer&gt;</code> 完全可以胜任，但是在后续的作业中就不得不重构了，遗憾的是我当时没有在找到一个合适的结构，导致三次作业中完全没有继承关系 + 一些类中的方法很臃肿，有的方法甚至套了七八层大括号（幸好只有三次作业😀）。</p>
-<p>​ 幸运的是在第一单元中我深刻认识到面向对象编程思想和设计模式的重要性，在之后的作业中加以注意，没有犯类似的错误。</p>
-<h3 id="第二单元">第二单元</h3>
-<p>​ 第二单元中我第一次接触到 Java 多线程的相关知识，在入门的时候花了很多时间来学习和构思。最终大概思路是构建一个或若干个线程安全类，其实例作为线程之间的 “桥梁”，每个线程之间的逻辑是相对独立的。细节方面主要是注意锁的使用和 <code>synchronized</code> 块的范围（我就因此在第一次作业中出现了 bug），以及消除轮询。因为第一次作业建立了一个还算合理的架构和电梯调度的算法（后面就没有动过，LOL），所以后面两次作业就比较顺利，线程之间如何沟通、同步等等都比较熟练，代码的逻辑性和条理性也得到了提升。</p>
-<h3 id="第三单元">第三单元</h3>
-<p>​ 第三单元学习了 JML 语言体系并且初步接触了契约式编程，主要是根据给定的规格来构造社交网络并实现特定的功能。简单来说就是给定一个框架，包括条件、结果和影响等等，如何实现还是见仁见智。在第三单元中我学习了契约式编程的实现和相关细节，并且复习了一些图论算法，整体工作量上比前两个单元要少很多。</p>
-<h3 id="第四单元">第四单元</h3>
-<p>​ 第四单元主要是建立 UML 的模型并实现查询和抛出异常等功能。总体难度不大，重点是要熟悉 UML 类图、顺序图和状态图各个元素之间的关系。需要注意的是要仔细阅读指导书，完全理解功能的含义再着手写代码，否则很可能会出现 bug。</p>
-<h2 id="测试实践的演进">✔测试实践的演进</h2>
-<h3 id="第一单元-1">第一单元</h3>
-<p>​ 第一单元的测试主要基于手动构造样例的形式展开，给出若干个比较长的数据点并和结果进行比较。其中比较的过程我借助了 <code>Mathematica</code> 的工具来验证，比如统一代入 1 比较结果即可。由于两个不恒等的表达式代入之后误差小于阈值的可能性极小，因此这种验证方法还算可靠。当然也可以使用 python 的相关库来实现。</p>
-<h3 id="第二单元-1">第二单元</h3>
-<p>​ 第二单元的测试也是基于手动构造样例的形式，可以构造很极端的数据（比如第 69.9 秒的时候突然增加若干请求来测试高并发情况下的正确性）。在线程轮询的排除方面我使用了 <code>jcommander</code> 来跟踪程序运行的各种状态。除此之外我还使用了室友写的小程序，它可以将无序且杂乱的输出按照电梯的序号来一一整理，这样就能直接查看具体某一部电梯的运行状态，非常方便。</p>
-<h3 id="第三单元-1">第三单元</h3>
-<p>​ 第三单元个人感觉把指导书上每个细节都注意到就基本上不会有太大问题，主要还是性能方面可能会造成 bug。在写算法的时候要注意复杂度和函数调用栈等等，总之要时刻注意可能出现的超时问题，~~ 因为互测大家都是用极端数据炸人～～。测试方面我只写了一个测试极端数据的数据生成器，主要还是靠和室友对拍来验证。</p>
-<h3 id="第四单元-1">第四单元</h3>
-<p>​ 第四单元和第三单元类似，搞清楚指导书并把讨论区的问题过一遍可以帮助排除一些 bug，当然最好还是从头到尾把自己写的程序逻辑过一遍（可以自己给自己讲讲实现的思路，也许会找到 bug 也说不定）。第三次作业的压缩包里给出了每个异常对应的 UML 图，把这些都验证一遍就可以排除很多 bug。</p>
-<h2 id="课程收获">🙌课程收获</h2>
-<p>​ 这一学期的课程下来，最直接的收获当然是体会了解并内化了面向对象的思想和一些设计模式，逐渐抛弃了一些面向过程编程的小毛病，写出来的代码更优雅、可读性更强了（checkstyle 插件功不可没，逃）。</p>
-<p>​ 除此之外一个让我明显感觉到的收获是：不怕写代码了。如果说上学期的计组还是我对码代码脱敏的预备期，那么这学期经过 OO 和 OS 的双重考验，我想我对写代码这件事已经没有了大一时候隐隐的恐惧。每次作业动辄上千行代码和重构的经历使我在思考代码本身的同时必须兼顾到整个架构的合理性和复杂度，这些都是写代码必备的能力，会很多算法和编程技巧是一方面，拥有架构设计和组织的能力并应用到实际编程当中也是很重要的。</p>
-<h2 id="一些小建议">💫一些小建议</h2>
-<ol type="1">
-<li>多线程的相关知识可以提前下放，比如在预习任务里稍微涉及一点点，或者干脆让第二单元多一次作业并砍掉第三或者第四单元的一次作业。本学期第二单元第一次作业因为假期而延长了几天时间，这几天时间刚刚好让我熟悉了多线程的知识并理清楚了思路，不知道是不是每学期第二单元都恰巧能赶上一次假期🤔。</li>
-<li>关于研讨课，个人认为安排不够合理：一方面留给小组讨论和展示的时间比较仓促；一方面在某些讨论题下大家得出的结论可能是比较相似的，上台展示内容的重合度也比较高，这样一来大家的收获相比花掉的时间来说会相对减少。可以适当延长一些讨论的时间并减少上台展示的人数，比如可以等讨论结束抽签一些组来展示，这样大家都有足够的机会参与到讨论当中，也给展示环节减少了负担（个人经验是几乎没有哪次可以所有组都讲完的）。然后课下可以所有人维护一个讨论课总结文档，每一组把讨论的结果写进去，这样也给没有展示的小组补充观点的机会，deadline 过了之后再整合一下文档发给同学阅读。这学期的研讨课感觉课上大家整体参与度不是太高，课下总结文档提交完问卷星就石沉大海，这两方面都可以提高一些效率。</li>
-<li>互测阶段可以开放 star 的功能。如果看到同房间有同学的代码写得比较优雅，可以 star 标记一下，在本单元结束之后公布一下这些同学的代码供同学们学习。然后同房间被 star 最多的同学可以在互测或者强测环节酌情加分（或者扣分减免）🤔？也许互测可以增加 “star 一位同学的代码” 的要求，并且需要下载所有代码之后才可以 star，这样也符合互测的目的，哪怕不肉眼 debug 其他同学的代码，看看其他实现方法也是好的（感觉大多数同学到后面就是直接造数据 hack 一个算一个）。只是一个初步的想法，为了保证平衡性可能还有很多细节要实现。</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>BUAA OO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>BUAA OO U3 Review</title>
     <url>/2022/10/21/BUAA-OO-U3-Review/</url>
     <content><![CDATA[<h1 id="buaa-oo-第三单元总结">BUAA OO 第三单元总结</h1>
@@ -406,6 +360,52 @@
 ]]></content>
       <tags>
         <tag>复分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BUAA OO U4 Review</title>
+    <url>/2022/10/21/BUAA-OO-U4-Review/</url>
+    <content><![CDATA[<h1 id="buaa-oo-第四单元总结-课程总结">BUAA OO 第四单元总结 &amp; 课程总结</h1>
+<h2 id="概述">🖊概述</h2>
+<p>​ 本单元的目标是在课程组提供的 UML 解析程序基础之上，封装自己的 UML 元素类来建模、指令查询和抛出异常等。在此之前需要熟悉 UML 类图、顺序图和状态图各个元素之间的基本关系，以便建立恰当的模型。</p>
+<h2 id="架构设计">🗺架构设计</h2>
+<p><img src="/2022/10/21/BUAA-OO-U4-Review/image-20220623165433835.png" alt="封装的类图" style="zoom:60%;"></p>
+<p><img src="/2022/10/21/BUAA-OO-U4-Review/image-20220623165613658.png" alt="整体架构" style="zoom:80%;"></p>
+<p>​ 三次作业是增量开发的关系，每次作业在之前的基础上添加新的功能（新的查询指令或者抛出异常），总体难度较低，但是工作量不小，需要兼顾到整体设计架构的简洁性和实现功能的正确性。</p>
+<p>​ 其中有三个类（<code>ClassDiagram</code>、<code>SequenceDiagram</code>、<code>StateDiagram</code>）是工具类，包含一些静态方法供 <code>UserApiImpl</code> 调用，否则会超行数😀。另外为了建模方便，构造方法中给出的 <code>UmlElement</code> 的顺序不一定满足需要，因为有些元素需要提前处理，所以在开始的时候我进行了排序，部分代码片段如下。（选择 <code>.stream ().sorted ()</code> 的原因是 <code>UmlMessage</code> 在列表中是按顺序排好的，需要保证排序的稳定性，因此不能使用普通的 <code>.sort ()</code>）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">elementWeight</span><span class="params">(UmlElement e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (e <span class="keyword">instanceof</span> UmlClass ||</span><br><span class="line">            e <span class="keyword">instanceof</span> UmlStateMachine ||</span><br><span class="line">            e <span class="keyword">instanceof</span> UmlCollaboration) ? <span class="number">0</span> :</span><br><span class="line">            (e <span class="keyword">instanceof</span> UmlInterface ||</span><br><span class="line">                e <span class="keyword">instanceof</span> UmlRegion ||</span><br><span class="line">                    e <span class="keyword">instanceof</span> UmlInteraction) ? <span class="number">1</span> :</span><br><span class="line">                    (e <span class="keyword">instanceof</span> UmlOperation ||</span><br><span class="line">                        e <span class="keyword">instanceof</span> UmlPseudostate ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlState ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlFinalState ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlLifeline ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlEndpoint) ? <span class="number">2</span> :</span><br><span class="line">                            (e <span class="keyword">instanceof</span> UmlTransition) ? <span class="number">3</span> :</span><br><span class="line">                                    (e <span class="keyword">instanceof</span> UmlParameter ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlEvent ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlMessage ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlAssociation) ? <span class="number">4</span> : <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">UserApiImpl</span><span class="params">(UmlElement... elements)</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;UmlElement&gt; elementList = <span class="keyword">new</span> ArrayList&lt;&gt;(Arrays.asList (elements));</span><br><span class="line">    elementList = (ArrayList&lt;UmlElement&gt;) elementList.stream ()</span><br><span class="line">            .sorted (Comparator.comparing (<span class="keyword">this</span>::elementWeight))</span><br><span class="line">            .collect (Collectors.toList ());</span><br><span class="line">    <span class="comment">// HANDLE UMLELEMENTS</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="设计思维和-oo-理解演进">🏃‍♀️设计思维和 OO 理解演进</h2>
+<h3 id="第一单元">第一单元</h3>
+<p>​ 经过了假期的 Pre 训练，我对 Java 语法和面向对象有了初步的认识，但还是被第一单元难住了。（x</p>
+<p>​ 第一单元中最重要的一步是抽象表达式元素的结构和相互之间的关系，比如三角函数如何存储、如何找到表达式计算的好方法等等问题都是必须考虑的。第一次作业因为没有引入其他函数和变量，因此一个 <code>HashMap&lt;Integer, Integer&gt;</code> 完全可以胜任，但是在后续的作业中就不得不重构了，遗憾的是我当时没有在找到一个合适的结构，导致三次作业中完全没有继承关系 + 一些类中的方法很臃肿，有的方法甚至套了七八层大括号（幸好只有三次作业😀）。</p>
+<p>​ 幸运的是在第一单元中我深刻认识到面向对象编程思想和设计模式的重要性，在之后的作业中加以注意，没有犯类似的错误。</p>
+<h3 id="第二单元">第二单元</h3>
+<p>​ 第二单元中我第一次接触到 Java 多线程的相关知识，在入门的时候花了很多时间来学习和构思。最终大概思路是构建一个或若干个线程安全类，其实例作为线程之间的 “桥梁”，每个线程之间的逻辑是相对独立的。细节方面主要是注意锁的使用和 <code>synchronized</code> 块的范围（我就因此在第一次作业中出现了 bug），以及消除轮询。因为第一次作业建立了一个还算合理的架构和电梯调度的算法（后面就没有动过，LOL），所以后面两次作业就比较顺利，线程之间如何沟通、同步等等都比较熟练，代码的逻辑性和条理性也得到了提升。</p>
+<h3 id="第三单元">第三单元</h3>
+<p>​ 第三单元学习了 JML 语言体系并且初步接触了契约式编程，主要是根据给定的规格来构造社交网络并实现特定的功能。简单来说就是给定一个框架，包括条件、结果和影响等等，如何实现还是见仁见智。在第三单元中我学习了契约式编程的实现和相关细节，并且复习了一些图论算法，整体工作量上比前两个单元要少很多。</p>
+<h3 id="第四单元">第四单元</h3>
+<p>​ 第四单元主要是建立 UML 的模型并实现查询和抛出异常等功能。总体难度不大，重点是要熟悉 UML 类图、顺序图和状态图各个元素之间的关系。需要注意的是要仔细阅读指导书，完全理解功能的含义再着手写代码，否则很可能会出现 bug。</p>
+<h2 id="测试实践的演进">✔测试实践的演进</h2>
+<h3 id="第一单元-1">第一单元</h3>
+<p>​ 第一单元的测试主要基于手动构造样例的形式展开，给出若干个比较长的数据点并和结果进行比较。其中比较的过程我借助了 <code>Mathematica</code> 的工具来验证，比如统一代入 1 比较结果即可。由于两个不恒等的表达式代入之后误差小于阈值的可能性极小，因此这种验证方法还算可靠。当然也可以使用 python 的相关库来实现。</p>
+<h3 id="第二单元-1">第二单元</h3>
+<p>​ 第二单元的测试也是基于手动构造样例的形式，可以构造很极端的数据（比如第 69.9 秒的时候突然增加若干请求来测试高并发情况下的正确性）。在线程轮询的排除方面我使用了 <code>jcommander</code> 来跟踪程序运行的各种状态。除此之外我还使用了室友写的小程序，它可以将无序且杂乱的输出按照电梯的序号来一一整理，这样就能直接查看具体某一部电梯的运行状态，非常方便。</p>
+<h3 id="第三单元-1">第三单元</h3>
+<p>​ 第三单元个人感觉把指导书上每个细节都注意到就基本上不会有太大问题，主要还是性能方面可能会造成 bug。在写算法的时候要注意复杂度和函数调用栈等等，总之要时刻注意可能出现的超时问题，~~ 因为互测大家都是用极端数据炸人～～。测试方面我只写了一个测试极端数据的数据生成器，主要还是靠和室友对拍来验证。</p>
+<h3 id="第四单元-1">第四单元</h3>
+<p>​ 第四单元和第三单元类似，搞清楚指导书并把讨论区的问题过一遍可以帮助排除一些 bug，当然最好还是从头到尾把自己写的程序逻辑过一遍（可以自己给自己讲讲实现的思路，也许会找到 bug 也说不定）。第三次作业的压缩包里给出了每个异常对应的 UML 图，把这些都验证一遍就可以排除很多 bug。</p>
+<h2 id="课程收获">🙌课程收获</h2>
+<p>​ 这一学期的课程下来，最直接的收获当然是体会了解并内化了面向对象的思想和一些设计模式，逐渐抛弃了一些面向过程编程的小毛病，写出来的代码更优雅、可读性更强了（checkstyle 插件功不可没，逃）。</p>
+<p>​ 除此之外一个让我明显感觉到的收获是：不怕写代码了。如果说上学期的计组还是我对码代码脱敏的预备期，那么这学期经过 OO 和 OS 的双重考验，我想我对写代码这件事已经没有了大一时候隐隐的恐惧。每次作业动辄上千行代码和重构的经历使我在思考代码本身的同时必须兼顾到整个架构的合理性和复杂度，这些都是写代码必备的能力，会很多算法和编程技巧是一方面，拥有架构设计和组织的能力并应用到实际编程当中也是很重要的。</p>
+<h2 id="一些小建议">💫一些小建议</h2>
+<ol type="1">
+<li>多线程的相关知识可以提前下放，比如在预习任务里稍微涉及一点点，或者干脆让第二单元多一次作业并砍掉第三或者第四单元的一次作业。本学期第二单元第一次作业因为假期而延长了几天时间，这几天时间刚刚好让我熟悉了多线程的知识并理清楚了思路，不知道是不是每学期第二单元都恰巧能赶上一次假期🤔。</li>
+<li>关于研讨课，个人认为安排不够合理：一方面留给小组讨论和展示的时间比较仓促；一方面在某些讨论题下大家得出的结论可能是比较相似的，上台展示内容的重合度也比较高，这样一来大家的收获相比花掉的时间来说会相对减少。可以适当延长一些讨论的时间并减少上台展示的人数，比如可以等讨论结束抽签一些组来展示，这样大家都有足够的机会参与到讨论当中，也给展示环节减少了负担（个人经验是几乎没有哪次可以所有组都讲完的）。然后课下可以所有人维护一个讨论课总结文档，每一组把讨论的结果写进去，这样也给没有展示的小组补充观点的机会，deadline 过了之后再整合一下文档发给同学阅读。这学期的研讨课感觉课上大家整体参与度不是太高，课下总结文档提交完问卷星就石沉大海，这两方面都可以提高一些效率。</li>
+<li>互测阶段可以开放 star 的功能。如果看到同房间有同学的代码写得比较优雅，可以 star 标记一下，在本单元结束之后公布一下这些同学的代码供同学们学习。然后同房间被 star 最多的同学可以在互测或者强测环节酌情加分（或者扣分减免）🤔？也许互测可以增加 “star 一位同学的代码” 的要求，并且需要下载所有代码之后才可以 star，这样也符合互测的目的，哪怕不肉眼 debug 其他同学的代码，看看其他实现方法也是好的（感觉大多数同学到后面就是直接造数据 hack 一个算一个）。只是一个初步的想法，为了保证平衡性可能还有很多细节要实现。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>BUAA OO</tag>
       </tags>
   </entry>
 </search>
