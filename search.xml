@@ -71,112 +71,46 @@
       </tags>
   </entry>
   <entry>
-    <title>BUAA OO U1 Review</title>
-    <url>/2022/03/22/BUAA-OO-U1-Review/</url>
-    <content><![CDATA[<h1 id="buaa-oo-第一单元总结">BUAA OO 第一单元总结</h1>
-<h2 id="第一次作业">- 第一次作业</h2>
-<p>​ 第一次作业要求化简一个一元（变量只能为 <span class="math inline">\(x\)</span>）的表达式，其中可以出现空白符和连续的正负号，至少需要去掉所有括号。为了得到性能分，还需要进行合并同类项的操作。</p>
-<h3 id="程序架构">程序架构</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220303222022906.png"></p>
-<p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
-<p>​ 第一次作业采用了递归下降的处理方法，各个类的作用如下：</p>
-<ul>
-<li><p><strong>Element</strong>：使用 <code>HashMap&lt;Integer,BigInteger&gt;</code> 存储各个元素的信息，其中 Key 表示次数，Value 表示系数。由于第一次作业不包含任何其他特殊函数，所以无论是因子、项还是表达式都可以用 Element 来存储，结构比较统一，方便运算和化简。</p>
-<p>为方便叙述，给出因子、项和表达式的定义：</p>
-<ul>
-<li><b> 因子 </b>：（+/-）变量的幂 + 常数的幂 + 括号表达式的幂（其中幂次为 1 可以省略幂指数）</li>
-<li><b> 项 </b>：因子的乘积</li>
-<li><b> 表达式 </b>：项的加和</li>
-</ul></li>
-<li><p><strong>Token</strong>：存储表达式基本单元的类，如操作符、括号、操作数和变量。</p></li>
-<li><p><strong>Lexer</strong>：对输入表达式进行词法分析的类，将字符串分割为若干 token 并存入 <code>ArrayList&lt;Token&gt;</code>，并且在读入过程中进行初步化简：</p>
-<ul>
-<li>将连续的一串加减号划归为一个加 / 减号。</li>
-<li>对于操作数直接用字符串存储，在后续处理过程中可以直接使用转换为整数。</li>
-</ul></li>
-<li><p><strong>Parser</strong>：递归下降逐个解析 <code>ArrayList&lt;Tokens&gt;</code> 的元素。<code>glbPos</code> 表示 token 的位置，<code>isHigh () isMid () isLow ()</code> 方法判断此时的 token 是否代表运算符并判断优先级。递归下降的入口是 <code>parseExpr ()</code>，之后进入 <code>parseTerm ()</code> 和 <code>parseUnit ()</code>，再从 <code>parseUnit ()</code> 调用 <code>parseExpr ()</code> 实现递归下降。由于结构统一，因此每个 parse 方法的返回类型都是 Element。</p></li>
-</ul>
-<h3 id="基于度量的结构分析">基于度量的结构分析</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322123607798.png"></p>
-<p>​ 根据 CogC 指标排序，可以发现认知复杂度较高的方法为 <code>parseUnit ()</code> 和 <code>output ()</code>。</p>
-<p>​ <code>parseUnit ()</code> 方法复杂度较高的原因是因子的定义比较多，需要判断类型和是否有乘方，导致其中出现很多判断分支；<code>output ()</code> 的原因类似，也是出现了很多分支来判断如何输出字符串。</p>
-<h3 id="bug-分析">bug 分析</h3>
-<p>​ 本次作业的 bug 出现在形式化定义上。一开始我把因子定义为变量的幂 + 常数 + 表达式的幂，可以注意到这里缺少了常数的幂，于是输入 <code>x*2**2</code> 获得的结果就为 <code>4*x**2</code>，因为程序把 <code>x*2</code>parse 成了一个整体，于是在强测中出现了 bug。在 <code>parseUnit ()</code> 方法中添加一个判断即可解决。</p>
-<h2 id="第二次作业">- 第二次作业</h2>
-<p>​ 第二次作业在第一次作业的基础上增加了三角函数（括号内只能是非负整数和 <span class="math inline">\(x\)</span> 的非负整数幂）、自定义函数和求和函数，依然要求去除不必要的括号并展开所有自定义函数和求和函数。本次作业的函数不能嵌套。</p>
-<h3 id="程序架构-1">程序架构</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322162937182.png"></p>
-<p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
-<p>​ 第二次作业仍然保持了递归下降的处理思路，因为找到了可以统一存储表达式各个部分的数据结构，感觉并没有重构的必要。<del>（其实是偷懒）</del></p>
-<ul>
-<li><p><strong>Poly</strong>：这里我将项定义为： <span class="math display">\[
-\begin {align} a*({x^{b} }*\prod_{i=0}^{\infty}\ {sin^{s_i}(S_i)}*\prod_{j=0}^{\infty}\ {cos^{c_i}(C_j))} \end {align}
-  \]</span> 而 Poly 则存储了最外层括号里面的内容，<span class="math inline">\(b\)</span> 对应 <code>exp</code>，<code>sinSet</code> 和 <code>cosSet</code> 分别对应两个累乘。<code>HashMap&lt;String,BigInteger&gt;</code> 中的 <code>String</code> 记录的是 <span class="math inline">\(S_i\)</span>，因为本次作业三角函数中只能是 <span class="math inline">\(x^p\ (p\ge0)\)</span> 或者 <span class="math inline">\(t\ (t\ge0,t\in \mathbb {Z})\)</span>，因此格式是完全确定且唯一的，可以用字符串存储。而且因子和项都可以用这种形式处理，这使得计算方面更加简便。</p></li>
-<li><p><strong>Element</strong>：<code>HashMap&lt;Poly,BigInteger&gt;</code> 表示了 <code>Poly</code> 和系数 <span class="math inline">\(a\)</span> 的对应关系集合，即许多项的和。</p>
-<p>其中包含了两个化简的方法，分别是特殊处理 <span class="math inline">\(sin (0)/cos (0)\)</span> 和处理三角函数平方和。</p></li>
-<li><p><strong>PreProcessing</strong>：这个类用来处理自定义函数和求和函数，并且把第一次作业中出现的一些化简步骤整合了进来。下面简要说明如何处理两种函数。</p>
-<ul>
-<li><p><b> 自定义函数 </b>：</p>
-<ul>
-<li>读入自定义函数的定义，根据等号划分为左右两部分，分别为 <code>defL</code> 和 <code>defR</code>，使用正则匹配的捕获组来捕获 <code>defL</code> 的函数名以及变量（按顺序）。注意在此之前需要得到此函数变量的数量，然后使用特定的 Pattern 来匹配（我定义了一个 Pattern 数组，用来存放不同变量数量的 <code>defL</code> 正则表达式）。</li>
-<li>当在输入中找到自定义函数（记为 <code>input</code>）的时候进行第二次正则匹配 &amp; 捕获（注意要找对函数名），按顺序获得需要代入的表达式，这样 <code>input</code> 和 <code>defL</code> 中参变量和实际表达式就以捕获组的序号进行了一一对应，方便处理如 <span class="math inline">\(f (y,x)=y-x\)</span> 等参变量不按顺序出现的自定义函数。</li>
-<li>读取 <code>defR</code>，将参变量替换为对应需要代入的表达式即可（记得在每个代入的表达式外套一层括号来表示这是一个整体，防止替换回去之后产生错误），这里需要注意的一点是如果先进行了 <span class="math inline">\(y\)</span> 或者 <span class="math inline">\(z\)</span> 的替换而参变量中有 <span class="math inline">\(x\)</span>，那么在将 <span class="math inline">\(y\)</span> 替换为含 <span class="math inline">\(x\)</span> 的表达式之后可能会重复替换 <span class="math inline">\(x\)</span>（比如 <span class="math inline">\(f (y,x)=y-x\)</span>，<code>input</code> 为 <span class="math inline">\(f (x,x+1)\)</span>，那么替换过程就是 <span class="math inline">\(y-x\rightarrow x-x\rightarrow (x+1)-(x+1)\rightarrow 0\)</span>，这显然是不正确的）。这里我的解决方法是：在替换的时候都把 <span class="math inline">\(x\)</span> 替换为不相关的字符 <span class="math inline">\(w\)</span>，最后再统一 <code>replaceAll ("w","x")</code> 即可。</li>
-</ul>
-<p>在处理自定义函数的时候，助教一再强调不要暴力字符串替换，而是 <b> 先对表达式进行建模，再代入原式 </b> ，奈何我没有想到很好的建模方法，于是只是使用了暴力替换。不过如果用表达式树处理的话建模会方便很多，可以先对各个表达式建一棵树，代入的时候替换掉上面的节点再插入原来的表达式树即可。</p></li>
-<li><p><b> 求和函数 </b>：也是使用了字符串替换的方法，通过循环 + StringBuilder 构建需要替换的字符串。这里有三个需要注意的点：</p>
-<ul>
-<li><span class="math inline">\(sin\)</span> 中也包含字母 i，替换的时候要小心。可以先把三角函数名提前换为 s&amp;c 来解决。</li>
-<li>如果求和上限小于下限，则本项应为 0。</li>
-<li>求和上下限最好定义为 <code>BigInteger</code> 类型防止溢出。</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Lexer&amp;Parser&amp;Token</strong>：和第一次作业基本相同。</p></li>
-</ul>
-<h3 id="基于度量的结构分析-1">基于度量的结构分析</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322174205046.png"></p>
-<p>​ 根据 CogC 指标排序发现，认知复杂度较高的方法前两位仍然是 <code>parseUnit ()</code> 和 <code>output ()</code>，这是更复杂的因子定义和更复杂的输出逻辑造成的。此外一些化简方法的复杂度也较高。</p>
-<h3 id="bug-分析-1">bug 分析</h3>
-<p>​ 本次作业在强测和互测中都没有出现 bug，不过强测中一些点的性能分不高，这是因为我用原始的字符串来存储三角函数的内容，处理 <span class="math inline">\(sin (0)/cos (0)\)</span> 的化简时只考虑到字符串内容为 “0” 而忽视了 <span class="math inline">\(sin (-0)\)</span>、<span class="math inline">\(cos (+0)\)</span> 等，造成没有化简完全的情况。</p>
-<h2 id="第三次作业">- 第三次作业</h2>
-<p>​ 第三次作业在第二次作业的基础上允许了自定义函数的嵌套（求和函数内不允许出现自定义函数），同时三角函数内可以为表达式。</p>
-<h3 id="程序架构-2">程序架构</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322175955155.png"></p>
-<p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
-<p>​ 第三次作业在第二次作业的基础上只需要改动很少就可以，所以保持了原来的架构。其中最核心的改动是将 Poly 中存储三角函数的结构改为 <code>HashMap&lt;Element,BigInteger&gt;</code>，并～（差不多）~ 重写了 Poly 和 Element 的 <code>equals ()</code> 方法。</p>
-<p>​ 但是如果想要化简结果，则需要耗费很多时间来完善代码和测试。我花了大概两天时间才基本完成大概化简方法，其中有无数次测试 <span class="math inline">\(\rightarrow\)</span> 发现 bug<span class="math inline">\(\rightarrow\)</span> 修改代码 <span class="math inline">\(\rightarrow\)</span> 测试的循环😭。最核心的是三角函数平方和的化简，大致的逻辑为：</p>
-<ul>
-<li>遍历 Element 的 <code>HashMap</code>，看是否同时有两个不同的项，其中一个 <span class="math inline">\(sin\)</span> 的次数大于等于 2，另一个 <span class="math inline">\(cos\)</span> 的次数大于等于 2，并且其中包含的内容相同（<b> 这里需要重写 <code>equals ()</code> 方法 </b>，我自己另外写了一个 <code>equal ()</code> 来替代，这是不明智的做法）。其中内容相同的第一要素是三角函数中 Element 的 <code>HashMap</code> 的大小相同，所以需要在每次运算之后进行一次同类项合并。</li>
-<li>判断这两项在分别将第一步找出来的 <span class="math inline">\(sin\)</span> 和 <span class="math inline">\(cos\)</span> 次数减去 2 之后，剩下的部分是否相同，如果相同，则把 <span class="math inline">\(cos\)</span> 那项的系数减过去，而它自己丢掉一个 <span class="math inline">\(cos^2\)</span>。比如 <span class="math display">\[x*sin^3 (x+1)+2*cos^2 (x+1)*x*sin (x+1)\]</span> 化简为 <span class="math display">\[-x*sin^3 (x+1)+x*sin (x+1)\]</span> ，本质上就是作了 <span class="math inline">\(cos^2 P=1-sin^2 P\)</span> 的替换，虽然不是每个表达式都能完全化简，不过在相当一部分测试样例中都是奏效的。</li>
-</ul>
-<p>​ <b> 这里一个重要的点是深拷贝 / 浅拷贝的区别，比如第二步去掉 <span class="math inline">\(cos^2\)</span> 只需浅拷贝，直接修改 <code>this</code> 的 Poly 就可以，但是第一步中判断” 包含的内容相同 “时，不能真的分别去掉 <span class="math inline">\(sin^2\)</span> 和 <span class="math inline">\(cos^2\)</span>，而是需要复制一份独立的副本（不是引用同一个地址的数据，而是两块独立的内存空间，其中的内容相同），为此可以直接写一个 <code>copy ()</code> 方法来复制，也可以用序列化方法来实现深拷贝（具体实现原理可以上网搜索）。</b></p>
-<p>附序列化实现深拷贝的代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SerialCloneable</span> <span class="keyword">implements</span> <span class="title">Cloneable</span>,<span class="title">Serializable</span>  </span></span><br><span class="line"><span class="class"></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="keyword">try</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="comment">//save the object to a byte array  </span></span><br><span class="line">            ByteArrayOutputStream bout = <span class="keyword">new</span> ByteArrayOutputStream ();  </span><br><span class="line">            ObjectOutputStream out = <span class="keyword">new</span> ObjectOutputStream (bout);  </span><br><span class="line">            out.writeObject (<span class="keyword">this</span>);  </span><br><span class="line">            out.close ();  </span><br><span class="line"></span><br><span class="line">            <span class="comment">//read a clone of the object from the byte array  </span></span><br><span class="line">            ByteArrayInputStream bin = <span class="keyword">new</span> ByteArrayInputStream (bout.toByteArray ());  </span><br><span class="line">            ObjectInputStream in = <span class="keyword">new</span> ObjectInputStream (bin);  </span><br><span class="line">            Object result = in.readObject ();  </span><br><span class="line">            in.close ();  </span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> result;  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e)  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;    </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="基于度量的结构分析-2">基于度量的结构分析</h3>
-<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322182027486.png"></p>
-<p>​ 根据分析数据可知，认知复杂度较高的方法主要是化简和输出。本次作业中 <code>parseUnit ()</code> 方法被拆分了，所以复杂度有所降低。</p>
-<h3 id="bug-分析-2">bug 分析</h3>
-<p>​ 本次作业出现了一些 bug，分析如下：</p>
-<ul>
-<li>由于自定义函数允许嵌套，使用正则表达式捕获组处理输入的表达式会出现错误：
-<ul>
-<li><b> 正则表达式不能进行括号的匹配 </b>，可能会在嵌套的函数中间进行截断，导致程序结果错误甚至报错。</li>
-<li><b> 解决方法 </b>：自行实现自定义函数内部表达式的括号匹配，等价于自己重新写了一个” 更加智能 “的捕获组。</li>
-</ul></li>
-<li>三角函数输出格式错误：
-<ul>
-<li><b><code>output ()</code> 调用的 <code>needBracket ()</code> 方法逻辑有误 </b> ，一些情况下会少输出一对三角函数内的括号，比如应该输出 <span class="math inline">\(sin ((5*cos (x)))\)</span> 而只输出了 <span class="math inline">\(sin (5*cos (x))\)</span>。</li>
-<li><b> 解决方法 </b>：调整 <code>needBracket ()</code> 内部的逻辑。</li>
-</ul></li>
-</ul>
-<h2 id="hack-策略">- hack 策略</h2>
-<p>​ 下载其他同学的代码更多是为了学习架构（毕竟也没有自动评测机 + 没有发现细枝末节的 bug），因此在第一单元的互测中我并没有查看很多同学的代码，更多还是提交边缘数据和测试中出现 bug 的数据。</p>
-<h2 id="架构设计评价">- 架构设计评价</h2>
-<p>​ 三次作业的架构给我最大的印象就是：<b> 居然没有使用接口和继承 </b>。</p>
-<p>​ 其实第一单元作业并没有给我一种逐渐摸索架构的感觉，因为从第一次作业使用 <code>HashMap</code> 处理各种元素之后，第二次作业我的第一个思路就是：如何填充 <code>HashMap</code> 来继续保持结构的统一性。于是后来增加的 Poly 类就不能算是架构很大的调整，无非是细枝末节的完善以迎合新的需求，最后的第三次作业也可以说完全继承了第一次作业的架构。</p>
-<p>​ 可能是因为找到了一个统一的数据结构来存储因子、项和表达式，我没有再对项目进行细化处理。所有的计算都包含在 Element 和 Poly 类中；所有的表达式整体化简都在 PreProcessing 类中；所有的词法语法分析都包含在 Lexer 和 Parser 类中，相互之间的依赖关系比较浅，一个类处理完后交给另一个类。总体来说类之间的耦合程度很低，每个类基本上在各司其职，内聚程度比较高。</p>
-<p>​ 但是我认为这种架构的可扩展性不够，并且没有很好遵守” 对新增开放、对修改关闭 “的编程原则。可以发现从第一次到第三次作业的过程中，Element 类在不断膨胀，虽然后两次中添加了 Poly 来” 分担 “处理表达式的职能，但是仍然不是一个很好的解决方案。如果后续还有第四次甚至第五次迭代，这个架构有两种结果：要么膨胀到复杂度极高的状态，要么只能推倒重构。如果想要提高可扩展性，可以将 Element 和 Parser 拆开，增加其他的表达式元素类并使用接口。</p>
-<h2 id="心得体会">- 心得体会</h2>
-<p>​ 面向对象第一单元到这里就告一段落了，在本学期开始之前，我对 OO 的设想是：无非只是学一门新语言而已，但是这一单元带给我的绝不止熟悉 Java 的语法那么简单。面向对象不只是一种编程思想，还是一种理解世界的抽象化思维，它更加贴近人们平常认识事物的方式，并且便于迭代开发（这一单元使用面向过程恐怕最多可以通过第一次作业）。无论是对未来的程序设计还是对认识世界的思维方式，面向对象思想都大有可用之处。</p>
+    <title>BUAA OO U4 Review</title>
+    <url>/2022/10/21/BUAA-OO-U4-Review/</url>
+    <content><![CDATA[<h1 id="buaa-oo-第四单元总结-课程总结">BUAA OO 第四单元总结 &amp; 课程总结</h1>
+<h2 id="概述">🖊概述</h2>
+<p>​ 本单元的目标是在课程组提供的 UML 解析程序基础之上，封装自己的 UML 元素类来建模、指令查询和抛出异常等。在此之前需要熟悉 UML 类图、顺序图和状态图各个元素之间的基本关系，以便建立恰当的模型。</p>
+<h2 id="架构设计">🗺架构设计</h2>
+<p><img src="/2022/10/21/BUAA-OO-U4-Review/image-20220623165433835.png" alt="封装的类图" style="zoom:60%;"></p>
+<p><img src="/2022/10/21/BUAA-OO-U4-Review/image-20220623165613658.png" alt="整体架构" style="zoom:80%;"></p>
+<p>​ 三次作业是增量开发的关系，每次作业在之前的基础上添加新的功能（新的查询指令或者抛出异常），总体难度较低，但是工作量不小，需要兼顾到整体设计架构的简洁性和实现功能的正确性。</p>
+<p>​ 其中有三个类（<code>ClassDiagram</code>、<code>SequenceDiagram</code>、<code>StateDiagram</code>）是工具类，包含一些静态方法供 <code>UserApiImpl</code> 调用，否则会超行数😀。另外为了建模方便，构造方法中给出的 <code>UmlElement</code> 的顺序不一定满足需要，因为有些元素需要提前处理，所以在开始的时候我进行了排序，部分代码片段如下。（选择 <code>.stream ().sorted ()</code> 的原因是 <code>UmlMessage</code> 在列表中是按顺序排好的，需要保证排序的稳定性，因此不能使用普通的 <code>.sort ()</code>）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">elementWeight</span><span class="params">(UmlElement e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (e <span class="keyword">instanceof</span> UmlClass ||</span><br><span class="line">            e <span class="keyword">instanceof</span> UmlStateMachine ||</span><br><span class="line">            e <span class="keyword">instanceof</span> UmlCollaboration) ? <span class="number">0</span> :</span><br><span class="line">            (e <span class="keyword">instanceof</span> UmlInterface ||</span><br><span class="line">                e <span class="keyword">instanceof</span> UmlRegion ||</span><br><span class="line">                    e <span class="keyword">instanceof</span> UmlInteraction) ? <span class="number">1</span> :</span><br><span class="line">                    (e <span class="keyword">instanceof</span> UmlOperation ||</span><br><span class="line">                        e <span class="keyword">instanceof</span> UmlPseudostate ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlState ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlFinalState ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlLifeline ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlEndpoint) ? <span class="number">2</span> :</span><br><span class="line">                            (e <span class="keyword">instanceof</span> UmlTransition) ? <span class="number">3</span> :</span><br><span class="line">                                    (e <span class="keyword">instanceof</span> UmlParameter ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlEvent ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlMessage ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlAssociation) ? <span class="number">4</span> : <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">UserApiImpl</span><span class="params">(UmlElement... elements)</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;UmlElement&gt; elementList = <span class="keyword">new</span> ArrayList&lt;&gt;(Arrays.asList (elements));</span><br><span class="line">    elementList = (ArrayList&lt;UmlElement&gt;) elementList.stream ()</span><br><span class="line">            .sorted (Comparator.comparing (<span class="keyword">this</span>::elementWeight))</span><br><span class="line">            .collect (Collectors.toList ());</span><br><span class="line">    <span class="comment">// HANDLE UMLELEMENTS</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="设计思维和-oo-理解演进">🏃‍♀️设计思维和 OO 理解演进</h2>
+<h3 id="第一单元">第一单元</h3>
+<p>​ 经过了假期的 Pre 训练，我对 Java 语法和面向对象有了初步的认识，但还是被第一单元难住了。（x</p>
+<p>​ 第一单元中最重要的一步是抽象表达式元素的结构和相互之间的关系，比如三角函数如何存储、如何找到表达式计算的好方法等等问题都是必须考虑的。第一次作业因为没有引入其他函数和变量，因此一个 <code>HashMap&lt;Integer, Integer&gt;</code> 完全可以胜任，但是在后续的作业中就不得不重构了，遗憾的是我当时没有在找到一个合适的结构，导致三次作业中完全没有继承关系 + 一些类中的方法很臃肿，有的方法甚至套了七八层大括号（幸好只有三次作业😀）。</p>
+<p>​ 幸运的是在第一单元中我深刻认识到面向对象编程思想和设计模式的重要性，在之后的作业中加以注意，没有犯类似的错误。</p>
+<h3 id="第二单元">第二单元</h3>
+<p>​ 第二单元中我第一次接触到 Java 多线程的相关知识，在入门的时候花了很多时间来学习和构思。最终大概思路是构建一个或若干个线程安全类，其实例作为线程之间的 “桥梁”，每个线程之间的逻辑是相对独立的。细节方面主要是注意锁的使用和 <code>synchronized</code> 块的范围（我就因此在第一次作业中出现了 bug），以及消除轮询。因为第一次作业建立了一个还算合理的架构和电梯调度的算法（后面就没有动过，LOL），所以后面两次作业就比较顺利，线程之间如何沟通、同步等等都比较熟练，代码的逻辑性和条理性也得到了提升。</p>
+<h3 id="第三单元">第三单元</h3>
+<p>​ 第三单元学习了 JML 语言体系并且初步接触了契约式编程，主要是根据给定的规格来构造社交网络并实现特定的功能。简单来说就是给定一个框架，包括条件、结果和影响等等，如何实现还是见仁见智。在第三单元中我学习了契约式编程的实现和相关细节，并且复习了一些图论算法，整体工作量上比前两个单元要少很多。</p>
+<h3 id="第四单元">第四单元</h3>
+<p>​ 第四单元主要是建立 UML 的模型并实现查询和抛出异常等功能。总体难度不大，重点是要熟悉 UML 类图、顺序图和状态图各个元素之间的关系。需要注意的是要仔细阅读指导书，完全理解功能的含义再着手写代码，否则很可能会出现 bug。</p>
+<h2 id="测试实践的演进">✔测试实践的演进</h2>
+<h3 id="第一单元-1">第一单元</h3>
+<p>​ 第一单元的测试主要基于手动构造样例的形式展开，给出若干个比较长的数据点并和结果进行比较。其中比较的过程我借助了 <code>Mathematica</code> 的工具来验证，比如统一代入 1 比较结果即可。由于两个不恒等的表达式代入之后误差小于阈值的可能性极小，因此这种验证方法还算可靠。当然也可以使用 python 的相关库来实现。</p>
+<h3 id="第二单元-1">第二单元</h3>
+<p>​ 第二单元的测试也是基于手动构造样例的形式，可以构造很极端的数据（比如第 69.9 秒的时候突然增加若干请求来测试高并发情况下的正确性）。在线程轮询的排除方面我使用了 <code>jcommander</code> 来跟踪程序运行的各种状态。除此之外我还使用了室友写的小程序，它可以将无序且杂乱的输出按照电梯的序号来一一整理，这样就能直接查看具体某一部电梯的运行状态，非常方便。</p>
+<h3 id="第三单元-1">第三单元</h3>
+<p>​ 第三单元个人感觉把指导书上每个细节都注意到就基本上不会有太大问题，主要还是性能方面可能会造成 bug。在写算法的时候要注意复杂度和函数调用栈等等，总之要时刻注意可能出现的超时问题，~~ 因为互测大家都是用极端数据炸人～～。测试方面我只写了一个测试极端数据的数据生成器，主要还是靠和室友对拍来验证。</p>
+<h3 id="第四单元-1">第四单元</h3>
+<p>​ 第四单元和第三单元类似，搞清楚指导书并把讨论区的问题过一遍可以帮助排除一些 bug，当然最好还是从头到尾把自己写的程序逻辑过一遍（可以自己给自己讲讲实现的思路，也许会找到 bug 也说不定）。第三次作业的压缩包里给出了每个异常对应的 UML 图，把这些都验证一遍就可以排除很多 bug。</p>
+<h2 id="课程收获">🙌课程收获</h2>
+<p>​ 这一学期的课程下来，最直接的收获当然是体会了解并内化了面向对象的思想和一些设计模式，逐渐抛弃了一些面向过程编程的小毛病，写出来的代码更优雅、可读性更强了（checkstyle 插件功不可没，逃）。</p>
+<p>​ 除此之外一个让我明显感觉到的收获是：不怕写代码了。如果说上学期的计组还是我对码代码脱敏的预备期，那么这学期经过 OO 和 OS 的双重考验，我想我对写代码这件事已经没有了大一时候隐隐的恐惧。每次作业动辄上千行代码和重构的经历使我在思考代码本身的同时必须兼顾到整个架构的合理性和复杂度，这些都是写代码必备的能力，会很多算法和编程技巧是一方面，拥有架构设计和组织的能力并应用到实际编程当中也是很重要的。</p>
+<h2 id="一些小建议">💫一些小建议</h2>
+<ol type="1">
+<li>多线程的相关知识可以提前下放，比如在预习任务里稍微涉及一点点，或者干脆让第二单元多一次作业并砍掉第三或者第四单元的一次作业。本学期第二单元第一次作业因为假期而延长了几天时间，这几天时间刚刚好让我熟悉了多线程的知识并理清楚了思路，不知道是不是每学期第二单元都恰巧能赶上一次假期🤔。</li>
+<li>关于研讨课，个人认为安排不够合理：一方面留给小组讨论和展示的时间比较仓促；一方面在某些讨论题下大家得出的结论可能是比较相似的，上台展示内容的重合度也比较高，这样一来大家的收获相比花掉的时间来说会相对减少。可以适当延长一些讨论的时间并减少上台展示的人数，比如可以等讨论结束抽签一些组来展示，这样大家都有足够的机会参与到讨论当中，也给展示环节减少了负担（个人经验是几乎没有哪次可以所有组都讲完的）。然后课下可以所有人维护一个讨论课总结文档，每一组把讨论的结果写进去，这样也给没有展示的小组补充观点的机会，deadline 过了之后再整合一下文档发给同学阅读。这学期的研讨课感觉课上大家整体参与度不是太高，课下总结文档提交完问卷星就石沉大海，这两方面都可以提高一些效率。</li>
+<li>互测阶段可以开放 star 的功能。如果看到同房间有同学的代码写得比较优雅，可以 star 标记一下，在本单元结束之后公布一下这些同学的代码供同学们学习。然后同房间被 star 最多的同学可以在互测或者强测环节酌情加分（或者扣分减免）🤔？也许互测可以增加 “star 一位同学的代码” 的要求，并且需要下载所有代码之后才可以 star，这样也符合互测的目的，哪怕不肉眼 debug 其他同学的代码，看看其他实现方法也是好的（感觉大多数同学到后面就是直接造数据 hack 一个算一个）。只是一个初步的想法，为了保证平衡性可能还有很多细节要实现。</li>
+</ol>
 ]]></content>
       <tags>
         <tag>BUAA OO</tag>
@@ -306,52 +240,6 @@
       </tags>
   </entry>
   <entry>
-    <title>BUAA OO U4 Review</title>
-    <url>/2022/10/21/BUAA-OO-U4-Review/</url>
-    <content><![CDATA[<h1 id="buaa-oo-第四单元总结-课程总结">BUAA OO 第四单元总结 &amp; 课程总结</h1>
-<h2 id="概述">🖊概述</h2>
-<p>​ 本单元的目标是在课程组提供的 UML 解析程序基础之上，封装自己的 UML 元素类来建模、指令查询和抛出异常等。在此之前需要熟悉 UML 类图、顺序图和状态图各个元素之间的基本关系，以便建立恰当的模型。</p>
-<h2 id="架构设计">🗺架构设计</h2>
-<p><img src="/2022/10/21/BUAA-OO-U4-Review/image-20220623165433835.png" alt="封装的类图" style="zoom:60%;"></p>
-<p><img src="/2022/10/21/BUAA-OO-U4-Review/image-20220623165613658.png" alt="整体架构" style="zoom:80%;"></p>
-<p>​ 三次作业是增量开发的关系，每次作业在之前的基础上添加新的功能（新的查询指令或者抛出异常），总体难度较低，但是工作量不小，需要兼顾到整体设计架构的简洁性和实现功能的正确性。</p>
-<p>​ 其中有三个类（<code>ClassDiagram</code>、<code>SequenceDiagram</code>、<code>StateDiagram</code>）是工具类，包含一些静态方法供 <code>UserApiImpl</code> 调用，否则会超行数😀。另外为了建模方便，构造方法中给出的 <code>UmlElement</code> 的顺序不一定满足需要，因为有些元素需要提前处理，所以在开始的时候我进行了排序，部分代码片段如下。（选择 <code>.stream ().sorted ()</code> 的原因是 <code>UmlMessage</code> 在列表中是按顺序排好的，需要保证排序的稳定性，因此不能使用普通的 <code>.sort ()</code>）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">elementWeight</span><span class="params">(UmlElement e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (e <span class="keyword">instanceof</span> UmlClass ||</span><br><span class="line">            e <span class="keyword">instanceof</span> UmlStateMachine ||</span><br><span class="line">            e <span class="keyword">instanceof</span> UmlCollaboration) ? <span class="number">0</span> :</span><br><span class="line">            (e <span class="keyword">instanceof</span> UmlInterface ||</span><br><span class="line">                e <span class="keyword">instanceof</span> UmlRegion ||</span><br><span class="line">                    e <span class="keyword">instanceof</span> UmlInteraction) ? <span class="number">1</span> :</span><br><span class="line">                    (e <span class="keyword">instanceof</span> UmlOperation ||</span><br><span class="line">                        e <span class="keyword">instanceof</span> UmlPseudostate ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlState ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlFinalState ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlLifeline ||</span><br><span class="line">                            e <span class="keyword">instanceof</span> UmlEndpoint) ? <span class="number">2</span> :</span><br><span class="line">                            (e <span class="keyword">instanceof</span> UmlTransition) ? <span class="number">3</span> :</span><br><span class="line">                                    (e <span class="keyword">instanceof</span> UmlParameter ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlEvent ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlMessage ||</span><br><span class="line">                                            e <span class="keyword">instanceof</span> UmlAssociation) ? <span class="number">4</span> : <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">UserApiImpl</span><span class="params">(UmlElement... elements)</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;UmlElement&gt; elementList = <span class="keyword">new</span> ArrayList&lt;&gt;(Arrays.asList (elements));</span><br><span class="line">    elementList = (ArrayList&lt;UmlElement&gt;) elementList.stream ()</span><br><span class="line">            .sorted (Comparator.comparing (<span class="keyword">this</span>::elementWeight))</span><br><span class="line">            .collect (Collectors.toList ());</span><br><span class="line">    <span class="comment">// HANDLE UMLELEMENTS</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="设计思维和-oo-理解演进">🏃‍♀️设计思维和 OO 理解演进</h2>
-<h3 id="第一单元">第一单元</h3>
-<p>​ 经过了假期的 Pre 训练，我对 Java 语法和面向对象有了初步的认识，但还是被第一单元难住了。（x</p>
-<p>​ 第一单元中最重要的一步是抽象表达式元素的结构和相互之间的关系，比如三角函数如何存储、如何找到表达式计算的好方法等等问题都是必须考虑的。第一次作业因为没有引入其他函数和变量，因此一个 <code>HashMap&lt;Integer, Integer&gt;</code> 完全可以胜任，但是在后续的作业中就不得不重构了，遗憾的是我当时没有在找到一个合适的结构，导致三次作业中完全没有继承关系 + 一些类中的方法很臃肿，有的方法甚至套了七八层大括号（幸好只有三次作业😀）。</p>
-<p>​ 幸运的是在第一单元中我深刻认识到面向对象编程思想和设计模式的重要性，在之后的作业中加以注意，没有犯类似的错误。</p>
-<h3 id="第二单元">第二单元</h3>
-<p>​ 第二单元中我第一次接触到 Java 多线程的相关知识，在入门的时候花了很多时间来学习和构思。最终大概思路是构建一个或若干个线程安全类，其实例作为线程之间的 “桥梁”，每个线程之间的逻辑是相对独立的。细节方面主要是注意锁的使用和 <code>synchronized</code> 块的范围（我就因此在第一次作业中出现了 bug），以及消除轮询。因为第一次作业建立了一个还算合理的架构和电梯调度的算法（后面就没有动过，LOL），所以后面两次作业就比较顺利，线程之间如何沟通、同步等等都比较熟练，代码的逻辑性和条理性也得到了提升。</p>
-<h3 id="第三单元">第三单元</h3>
-<p>​ 第三单元学习了 JML 语言体系并且初步接触了契约式编程，主要是根据给定的规格来构造社交网络并实现特定的功能。简单来说就是给定一个框架，包括条件、结果和影响等等，如何实现还是见仁见智。在第三单元中我学习了契约式编程的实现和相关细节，并且复习了一些图论算法，整体工作量上比前两个单元要少很多。</p>
-<h3 id="第四单元">第四单元</h3>
-<p>​ 第四单元主要是建立 UML 的模型并实现查询和抛出异常等功能。总体难度不大，重点是要熟悉 UML 类图、顺序图和状态图各个元素之间的关系。需要注意的是要仔细阅读指导书，完全理解功能的含义再着手写代码，否则很可能会出现 bug。</p>
-<h2 id="测试实践的演进">✔测试实践的演进</h2>
-<h3 id="第一单元-1">第一单元</h3>
-<p>​ 第一单元的测试主要基于手动构造样例的形式展开，给出若干个比较长的数据点并和结果进行比较。其中比较的过程我借助了 <code>Mathematica</code> 的工具来验证，比如统一代入 1 比较结果即可。由于两个不恒等的表达式代入之后误差小于阈值的可能性极小，因此这种验证方法还算可靠。当然也可以使用 python 的相关库来实现。</p>
-<h3 id="第二单元-1">第二单元</h3>
-<p>​ 第二单元的测试也是基于手动构造样例的形式，可以构造很极端的数据（比如第 69.9 秒的时候突然增加若干请求来测试高并发情况下的正确性）。在线程轮询的排除方面我使用了 <code>jcommander</code> 来跟踪程序运行的各种状态。除此之外我还使用了室友写的小程序，它可以将无序且杂乱的输出按照电梯的序号来一一整理，这样就能直接查看具体某一部电梯的运行状态，非常方便。</p>
-<h3 id="第三单元-1">第三单元</h3>
-<p>​ 第三单元个人感觉把指导书上每个细节都注意到就基本上不会有太大问题，主要还是性能方面可能会造成 bug。在写算法的时候要注意复杂度和函数调用栈等等，总之要时刻注意可能出现的超时问题，~~ 因为互测大家都是用极端数据炸人～～。测试方面我只写了一个测试极端数据的数据生成器，主要还是靠和室友对拍来验证。</p>
-<h3 id="第四单元-1">第四单元</h3>
-<p>​ 第四单元和第三单元类似，搞清楚指导书并把讨论区的问题过一遍可以帮助排除一些 bug，当然最好还是从头到尾把自己写的程序逻辑过一遍（可以自己给自己讲讲实现的思路，也许会找到 bug 也说不定）。第三次作业的压缩包里给出了每个异常对应的 UML 图，把这些都验证一遍就可以排除很多 bug。</p>
-<h2 id="课程收获">🙌课程收获</h2>
-<p>​ 这一学期的课程下来，最直接的收获当然是体会了解并内化了面向对象的思想和一些设计模式，逐渐抛弃了一些面向过程编程的小毛病，写出来的代码更优雅、可读性更强了（checkstyle 插件功不可没，逃）。</p>
-<p>​ 除此之外一个让我明显感觉到的收获是：不怕写代码了。如果说上学期的计组还是我对码代码脱敏的预备期，那么这学期经过 OO 和 OS 的双重考验，我想我对写代码这件事已经没有了大一时候隐隐的恐惧。每次作业动辄上千行代码和重构的经历使我在思考代码本身的同时必须兼顾到整个架构的合理性和复杂度，这些都是写代码必备的能力，会很多算法和编程技巧是一方面，拥有架构设计和组织的能力并应用到实际编程当中也是很重要的。</p>
-<h2 id="一些小建议">💫一些小建议</h2>
-<ol type="1">
-<li>多线程的相关知识可以提前下放，比如在预习任务里稍微涉及一点点，或者干脆让第二单元多一次作业并砍掉第三或者第四单元的一次作业。本学期第二单元第一次作业因为假期而延长了几天时间，这几天时间刚刚好让我熟悉了多线程的知识并理清楚了思路，不知道是不是每学期第二单元都恰巧能赶上一次假期🤔。</li>
-<li>关于研讨课，个人认为安排不够合理：一方面留给小组讨论和展示的时间比较仓促；一方面在某些讨论题下大家得出的结论可能是比较相似的，上台展示内容的重合度也比较高，这样一来大家的收获相比花掉的时间来说会相对减少。可以适当延长一些讨论的时间并减少上台展示的人数，比如可以等讨论结束抽签一些组来展示，这样大家都有足够的机会参与到讨论当中，也给展示环节减少了负担（个人经验是几乎没有哪次可以所有组都讲完的）。然后课下可以所有人维护一个讨论课总结文档，每一组把讨论的结果写进去，这样也给没有展示的小组补充观点的机会，deadline 过了之后再整合一下文档发给同学阅读。这学期的研讨课感觉课上大家整体参与度不是太高，课下总结文档提交完问卷星就石沉大海，这两方面都可以提高一些效率。</li>
-<li>互测阶段可以开放 star 的功能。如果看到同房间有同学的代码写得比较优雅，可以 star 标记一下，在本单元结束之后公布一下这些同学的代码供同学们学习。然后同房间被 star 最多的同学可以在互测或者强测环节酌情加分（或者扣分减免）🤔？也许互测可以增加 “star 一位同学的代码” 的要求，并且需要下载所有代码之后才可以 star，这样也符合互测的目的，哪怕不肉眼 debug 其他同学的代码，看看其他实现方法也是好的（感觉大多数同学到后面就是直接造数据 hack 一个算一个）。只是一个初步的想法，为了保证平衡性可能还有很多细节要实现。</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>BUAA OO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>「复分析」Chapter1：微积分</title>
     <url>/2021/12/07/%E5%A4%8D%E5%88%86%E6%9E%90Chapter1/</url>
     <content><![CDATA[<h2 id="一回顾">一、回顾</h2>
@@ -406,6 +294,118 @@
 ]]></content>
       <tags>
         <tag>复分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BUAA OO U1 Review</title>
+    <url>/2022/03/22/BUAA-OO-U1-Review/</url>
+    <content><![CDATA[<h1 id="buaa-oo-第一单元总结">BUAA OO 第一单元总结</h1>
+<h2 id="第一次作业">- 第一次作业</h2>
+<p>​ 第一次作业要求化简一个一元（变量只能为 <span class="math inline">\(x\)</span>）的表达式，其中可以出现空白符和连续的正负号，至少需要去掉所有括号。为了得到性能分，还需要进行合并同类项的操作。</p>
+<h3 id="程序架构">程序架构</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220303222022906.png"></p>
+<p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
+<p>​ 第一次作业采用了递归下降的处理方法，各个类的作用如下：</p>
+<ul>
+<li><p><strong>Element</strong>：使用 <code>HashMap&lt;Integer,BigInteger&gt;</code> 存储各个元素的信息，其中 Key 表示次数，Value 表示系数。由于第一次作业不包含任何其他特殊函数，所以无论是因子、项还是表达式都可以用 Element 来存储，结构比较统一，方便运算和化简。</p>
+<p>为方便叙述，给出因子、项和表达式的定义：</p>
+<ul>
+<li><b> 因子 </b>：（+/-）变量的幂 + 常数的幂 + 括号表达式的幂（其中幂次为 1 可以省略幂指数）</li>
+<li><b> 项 </b>：因子的乘积</li>
+<li><b> 表达式 </b>：项的加和</li>
+</ul></li>
+<li><p><strong>Token</strong>：存储表达式基本单元的类，如操作符、括号、操作数和变量。</p></li>
+<li><p><strong>Lexer</strong>：对输入表达式进行词法分析的类，将字符串分割为若干 token 并存入 <code>ArrayList&lt;Token&gt;</code>，并且在读入过程中进行初步化简：</p>
+<ul>
+<li>将连续的一串加减号划归为一个加 / 减号。</li>
+<li>对于操作数直接用字符串存储，在后续处理过程中可以直接使用转换为整数。</li>
+</ul></li>
+<li><p><strong>Parser</strong>：递归下降逐个解析 <code>ArrayList&lt;Tokens&gt;</code> 的元素。<code>glbPos</code> 表示 token 的位置，<code>isHigh () isMid () isLow ()</code> 方法判断此时的 token 是否代表运算符并判断优先级。递归下降的入口是 <code>parseExpr ()</code>，之后进入 <code>parseTerm ()</code> 和 <code>parseUnit ()</code>，再从 <code>parseUnit ()</code> 调用 <code>parseExpr ()</code> 实现递归下降。由于结构统一，因此每个 parse 方法的返回类型都是 Element。</p></li>
+</ul>
+<h3 id="基于度量的结构分析">基于度量的结构分析</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322123607798.png"></p>
+<p>​ 根据 CogC 指标排序，可以发现认知复杂度较高的方法为 <code>parseUnit ()</code> 和 <code>output ()</code>。</p>
+<p>​ <code>parseUnit ()</code> 方法复杂度较高的原因是因子的定义比较多，需要判断类型和是否有乘方，导致其中出现很多判断分支；<code>output ()</code> 的原因类似，也是出现了很多分支来判断如何输出字符串。</p>
+<h3 id="bug-分析">bug 分析</h3>
+<p>​ 本次作业的 bug 出现在形式化定义上。一开始我把因子定义为变量的幂 + 常数 + 表达式的幂，可以注意到这里缺少了常数的幂，于是输入 <code>x*2**2</code> 获得的结果就为 <code>4*x**2</code>，因为程序把 <code>x*2</code>parse 成了一个整体，于是在强测中出现了 bug。在 <code>parseUnit ()</code> 方法中添加一个判断即可解决。</p>
+<h2 id="第二次作业">- 第二次作业</h2>
+<p>​ 第二次作业在第一次作业的基础上增加了三角函数（括号内只能是非负整数和 <span class="math inline">\(x\)</span> 的非负整数幂）、自定义函数和求和函数，依然要求去除不必要的括号并展开所有自定义函数和求和函数。本次作业的函数不能嵌套。</p>
+<h3 id="程序架构-1">程序架构</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322162937182.png"></p>
+<p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
+<p>​ 第二次作业仍然保持了递归下降的处理思路，因为找到了可以统一存储表达式各个部分的数据结构，感觉并没有重构的必要。<del>（其实是偷懒）</del></p>
+<ul>
+<li><p><strong>Poly</strong>：这里我将项定义为： <span class="math display">\[
+\begin {align} a*({x^{b} }*\prod_{i=0}^{\infty}\ {sin^{s_i}(S_i)}*\prod_{j=0}^{\infty}\ {cos^{c_i}(C_j))} \end {align}
+  \]</span> 而 Poly 则存储了最外层括号里面的内容，<span class="math inline">\(b\)</span> 对应 <code>exp</code>，<code>sinSet</code> 和 <code>cosSet</code> 分别对应两个累乘。<code>HashMap&lt;String,BigInteger&gt;</code> 中的 <code>String</code> 记录的是 <span class="math inline">\(S_i\)</span>，因为本次作业三角函数中只能是 <span class="math inline">\(x^p\ (p\ge0)\)</span> 或者 <span class="math inline">\(t\ (t\ge0,t\in \mathbb {Z})\)</span>，因此格式是完全确定且唯一的，可以用字符串存储。而且因子和项都可以用这种形式处理，这使得计算方面更加简便。</p></li>
+<li><p><strong>Element</strong>：<code>HashMap&lt;Poly,BigInteger&gt;</code> 表示了 <code>Poly</code> 和系数 <span class="math inline">\(a\)</span> 的对应关系集合，即许多项的和。</p>
+<p>其中包含了两个化简的方法，分别是特殊处理 <span class="math inline">\(sin (0)/cos (0)\)</span> 和处理三角函数平方和。</p></li>
+<li><p><strong>PreProcessing</strong>：这个类用来处理自定义函数和求和函数，并且把第一次作业中出现的一些化简步骤整合了进来。下面简要说明如何处理两种函数。</p>
+<ul>
+<li><p><b> 自定义函数 </b>：</p>
+<ul>
+<li>读入自定义函数的定义，根据等号划分为左右两部分，分别为 <code>defL</code> 和 <code>defR</code>，使用正则匹配的捕获组来捕获 <code>defL</code> 的函数名以及变量（按顺序）。注意在此之前需要得到此函数变量的数量，然后使用特定的 Pattern 来匹配（我定义了一个 Pattern 数组，用来存放不同变量数量的 <code>defL</code> 正则表达式）。</li>
+<li>当在输入中找到自定义函数（记为 <code>input</code>）的时候进行第二次正则匹配 &amp; 捕获（注意要找对函数名），按顺序获得需要代入的表达式，这样 <code>input</code> 和 <code>defL</code> 中参变量和实际表达式就以捕获组的序号进行了一一对应，方便处理如 <span class="math inline">\(f (y,x)=y-x\)</span> 等参变量不按顺序出现的自定义函数。</li>
+<li>读取 <code>defR</code>，将参变量替换为对应需要代入的表达式即可（记得在每个代入的表达式外套一层括号来表示这是一个整体，防止替换回去之后产生错误），这里需要注意的一点是如果先进行了 <span class="math inline">\(y\)</span> 或者 <span class="math inline">\(z\)</span> 的替换而参变量中有 <span class="math inline">\(x\)</span>，那么在将 <span class="math inline">\(y\)</span> 替换为含 <span class="math inline">\(x\)</span> 的表达式之后可能会重复替换 <span class="math inline">\(x\)</span>（比如 <span class="math inline">\(f (y,x)=y-x\)</span>，<code>input</code> 为 <span class="math inline">\(f (x,x+1)\)</span>，那么替换过程就是 <span class="math inline">\(y-x\rightarrow x-x\rightarrow (x+1)-(x+1)\rightarrow 0\)</span>，这显然是不正确的）。这里我的解决方法是：在替换的时候都把 <span class="math inline">\(x\)</span> 替换为不相关的字符 <span class="math inline">\(w\)</span>，最后再统一 <code>replaceAll ("w","x")</code> 即可。</li>
+</ul>
+<p>在处理自定义函数的时候，助教一再强调不要暴力字符串替换，而是 <b> 先对表达式进行建模，再代入原式 </b> ，奈何我没有想到很好的建模方法，于是只是使用了暴力替换。不过如果用表达式树处理的话建模会方便很多，可以先对各个表达式建一棵树，代入的时候替换掉上面的节点再插入原来的表达式树即可。</p></li>
+<li><p><b> 求和函数 </b>：也是使用了字符串替换的方法，通过循环 + StringBuilder 构建需要替换的字符串。这里有三个需要注意的点：</p>
+<ul>
+<li><span class="math inline">\(sin\)</span> 中也包含字母 i，替换的时候要小心。可以先把三角函数名提前换为 s&amp;c 来解决。</li>
+<li>如果求和上限小于下限，则本项应为 0。</li>
+<li>求和上下限最好定义为 <code>BigInteger</code> 类型防止溢出。</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Lexer&amp;Parser&amp;Token</strong>：和第一次作业基本相同。</p></li>
+</ul>
+<h3 id="基于度量的结构分析-1">基于度量的结构分析</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322174205046.png"></p>
+<p>​ 根据 CogC 指标排序发现，认知复杂度较高的方法前两位仍然是 <code>parseUnit ()</code> 和 <code>output ()</code>，这是更复杂的因子定义和更复杂的输出逻辑造成的。此外一些化简方法的复杂度也较高。</p>
+<h3 id="bug-分析-1">bug 分析</h3>
+<p>​ 本次作业在强测和互测中都没有出现 bug，不过强测中一些点的性能分不高，这是因为我用原始的字符串来存储三角函数的内容，处理 <span class="math inline">\(sin (0)/cos (0)\)</span> 的化简时只考虑到字符串内容为 “0” 而忽视了 <span class="math inline">\(sin (-0)\)</span>、<span class="math inline">\(cos (+0)\)</span> 等，造成没有化简完全的情况。</p>
+<h2 id="第三次作业">- 第三次作业</h2>
+<p>​ 第三次作业在第二次作业的基础上允许了自定义函数的嵌套（求和函数内不允许出现自定义函数），同时三角函数内可以为表达式。</p>
+<h3 id="程序架构-2">程序架构</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322175955155.png"></p>
+<p><em>（一些类的 get 和 set 方法没有明确标出）</em></p>
+<p>​ 第三次作业在第二次作业的基础上只需要改动很少就可以，所以保持了原来的架构。其中最核心的改动是将 Poly 中存储三角函数的结构改为 <code>HashMap&lt;Element,BigInteger&gt;</code>，并～（差不多）~ 重写了 Poly 和 Element 的 <code>equals ()</code> 方法。</p>
+<p>​ 但是如果想要化简结果，则需要耗费很多时间来完善代码和测试。我花了大概两天时间才基本完成大概化简方法，其中有无数次测试 <span class="math inline">\(\rightarrow\)</span> 发现 bug<span class="math inline">\(\rightarrow\)</span> 修改代码 <span class="math inline">\(\rightarrow\)</span> 测试的循环😭。最核心的是三角函数平方和的化简，大致的逻辑为：</p>
+<ul>
+<li>遍历 Element 的 <code>HashMap</code>，看是否同时有两个不同的项，其中一个 <span class="math inline">\(sin\)</span> 的次数大于等于 2，另一个 <span class="math inline">\(cos\)</span> 的次数大于等于 2，并且其中包含的内容相同（<b> 这里需要重写 <code>equals ()</code> 方法 </b>，我自己另外写了一个 <code>equal ()</code> 来替代，这是不明智的做法）。其中内容相同的第一要素是三角函数中 Element 的 <code>HashMap</code> 的大小相同，所以需要在每次运算之后进行一次同类项合并。</li>
+<li>判断这两项在分别将第一步找出来的 <span class="math inline">\(sin\)</span> 和 <span class="math inline">\(cos\)</span> 次数减去 2 之后，剩下的部分是否相同，如果相同，则把 <span class="math inline">\(cos\)</span> 那项的系数减过去，而它自己丢掉一个 <span class="math inline">\(cos^2\)</span>。比如 <span class="math display">\[x*sin^3 (x+1)+2*cos^2 (x+1)*x*sin (x+1)\]</span> 化简为 <span class="math display">\[-x*sin^3 (x+1)+x*sin (x+1)\]</span> ，本质上就是作了 <span class="math inline">\(cos^2 P=1-sin^2 P\)</span> 的替换，虽然不是每个表达式都能完全化简，不过在相当一部分测试样例中都是奏效的。</li>
+</ul>
+<p>​ <b> 这里一个重要的点是深拷贝 / 浅拷贝的区别，比如第二步去掉 <span class="math inline">\(cos^2\)</span> 只需浅拷贝，直接修改 <code>this</code> 的 Poly 就可以，但是第一步中判断” 包含的内容相同 “时，不能真的分别去掉 <span class="math inline">\(sin^2\)</span> 和 <span class="math inline">\(cos^2\)</span>，而是需要复制一份独立的副本（不是引用同一个地址的数据，而是两块独立的内存空间，其中的内容相同），为此可以直接写一个 <code>copy ()</code> 方法来复制，也可以用序列化方法来实现深拷贝（具体实现原理可以上网搜索）。</b></p>
+<p>附序列化实现深拷贝的代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SerialCloneable</span> <span class="keyword">implements</span> <span class="title">Cloneable</span>,<span class="title">Serializable</span>  </span></span><br><span class="line"><span class="class"></span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="keyword">try</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="comment">//save the object to a byte array  </span></span><br><span class="line">            ByteArrayOutputStream bout = <span class="keyword">new</span> ByteArrayOutputStream ();  </span><br><span class="line">            ObjectOutputStream out = <span class="keyword">new</span> ObjectOutputStream (bout);  </span><br><span class="line">            out.writeObject (<span class="keyword">this</span>);  </span><br><span class="line">            out.close ();  </span><br><span class="line"></span><br><span class="line">            <span class="comment">//read a clone of the object from the byte array  </span></span><br><span class="line">            ByteArrayInputStream bin = <span class="keyword">new</span> ByteArrayInputStream (bout.toByteArray ());  </span><br><span class="line">            ObjectInputStream in = <span class="keyword">new</span> ObjectInputStream (bin);  </span><br><span class="line">            Object result = in.readObject ();  </span><br><span class="line">            in.close ();  </span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> result;  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e)  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;    </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="基于度量的结构分析-2">基于度量的结构分析</h3>
+<p><img src="/2022/03/22/BUAA-OO-U1-Review/image-20220322182027486.png"></p>
+<p>​ 根据分析数据可知，认知复杂度较高的方法主要是化简和输出。本次作业中 <code>parseUnit ()</code> 方法被拆分了，所以复杂度有所降低。</p>
+<h3 id="bug-分析-2">bug 分析</h3>
+<p>​ 本次作业出现了一些 bug，分析如下：</p>
+<ul>
+<li>由于自定义函数允许嵌套，使用正则表达式捕获组处理输入的表达式会出现错误：
+<ul>
+<li><b> 正则表达式不能进行括号的匹配 </b>，可能会在嵌套的函数中间进行截断，导致程序结果错误甚至报错。</li>
+<li><b> 解决方法 </b>：自行实现自定义函数内部表达式的括号匹配，等价于自己重新写了一个” 更加智能 “的捕获组。</li>
+</ul></li>
+<li>三角函数输出格式错误：
+<ul>
+<li><b><code>output ()</code> 调用的 <code>needBracket ()</code> 方法逻辑有误 </b> ，一些情况下会少输出一对三角函数内的括号，比如应该输出 <span class="math inline">\(sin ((5*cos (x)))\)</span> 而只输出了 <span class="math inline">\(sin (5*cos (x))\)</span>。</li>
+<li><b> 解决方法 </b>：调整 <code>needBracket ()</code> 内部的逻辑。</li>
+</ul></li>
+</ul>
+<h2 id="hack-策略">- hack 策略</h2>
+<p>​ 下载其他同学的代码更多是为了学习架构（毕竟也没有自动评测机 + 没有发现细枝末节的 bug），因此在第一单元的互测中我并没有查看很多同学的代码，更多还是提交边缘数据和测试中出现 bug 的数据。</p>
+<h2 id="架构设计评价">- 架构设计评价</h2>
+<p>​ 三次作业的架构给我最大的印象就是：<b> 居然没有使用接口和继承 </b>。</p>
+<p>​ 其实第一单元作业并没有给我一种逐渐摸索架构的感觉，因为从第一次作业使用 <code>HashMap</code> 处理各种元素之后，第二次作业我的第一个思路就是：如何填充 <code>HashMap</code> 来继续保持结构的统一性。于是后来增加的 Poly 类就不能算是架构很大的调整，无非是细枝末节的完善以迎合新的需求，最后的第三次作业也可以说完全继承了第一次作业的架构。</p>
+<p>​ 可能是因为找到了一个统一的数据结构来存储因子、项和表达式，我没有再对项目进行细化处理。所有的计算都包含在 Element 和 Poly 类中；所有的表达式整体化简都在 PreProcessing 类中；所有的词法语法分析都包含在 Lexer 和 Parser 类中，相互之间的依赖关系比较浅，一个类处理完后交给另一个类。总体来说类之间的耦合程度很低，每个类基本上在各司其职，内聚程度比较高。</p>
+<p>​ 但是我认为这种架构的可扩展性不够，并且没有很好遵守” 对新增开放、对修改关闭 “的编程原则。可以发现从第一次到第三次作业的过程中，Element 类在不断膨胀，虽然后两次中添加了 Poly 来” 分担 “处理表达式的职能，但是仍然不是一个很好的解决方案。如果后续还有第四次甚至第五次迭代，这个架构有两种结果：要么膨胀到复杂度极高的状态，要么只能推倒重构。如果想要提高可扩展性，可以将 Element 和 Parser 拆开，增加其他的表达式元素类并使用接口。</p>
+<h2 id="心得体会">- 心得体会</h2>
+<p>​ 面向对象第一单元到这里就告一段落了，在本学期开始之前，我对 OO 的设想是：无非只是学一门新语言而已，但是这一单元带给我的绝不止熟悉 Java 的语法那么简单。面向对象不只是一种编程思想，还是一种理解世界的抽象化思维，它更加贴近人们平常认识事物的方式，并且便于迭代开发（这一单元使用面向过程恐怕最多可以通过第一次作业）。无论是对未来的程序设计还是对认识世界的思维方式，面向对象思想都大有可用之处。</p>
+]]></content>
+      <tags>
+        <tag>BUAA OO</tag>
       </tags>
   </entry>
 </search>
